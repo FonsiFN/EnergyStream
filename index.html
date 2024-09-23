@@ -197,9 +197,9 @@
         <button id="support-btn" class="invite-btn">Soporte</button>
         <div id="support-panel" class="support-panel">
             <h2>Formulario de Soporte</h2>
-            <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <form action="https://formspree.io/f/manwglze" method="POST" id="support-form">
                 <label for="email">Correo Electrónico (obligatorio):</label>
-                <input type="email" name="email" id="email" required placeholder="Tu correo electrónico">
+                <input type="email" name="email" id="email" required placeholder="energybotsuport@gmail.com">
                 <label for="message">Mensaje:</label>
                 <textarea name="message" id="message" required placeholder="Escribe tu mensaje aquí..."></textarea>
                 <button type="submit">Enviar</button>
@@ -220,4 +220,22 @@
         </div>
 
         <p>&copy; 2024 EnergyBot. Todos los derechos reservados.</p> 
-    </footer
+    </footer>
+
+    <script>
+        document.getElementById('support-btn').onclick = function() {
+            document.getElementById('support-panel').style.display = 'block';
+        };
+
+        document.getElementById('close-btn').onclick = function() {
+            document.getElementById('support-panel').style.display = 'none';
+        };
+
+        document.getElementById('support-form').onsubmit = function(event) {
+            // Aquí ya no es necesario el preventDefault porque Formspree manejará el envío
+            alert('¡Mensaje enviado con éxito!');
+            document.getElementById('support-panel').style.display = 'none';
+        };
+    </script>
+</body>
+</html>
