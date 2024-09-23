@@ -18,15 +18,18 @@
         .header {
             background-color: #7289da; /* Color azul */
             padding: 20px 0; /* Espaciado arriba y abajo */
+            position: relative; /* Para posicionar la línea blanca */
         }
         .logo {
             width: 100px; /* Ajusta el tamaño según necesites */
         }
-        hr {
-            border: 0;
-            height: 2px; /* Altura de la línea */
+        .white-line {
+            height: 2px; /* Altura de la línea blanca */
             background-color: #ffffff; /* Color de la línea */
-            margin: 20px 0; /* Espaciado alrededor de la línea */
+            position: absolute;
+            bottom: 0; /* Alinear al fondo del contenedor */
+            left: 0;
+            right: 0; /* Ocupa todo el ancho */
         }
         .bot-info {
             margin: 20px auto;
@@ -102,8 +105,8 @@
 </head>
 <body>
     <div class="header">
-        <img src="https://imgur.com/iDq3OFg.png" alt="Logo" class="logo"> <!-- Cambia "ruta_del_logo.png" por la ruta de tu logo -->
-        <hr> <!-- Línea blanca debajo del logo -->
+        <img src="ruta_del_logo.png" alt="Logo" class="logo"> <!-- Cambia "ruta_del_logo.png" por la ruta de tu logo -->
+        <div class="white-line"></div> <!-- Línea blanca al final del área azul -->
     </div>
     <h1>Bienvenido a la Página de EnergyBot</h1>
 
