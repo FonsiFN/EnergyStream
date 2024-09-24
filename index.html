@@ -130,9 +130,17 @@
         }
         .support-panel button {
             padding: 10px;
+            border: none; /* Sin bordes */
             border-radius: 5px;
             cursor: pointer;
             margin-top: 10px; /* Separación entre botones */
+        }
+        .support-panel button#support-btn {
+            background-color: #ffc107; /* Color amarillo para el botón de soporte */
+            color: #000000; /* Texto negro para mejor contraste */
+        }
+        .support-panel button#support-btn:hover {
+            background-color: #e0a800; /* Color más oscuro al pasar el mouse */
         }
         .support-panel button[type="submit"] {
             background-color: #28a745; /* Color verde para "Enviar" */
