@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -15,58 +16,20 @@
             animation: fadeIn 2s;
         }
         .header {
-            background-color: #ff0000;
-            padding: 20px 0;
-            position: relative;
+            background-color: #ff0000; /* Color rojo */
+            padding: 20px 0; /* Espaciado arriba y abajo */
+            position: relative; /* Para posicionar la línea blanca */
         }
         .logo {
-            width: 80px;
+            width: 80px; /* Tamaño más pequeño del logo */
         }
         .white-line {
-            height: 2px;
-            background-color: #ffffff;
+            height: 2px; /* Altura de la línea blanca */
+            background-color: #ffffff; /* Color de la línea */
             position: absolute;
-            bottom: 0;
+            bottom: 0; /* Alinear al fondo del contenedor */
             left: 0;
-            right: 0;
-        }
-        .profile {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            color: #ffffff;
-            text-align: right;
-        }
-        .profile img {
-            width: 40px;
-            border-radius: 50%;
-            vertical-align: middle;
-        }
-        .profile button {
-            background-color: #7289da;
-            color: #ffffff;
-            border: none;
-            padding: 10px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 14px;
-        }
-        .profile button:hover {
-            background-color: #5b6eae;
-        }
-        .login-btn {
-            margin-top: 10px;
-            padding: 15px 25px;
-            background-color: #7289da;
-            color: #ffffff;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 18px;
-            display: inline-block;
-            transition: background-color 0.3s ease;
-        }
-        .login-btn:hover {
-            background-color: #5b6eae;
+            right: 0; /* Ocupa todo el ancho */
         }
         .bot-info {
             margin: 20px auto;
@@ -79,94 +42,262 @@
         .bot-info h2 {
             color: #7289da;
         }
+        .bot-info p {
+            font-size: 18px;
+        }
+        .commands {
+            margin-top: 20px;
+        }
+        .commands h2 {
+            color: #7289da;
+        }
+        .invite-btn {
+            padding: 15px 25px;
+            background-color: #7289da;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            display: inline-block;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+        .invite-btn:hover {
+            background-color: #5b6eae;
+        }
         footer {
             margin-top: 50px;
             padding: 20px;
             background-color: #2c2f33;
         }
+        .social-icons {
+            margin: 20px 0;
+        }
+        .social-icons a {
+            margin: 0 10px;
+            color: #ffffff;
+            font-size: 24px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .social-icons a:hover {
+            color: #7289da;
+        }
+        .testimonials, .faq {
+            margin: 30px auto;
+            padding: 20px;
+            width: 70%;
+            background-color: #2c2f33;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        .testimonials h2, .faq h2 {
+            color: #7289da;
+        }
+        .faq-item {
+            margin: 10px 0;
+        }
+        .support-container {
+            position: relative;
+        }
+        .support-panel {
+            display: none; /* Ocultar por defecto */
+            position: fixed;
+            right: 0;
+            top: 0;
+            width: 300px;
+            height: 100%;
+            background-color: #2c2f33;
+            color: #ffffff;
+            padding: 20px;
+            box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+        }
+        .support-panel h2 {
+            color: #7289da;
+        }
+        .support-panel label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        .support-panel input,
+        .support-panel textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+        .support-panel button {
+            background-color: #7289da;
+            color: #ffffff;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .support-panel button:hover {
+            background-color: #5b6eae;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .user-info {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            align-items: center;
+            display: none; /* Ocultar hasta que el usuario inicie sesión */
+        }
+        .user-info img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        .user-info span {
+            margin-right: 10px;
+        }
+        .logout-btn {
+            background-color: #7289da;
+            color: #ffffff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
-
     <div class="header">
-        <img src="https://imgur.com/iDq3OFg.png" alt="Logo" class="logo">
-        <div class="white-line"></div>
-        <div id="profile-container" class="profile">
-            <!-- Aquí se mostrará el perfil si el usuario está logueado -->
+        <img src="https://imgur.com/iDq3OFg.png" alt="Logo" class="logo"> <!-- Logo actualizado -->
+        <div class="white-line"></div> <!-- Línea blanca al final del área roja -->
+        
+        <!-- Información del usuario -->
+        <div id="user-info" class="user-info">
+            <img id="user-avatar" src="" alt="Avatar">
+            <span id="user-name">Usuario</span>
+            <button id="logout-btn" class="logout-btn">Cerrar Sesión</button>
         </div>
     </div>
 
     <h1>Bienvenido a la Página de EnergyBot</h1>
 
-    <div class="bot-info" id="bot-info">
+    <div class="bot-info">
         <h2>¿Qué es EnergyBot?</h2>
         <p>EnergyBot está diseñado para ayudar a gestionar servidores, proporcionar comandos útiles y hacer la experiencia de Discord más divertida y eficiente.</p>
-        <a href="https://discord.com/oauth2/authorize?client_id=1212433297674600488" class="invite-btn" id="invite-btn" style="display:none;">Invitar Bot</a>
-        <a href="#" id="login-btn" class="login-btn">Iniciar sesión con Discord</a>
+        <p>¡Invita a mi bot a tu servidor haciendo clic en el botón de abajo!</p>
+        <a href="https://discord.com/oauth2/authorize?client_id=1212433297674600488" class="invite-btn">Invitar Bot</a>
     </div>
 
+    <div class="commands">
+        <h2>Comandos Principales</h2>
+        <p><strong>/help</strong> - Busca ayuda para resolver dudas/problemas.</p>
+        <p><strong>/setup-tickets</strong> - Crea un sistema de tickets muy completo.</p>
+        <p><strong>/8ball</strong> - Pregunta cosas al bot de cualquier tema.</p>
+        <p><strong>/clear</strong> - Borra un número determinado de mensajes.</p>
+    </div>
+
+    <!-- Nueva Sección: Testimonios -->
+    <div class="testimonials">
+        <h2>Testimonios de Usuarios</h2>
+        <p><em>"¡El mejor bot que he usado! Facilita mucho la gestión del servidor."</em> - Usuario1</p>
+        <p><em>"Los comandos de música son increíbles y funcionan sin problemas."</em> - Usuario2</p>
+        <p><em>"Recomiendo totalmente este bot para cualquier servidor de Discord."</em> - Usuario3</p>
+    </div>
+
+    <!-- Nueva Sección: FAQ -->
+    <div class="faq">
+        <h2>Preguntas Frecuentes (FAQ)</h2>
+        <div class="faq-item">
+            <p><strong>¿Cómo puedo invitar el bot a mi servidor?</strong></p>
+            <p>Haz clic en el botón de "Invitar Bot" arriba y sigue las instrucciones en Discord para añadir el bot a tu servidor.</p>
+        </div>
+        <div class="faq-item">
+            <p><strong>¿El bot es gratuito?</strong></p>
+            <p>Sí, EnergyBot es completamente gratuito. Sin embargo, siempre estamos abiertos a donaciones para mantener el proyecto activo.</p>
+        </div>
+        <div class="faq-item">
+            <p><strong>¿Cómo puedo obtener soporte?</strong></p>
+            <p>Únete a nuestro servidor de soporte haciendo clic en el botón "Unirse al Servidor" más abajo.</p>
+        </div>
+    </div>
+
+    <!-- Botón de Soporte -->
+    <div class="support-container">
+        <button id="support-btn" class="invite-btn">Soporte</button>
+        <div id="support-panel" class="support-panel">
+            <h2>Formulario de Soporte</h2>
+            <form action="https://formspree.io/f/manwglze" method="POST" id="support-form">
+                <label for="email">Correo Electrónico (obligatorio):</label>
+                <input type="email" name="email" id="email" required placeholder="ejemplo@gmail.com">
+                <label for="message">Mensaje:</label>
+                <textarea name="message" id="message" required placeholder="Escribe tu mensaje aquí..."></textarea>
+                <button type="submit">Enviar</button>
+            </form>
+            <button id="close-btn">Cerrar</button>
+        </div>
+    </div>
+
+    <!-- Sección de Redes Sociales -->
     <footer>
         <p>Únete a nuestro servidor de Discord para más soporte y actualizaciones:</p>
-        <a href="https://discord.gg/fMnkZy92gf" class="login-btn">Unirse al Servidor</a>
-        <p>&copy; 2024 EnergyBot. Todos los derechos reservados.</p>
+        <a href="https://discord.gg/fMnkZy92gf" class="invite-btn">Unirse al Servidor</a>
+
+        <div class="social-icons">
+            <a href="" target="_blank">Twitter</a>
+            <a href="" target="_blank">Facebook</a>
+            <a href="" target="_blank">Instagram</a>
+        </div>
+
+        <p>&copy; 2024 EnergyBot. Todos los derechos reservados.</p> 
     </footer>
 
     <script>
-        // Variables de estado simuladas para el ejemplo
-        let loggedIn = false;
-        let userProfile = null;
-
-        // Simulación de datos de usuario tras iniciar sesión
-        function simulateLogin() {
-            return {
-                username: "UsuarioDiscord",
-                avatar: "https://cdn.discordapp.com/embed/avatars/0.png", // avatar de ejemplo
-                id: "123456789"
-            };
-        }
-
-        // Mostrar el perfil de usuario y el botón de cerrar sesión
-        function showProfile(user) {
-            const profileContainer = document.getElementById('profile-container');
-            profileContainer.innerHTML = `
-                <img src="${user.avatar}" alt="Avatar">
-                <span>${user.username}</span><br>
-                <button id="logout-btn">Cerrar sesión</button>
-            `;
-
-            document.getElementById('login-btn').style.display = 'none';
-            document.getElementById('invite-btn').style.display = 'inline-block';
-
-            // Cerrar sesión
-            document.getElementById('logout-btn').onclick = function() {
-                loggedIn = false;
-                userProfile = null;
-                showLoggedOutState();
-            };
-        }
-
-        // Mostrar el estado cuando el usuario no está logueado
-        function showLoggedOutState() {
-            const profileContainer = document.getElementById('profile-container');
-            profileContainer.innerHTML = '';
-            document.getElementById('login-btn').style.display = 'inline-block';
-            document.getElementById('invite-btn').style.display = 'none';
-        }
-
-        // Simular inicio de sesión al hacer clic en el botón
-        document.getElementById('login-btn').onclick = function() {
-            userProfile = simulateLogin();
-            loggedIn = true;
-            showProfile(userProfile);
+        document.getElementById('support-btn').onclick = function() {
+            document.getElementById('support-panel').style.display = 'block';
         };
 
-        // Comprobar si el usuario está logueado al cargar la página
-        window.onload = function() {
-            if (loggedIn && userProfile) {
-                showProfile(userProfile);
-            } else {
-                showLoggedOutState();
-            }
+        document.getElementById('close-btn').onclick = function() {
+            document.getElementById('support-panel').style.display = 'none';
+        };
+
+        document.getElementById('support-form').onsubmit = function(event) {
+            alert('¡Mensaje enviado con éxito!');
+            document.getElementById('support-panel').style.display = 'none';
+        };
+
+        // Función para iniciar sesión con Discord
+        function loginWithDiscord() {
+            const clientId = '1212433297674600488'; // Reemplaza con tu Client ID
+            const redirectUri = encodeURIComponent('YOUR_REDIRECT_URI'); // Reemplaza con tu URI de redirección
+            const scope = 'identify email';
+            const discordAuthUrl = `https://discord.com/api/oauth2/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=code&scope=${scope}`;
+            window.location.href = discordAuthUrl;
+        }
+
+        // Función para manejar el cierre de sesión
+        function logout() {
+            document.getElementById('user-info').style.display = 'none';
+            localStorage.removeItem('discordUser'); // Limpiar datos del usuario
+            alert('Has cerrado sesión correctamente.');
+        }
+
+        // Simulación de inicio de sesión (en un entorno real, deberías verificar el código de autorización recibido en la URI de redirección)
+        const discordUser = JSON.parse(localStorage.getItem('discordUser'));
+        if (discordUser) {
+            document.getElementById('user-info').style.display = 'flex';
+            document.getElementById('user-avatar').src = discordUser.avatar; // Suponiendo que el avatar es una URL válida
+            document.getElementById('user-name').innerText = discordUser.username;
+        } else {
+            // Si no hay usuario, llamar a la función de inicio de sesión
+            loginWithDiscord();
+        }
+
+        // Manejador de clic en el botón de cierre de sesión
+        document.getElementById('logout-btn').onclick = function() {
+            logout();
         };
     </script>
 </body>
