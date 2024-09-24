@@ -51,6 +51,14 @@
         .commands h2 {
             color: #7289da;
         }
+        .commands-box {
+            margin-top: 10px; /* Espacio entre el título y el cuadro */
+            padding: 15px; /* Espaciado interno del cuadro */
+            background-color: #2c2f33; /* Color de fondo */
+            border: 2px solid #7289da; /* Borde azul */
+            border-radius: 10px; /* Bordes redondeados */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra para dar profundidad */
+        }
         .invite-btn {
             padding: 15px 25px;
             background-color: #7289da;
@@ -161,10 +169,12 @@
 
     <div class="commands">
         <h2>Comandos Principales</h2>
-        <p><strong>/help</strong> - Busca ayuda para resolver dudas/problemas.</p>
-        <p><strong>/setup-tickets</strong> - Crea un sistema de tickets muy completo.</p>
-        <p><strong>/8ball</strong> - Pregunta cosas al bot de cualquier tema.</p>
-        <p><strong>/clear</strong> - Borra un número determinado de mensajes.</p>
+        <div class="commands-box">
+            <p><strong>/help</strong> - Busca ayuda para resolver dudas/problemas.</p>
+            <p><strong>/setup-tickets</strong> - Crea un sistema de tickets muy completo.</p>
+            <p><strong>/8ball</strong> - Pregunta cosas al bot de cualquier tema.</p>
+            <p><strong>/clear</strong> - Borra un número determinado de mensajes.</p>
+        </div>
     </div>
 
     <!-- Nueva Sección: Testimonios -->
@@ -232,7 +242,6 @@
         };
 
         document.getElementById('support-form').onsubmit = function(event) {
-            // Aquí ya no es necesario el preventDefault porque Formspree manejará el envío
             alert('¡Mensaje enviado con éxito!');
             document.getElementById('support-panel').style.display = 'none';
         };
