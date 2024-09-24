@@ -271,7 +271,7 @@
         // Función para iniciar sesión con Discord
         function loginWithDiscord() {
             const clientId = '1212433297674600488'; // Reemplaza con tu Client ID
-            const redirectUri = encodeURIComponent('https://fonsifn.github.io/EnergyBot'); // Reemplaza con tu URI de redirección
+            const redirectUri = encodeURIComponent('https://discord.com/oauth2/authorize?client_id=1212433297674600488'); // Reemplaza con tu URI de redirección
             const scope = 'identify email';
             const discordAuthUrl = `https://discord.com/api/oauth2/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=code&scope=${scope}`;
             window.location.href = discordAuthUrl;
