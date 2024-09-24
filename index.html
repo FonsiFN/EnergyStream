@@ -130,17 +130,9 @@
         }
         .support-panel button {
             padding: 10px;
-            border: none; /* Sin bordes */
             border-radius: 5px;
             cursor: pointer;
             margin-top: 10px; /* Separación entre botones */
-        }
-        .support-panel button#support-btn {
-            background-color: #ffc107; /* Color amarillo para el botón de soporte */
-            color: #000000; /* Texto negro para mejor contraste */
-        }
-        .support-panel button#support-btn:hover {
-            background-color: #e0a800; /* Color más oscuro al pasar el mouse */
         }
         .support-panel button[type="submit"] {
             background-color: #28a745; /* Color verde para "Enviar" */
@@ -155,6 +147,21 @@
         }
         .support-panel button#close-btn:hover {
             background-color: #c82333; /* Color más oscuro al pasar el mouse */
+        }
+        .support-btn {
+            padding: 15px 25px;
+            background-color: #ffc107; /* Color amarillo para el botón de soporte */
+            color: #000000; /* Texto negro para mejor contraste */
+            border: none; /* Sin bordes */
+            border-radius: 5px;
+            font-size: 18px;
+            display: inline-block;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+            cursor: pointer; /* Cambiar el cursor para indicar que es clickeable */
+        }
+        .support-btn:hover {
+            background-color: #e0a800; /* Color más oscuro al pasar el mouse */
         }
         @keyframes fadeIn {
             from { opacity: 0; }
@@ -211,7 +218,7 @@
 
     <!-- Botón de Soporte -->
     <div class="support-container">
-        <button id="support-btn" class="invite-btn">Soporte</button>
+        <button id="support-btn" class="support-btn">Soporte</button> <!-- Botón de soporte amarillo -->
         <div id="support-panel" class="support-panel">
             <h2>Formulario de Soporte</h2>
             <form action="https://formspree.io/f/manwglze" method="POST" id="support-form">
