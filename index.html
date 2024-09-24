@@ -167,6 +167,20 @@
             border-radius: 5px;
             cursor: pointer;
         }
+        .login-btn {
+            padding: 10px 20px;
+            background-color: #43b581; /* Color verde para el botón de iniciar sesión */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+        }
+        .login-btn:hover {
+            background-color: #36a05e; /* Color verde más oscuro al pasar el mouse */
+        }
     </style>
 </head>
 <body>
@@ -183,6 +197,9 @@
     </div>
 
     <h1>Bienvenido a la Página de EnergyBot</h1>
+
+    <!-- Botón para iniciar sesión -->
+    <button id="login-btn" class="login-btn">Iniciar Sesión</button>
 
     <div class="bot-info">
         <h2>¿Qué es EnergyBot?</h2>
@@ -216,89 +233,84 @@
         </div>
         <div class="faq-item">
             <p><strong>¿El bot es gratuito?</strong></p>
-            <p>Sí, EnergyBot es completamente gratuito. Sin embargo, siempre estamos abiertos a donaciones para mantener el proyecto activo.</p>
+            <p>Sí, EnergyBot es completamente gratuito. Sin embargo, siempre estamos abiertos a donaciones para mejorar el servicio.</p>
         </div>
         <div class="faq-item">
-            <p><strong>¿Cómo puedo obtener soporte?</strong></p>
-            <p>Únete a nuestro servidor de soporte haciendo clic en el botón "Unirse al Servidor" más abajo.</p>
+            <p><strong>¿Qué puedo hacer si tengo problemas con el bot?</strong></p>
+            <p>Puedes usar el sistema de tickets para reportar cualquier problema o preguntar directamente en nuestro servidor de soporte.</p>
         </div>
     </div>
 
-    <!-- Botón de Soporte -->
-    <div class="support-container">
-        <button id="support-btn" class="invite-btn">Soporte</button>
-        <div id="support-panel" class="support-panel">
-            <h2>Formulario de Soporte</h2>
-            <form action="https://formspree.io/f/manwglze" method="POST" id="support-form">
-                <label for="email">Correo Electrónico (obligatorio):</label>
-                <input type="email" name="email" id="email" required placeholder="ejemplo@gmail.com">
-                <label for="message">Mensaje:</label>
-                <textarea name="message" id="message" required placeholder="Escribe tu mensaje aquí..."></textarea>
-                <button type="submit">Enviar</button>
-            </form>
-            <button id="close-btn">Cerrar</button>
-        </div>
-    </div>
-
-    <!-- Sección de Redes Sociales -->
     <footer>
-        <p>Únete a nuestro servidor de Discord para más soporte y actualizaciones:</p>
-        <a href="https://discord.gg/fMnkZy92gf" class="invite-btn">Unirse al Servidor</a>
-
+        <p>&copy; 2024 EnergyBot. Todos los derechos reservados.</p>
         <div class="social-icons">
-            <a href="" target="_blank">Twitter</a>
-            <a href="" target="_blank">Facebook</a>
-            <a href="" target="_blank">Instagram</a>
+            <a href="https://discord.com" target="_blank">Discord</a>
+            <a href="https://github.com" target="_blank">GitHub</a>
+            <a href="https://twitter.com" target="_blank">Twitter</a>
         </div>
-
-        <p>&copy; 2024 EnergyBot. Todos los derechos reservados.</p> 
     </footer>
 
+    <!-- Panel de Soporte -->
+    <div class="support-container">
+        <button id="support-toggle">Solicitar Soporte</button>
+        <div id="support-panel" class="support-panel">
+            <h2>Soporte</h2>
+            <label for="name">Nombre:</label>
+            <input type="text" id="name" placeholder="Tu nombre">
+            <label for="message">Mensaje:</label>
+            <textarea id="message" rows="4" placeholder="Tu mensaje aquí"></textarea>
+            <button id="send-btn">Enviar</button>
+        </div>
+    </div>
+
     <script>
-        document.getElementById('support-btn').onclick = function() {
-            document.getElementById('support-panel').style.display = 'block';
-        };
+        const loginBtn = document.getElementById('login-btn');
+        const userInfo = document.getElementById('user-info');
+        const userAvatar = document.getElementById('user-avatar');
+        const userName = document.getElementById('user-name');
+        const logoutBtn = document.getElementById('logout-btn');
+        const supportToggle = document.getElementById('support-toggle');
+        const supportPanel = document.getElementById('support-panel');
 
-        document.getElementById('close-btn').onclick = function() {
-            document.getElementById('support-panel').style.display = 'none';
-        };
+        // Simulación de usuario autenticado (aquí deberías integrar tu autenticación real)
+        let isAuthenticated = false; // Cambiar a true para simular autenticación exitosa
 
-        document.getElementById('support-form').onsubmit = function(event) {
-            alert('¡Mensaje enviado con éxito!');
-            document.getElementById('support-panel').style.display = 'none';
-        };
+        loginBtn.addEventListener('click', () => {
+            window.location.href = 'https://discord.com/oauth2/authorize?client_id=1212433297674600488'; // Redirigir a Discord para autenticarse
+        });
 
-        // Función para iniciar sesión con Discord
-        function loginWithDiscord() {
-            const clientId = '1212433297674600488'; // Reemplaza con tu Client ID
-            const redirectUri = encodeURIComponent('https://discord.com/oauth2/authorize?client_id=1212433297674600488'); // Reemplaza con tu URI de redirección
-            const scope = 'identify email';
-            const discordAuthUrl = `https://discord.com/api/oauth2/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=code&scope=${scope}`;
-            window.location.href = discordAuthUrl;
+        logoutBtn.addEventListener('click', () => {
+            // Aquí iría la lógica para cerrar sesión
+            isAuthenticated = false;
+            userInfo.style.display = 'none';
+            loginBtn.style.display = 'block';
+        });
+
+        // Simulación de información del usuario
+        function updateUserInfo() {
+            userAvatar.src = 'https://example.com/avatar.png'; // Reemplazar con la URL del avatar del usuario
+            userName.textContent = 'Nombre de Usuario'; // Reemplazar con el nombre del usuario
+            userInfo.style.display = 'flex'; // Mostrar información del usuario
+            loginBtn.style.display = 'none'; // Ocultar botón de inicio de sesión
         }
 
-        // Función para manejar el cierre de sesión
-        function logout() {
-            document.getElementById('user-info').style.display = 'none';
-            localStorage.removeItem('discordUser'); // Limpiar datos del usuario
-            alert('Has cerrado sesión correctamente.');
+        // Simular que el usuario ha iniciado sesión
+        if (isAuthenticated) {
+            updateUserInfo();
         }
 
-        // Simulación de inicio de sesión (en un entorno real, deberías verificar el código de autorización recibido en la URI de redirección)
-        const discordUser = JSON.parse(localStorage.getItem('discordUser'));
-        if (discordUser) {
-            document.getElementById('user-info').style.display = 'flex';
-            document.getElementById('user-avatar').src = discordUser.avatar; // Suponiendo que el avatar es una URL válida
-            document.getElementById('user-name').innerText = discordUser.username;
-        } else {
-            // Si no hay usuario, llamar a la función de inicio de sesión
-            loginWithDiscord();
-        }
+        supportToggle.addEventListener('click', () => {
+            if (supportPanel.style.display === 'none' || supportPanel.style.display === '') {
+                supportPanel.style.display = 'block';
+            } else {
+                supportPanel.style.display = 'none';
+            }
+        });
 
-        // Manejador de clic en el botón de cierre de sesión
-        document.getElementById('logout-btn').onclick = function() {
-            logout();
-        };
+        document.getElementById('send-btn').addEventListener('click', () => {
+            // Aquí iría la lógica para enviar el mensaje
+            alert('Mensaje enviado: ' + document.getElementById('message').value);
+        });
     </script>
 </body>
 </html>
