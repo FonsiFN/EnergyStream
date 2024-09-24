@@ -52,11 +52,12 @@
             color: #7289da;
         }
         .commands-box {
-            margin-top: 10px; /* Espacio entre el título y el cuadro */
-            padding: 10px; /* Espaciado interno del cuadro */
+            margin: 10px auto; /* Espacio entre el título y el cuadro, y centrado automático */
+            padding: 20px; /* Espaciado interno del cuadro */
             background-color: #2c2f33; /* Color de fondo */
-            border-radius: 5px; /* Bordes redondeados */
-            box-shadow: none; /* Sin sombra */
+            border-radius: 10px; /* Bordes redondeados, igual que los otros cuadros */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra */
+            width: 300px; /* Ancho igual al de los otros cuadros */
         }
         .invite-btn {
             padding: 15px 25px;
@@ -93,7 +94,7 @@
         .testimonials, .faq {
             margin: 30px auto;
             padding: 20px;
-            width: 70%;
+            width: 300px; /* Ancho ajustado al cuadro de comandos */
             background-color: #2c2f33;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
@@ -193,15 +194,15 @@
         </div>
         <div class="faq-item">
             <p><strong>¿El bot es gratuito?</strong></p>
-            <p>Sí, EnergyBot es completamente gratuito. Sin embargo, siempre estamos abiertos a donaciones para mantener el proyecto activo.</p>
+            <p>Sí, EnergyBot es completamente gratuito. Sin embargo, puede haber funciones premium en el futuro.</p>
         </div>
         <div class="faq-item">
-            <p><strong>¿Cómo puedo obtener soporte?</strong></p>
-            <p>Únete a nuestro servidor de soporte haciendo clic en el botón "Unirse al Servidor" más abajo.</p>
+            <p><strong>¿Cómo reporto un problema?</strong></p>
+            <p>Puedes utilizar el formulario de soporte disponible más abajo para reportar cualquier inconveniente.</p>
         </div>
     </div>
 
-    <!-- Botón de Soporte -->
+    <!-- Nueva Sección de Soporte -->
     <div class="support-container">
         <button id="support-btn" class="invite-btn">Soporte</button>
         <div id="support-panel" class="support-panel">
