@@ -129,15 +129,24 @@
             border-radius: 5px;
         }
         .support-panel button {
-            background-color: #7289da;
-            color: #ffffff;
-            border: none;
             padding: 10px;
             border-radius: 5px;
             cursor: pointer;
+            margin-top: 10px; /* Separación entre botones */
         }
-        .support-panel button:hover {
-            background-color: #5b6eae;
+        .support-panel button[type="submit"] {
+            background-color: #28a745; /* Color verde para "Enviar" */
+            color: #ffffff;
+        }
+        .support-panel button[type="submit"]:hover {
+            background-color: #218838; /* Color más oscuro al pasar el mouse */
+        }
+        .support-panel button#close-btn {
+            background-color: #dc3545; /* Color rojo para "Cerrar" */
+            color: #ffffff;
+        }
+        .support-panel button#close-btn:hover {
+            background-color: #c82333; /* Color más oscuro al pasar el mouse */
         }
         @keyframes fadeIn {
             from { opacity: 0; }
@@ -232,7 +241,6 @@
         };
 
         document.getElementById('support-form').onsubmit = function(event) {
-            // Aquí ya no es necesario el preventDefault porque Formspree manejará el envío
             alert('¡Mensaje enviado con éxito!');
             document.getElementById('support-panel').style.display = 'none';
         };
