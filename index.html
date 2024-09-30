@@ -132,7 +132,7 @@
         }
         .support-panel .button-container {
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-end;
         }
         .support-panel button {
             padding: 10px;
@@ -150,6 +150,7 @@
         .support-panel button#close-btn {
             background-color: #dc3545;
             color: #ffffff;
+            margin-right: 10px;
         }
         .support-panel button#close-btn:hover {
             background-color: #c82333;
@@ -235,8 +236,8 @@
                 <label for="message">Mensaje:</label>
                 <textarea name="message" id="message" required placeholder="Escribe tu mensaje aquí..."></textarea>
                 <div class="button-container">
-                    <button type="submit">Enviar</button>
                     <button id="close-btn" type="button">Cerrar</button>
+                    <button type="submit">Enviar</button>
                 </div>
             </form>
         </div>
@@ -280,5 +281,3 @@
     </script>
 </body>
 </html>
-
-
