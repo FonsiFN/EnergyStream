@@ -9,28 +9,37 @@
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            background-color: #23272a;
             color: #ffffff;
-            transition: background-color 0.3s ease, color 0.3s ease;
-            /* Quitar overflow:hidden para permitir scroll */
+            transition: color 0.3s ease;
+            /* Añadir el fondo animado */
+            background: linear-gradient(270deg, #ff005f, #ffb300);
+            background-size: 400% 400%;
+            animation: gradientAnimation 15s ease infinite;
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         h1 {
             margin-top: 50px;
             animation: fadeIn 2s;
         }
-
         .header {
             background-color: #ff0000;
             padding: 20px 0;
             position: relative;
         }
-
         .logo {
             width: 80px;
-            /* Quitar animación del logo */
+            animation: logoBounce 2s infinite;
         }
-
+        @keyframes logoBounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
         .white-line {
             height: 2px;
             background-color: #ffffff;
@@ -39,7 +48,6 @@
             left: 0;
             right: 0;
         }
-
         .bot-info {
             margin: 20px auto;
             padding: 20px;
@@ -49,31 +57,25 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
             transition: background-color 0.3s ease, box-shadow 0.3s ease;
         }
-
         .bot-info h2 {
             color: #28a745;
         }
-
         .bot-info p {
             font-size: 18px;
         }
-
         .commands {
             margin-top: 20px;
             display: none;
             opacity: 0;
             transition: opacity 0.5s ease;
         }
-
         .commands.show {
             display: block;
             opacity: 1;
         }
-
         .commands h2 {
             color: #28a745;
         }
-
         .invite-btn {
             padding: 15px 25px;
             background-color: #28a745;
@@ -85,16 +87,13 @@
             margin-top: 10px;
             transition: background-color 0.3s ease, transform 0.3s ease;
         }
-
         .invite-btn:hover {
             background-color: #218838;
             transform: scale(1.1);
         }
-
         .commands-toggle {
             margin-top: 20px;
         }
-
         .toggle-btn {
             padding: 15px 25px;
             background-color: #007bff;
@@ -106,23 +105,19 @@
             cursor: pointer;
             transition: background-color 0.3s ease, transform 0.3s ease;
         }
-
         .toggle-btn:hover {
             background-color: #0056b3;
             transform: scale(1.05);
         }
-
         footer {
             margin-top: 50px;
             padding: 20px;
             background-color: #2c2f33;
             transition: background-color 0.3s ease;
         }
-
         .social-icons {
             margin: 20px 0;
         }
-
         .social-icons a {
             margin: 0 10px;
             color: #ffffff;
@@ -130,11 +125,9 @@
             text-decoration: none;
             transition: color 0.3s ease;
         }
-
         .social-icons a:hover {
             color: #28a745;
         }
-
         .testimonials, .faq {
             margin: 30px auto;
             padding: 20px;
@@ -144,19 +137,15 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
             transition: background-color 0.3s ease, box-shadow 0.3s ease;
         }
-
         .testimonials h2, .faq h2 {
             color: #28a745;
         }
-
         .faq-item {
             margin: 10px 0;
         }
-
         .support-container {
             position: relative;
         }
-
         .support-panel {
             display: none;
             position: fixed;
@@ -172,20 +161,16 @@
             transition: transform 0.3s ease-in-out;
             transform: translateX(100%);
         }
-
         .support-panel.open {
             transform: translateX(0);
         }
-
         .support-panel h2 {
             color: #28a745;
         }
-
         .support-panel label {
             display: block;
             margin: 10px 0 5px;
         }
-
         .support-panel input,
         .support-panel textarea {
             width: 100%;
@@ -194,32 +179,26 @@
             border: none;
             border-radius: 5px;
         }
-
         .support-panel button {
             padding: 10px;
             border-radius: 5px;
             cursor: pointer;
             margin-top: 10px;
         }
-
         .support-panel button[type="submit"] {
             background-color: #28a745;
             color: #ffffff;
         }
-
         .support-panel button[type="submit"]:hover {
             background-color: #218838;
         }
-
         .support-panel button#close-btn {
             background-color: #dc3545;
             color: #ffffff;
         }
-
         .support-panel button#close-btn:hover {
             background-color: #c82333;
         }
-
         .support-btn {
             padding: 15px 25px;
             background-color: #ffc107;
@@ -232,51 +211,36 @@
             transition: background-color 0.3s ease;
             cursor: pointer;
         }
-
         .support-btn:hover {
             background-color: #e0a800;
         }
-
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
         }
-
+        
         /* Modo Claro */
         .light-mode {
             background-color: #f5f5f5;
             color: #000000;
         }
-
         .light-mode .header {
             background-color: #007bff;
         }
-
         .light-mode .bot-info {
             background-color: #ffffff;
             color: #000000;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
-
         .light-mode footer, 
         .light-mode .testimonials, 
         .light-mode .faq {
             background-color: #ffffff;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
-
-        /* Partículas en el fondo */
-        #particles-js {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background-color: #23272a;
-            z-index: -1;
-        }
     </style>
 </head>
 <body>
-    <div id="particles-js"></div>
     <div class="header">
         <img src="https://imgur.com/iDq3OFg.png" alt="Logo" class="logo">
         <div class="white-line"></div>
@@ -286,40 +250,64 @@
     <div class="bot-info">
         <h2>¿Qué es EnergyBot?</h2>
         <p>EnergyBot está diseñado para ayudar a gestionar servidores, proporcionar comandos útiles y hacer la experiencia de Discord más divertida y eficiente.</p>
-        <p>¡Invita a mi bot a tu servidor haciendo clic en el botón de abajo!</p>
-        <a href="https://discord.com/oauth2/authorize?client_id=1212433297674600488" class="invite-btn">Invitar Bot</a>
+        <p>¡Invita a EnergyBot ahora para aprovechar todas sus funcionalidades!</p>
+        <a href="#" class="invite-btn">Invitar Bot</a>
     </div>
 
-    <!-- Botón para mostrar comandos -->
     <div class="commands-toggle">
-        <button id="toggle-commands" class="toggle-btn">Comandos Principales</button>
+        <button id="toggle-commands" class="toggle-btn">Mostrar Comandos</button>
     </div>
-    
+
     <div class="commands" id="commands-list">
-        <h2>Comandos Principales</h2>
-        <p><strong>/help</strong> - Busca ayuda para resolver dudas/problemas.</p>
-        <p><strong>/setup-tickets</strong> - Configura un sistema de tickets en tu servidor.</p>
-        <p><strong>/kick</strong> - Expulsa a un miembro del servidor.</p>
-        <p><strong>/ban</strong> - Banea a un miembro del servidor.</p>
-        <!-- Agrega más comandos aquí -->
+        <h2>Comandos Disponibles</h2>
+        <ul>
+            <li>/play - Reproduce una canción</li>
+            <li>/stop - Detiene la música</li>
+            <li>/skip - Salta a la siguiente canción</li>
+            <li>/help - Muestra la lista de comandos</li>
+            <li>/info - Muestra información sobre el bot</li>
+        </ul>
+    </div>
+
+    <div class="support-container">
+        <button class="support-btn" id="support-btn">Soporte</button>
+        <div class="support-panel" id="support-panel">
+            <h2>Soporte</h2>
+            <label for="name">Nombre:</label>
+            <input type="text" id="name" placeholder="Ingresa tu nombre">
+            <label for="issue">Descripción del problema:</label>
+            <textarea id="issue" rows="4" placeholder="Describe tu problema aquí..."></textarea>
+            <button type="submit">Enviar</button>
+            <button id="close-btn">Cerrar</button>
+        </div>
     </div>
 
     <footer>
         <div class="social-icons">
             <a href="#"><i class="fab fa-twitter"></i></a>
             <a href="#"><i class="fab fa-discord"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
         </div>
-        <p>&copy; 2024 EnergyBot - Todos los derechos reservados.</p>
+        <p>© 2024 EnergyBot. Todos los derechos reservados.</p>
     </footer>
 
-    <!-- Partículas JS -->
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
-        particlesJS.load('particles-js', 'https://cdn.jsdelivr.net/particles.js/2.0.0/particles.json');
+        const toggleCommandsButton = document.getElementById('toggle-commands');
+        const commandsList = document.getElementById('commands-list');
+        const supportButton = document.getElementById('support-btn');
+        const supportPanel = document.getElementById('support-panel');
+        const closeButton = document.getElementById('close-btn');
 
-        document.getElementById('toggle-commands').addEventListener('click', function () {
-            var commandsList = document.getElementById('commands-list');
+        toggleCommandsButton.addEventListener('click', () => {
             commandsList.classList.toggle('show');
+        });
+
+        supportButton.addEventListener('click', () => {
+            supportPanel.classList.toggle('open');
+        });
+
+        closeButton.addEventListener('click', () => {
+            supportPanel.classList.remove('open');
         });
     </script>
 </body>
