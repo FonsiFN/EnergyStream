@@ -12,7 +12,7 @@
             background-color: #23272a;
             color: #ffffff;
             transition: background-color 0.3s ease, color 0.3s ease;
-            overflow: hidden;
+            /* Quitar overflow:hidden para permitir scroll */
         }
 
         h1 {
@@ -28,12 +28,7 @@
 
         .logo {
             width: 80px;
-            animation: rotateLogo 3s infinite linear;
-        }
-
-        @keyframes rotateLogo {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            /* Quitar animación del logo */
         }
 
         .white-line {
@@ -290,225 +285,42 @@
 
     <div class="bot-info">
         <h2>¿Qué es EnergyBot?</h2>
-        <p>EnergyBot está diseñado para mejorar la gestión de tu servidor de Discord con comandos fáciles de usar y una interfaz amigable. ¡Invita EnergyBot ahora para aprovechar todas sus funcionalidades!</p>
+        <p>EnergyBot está diseñado para ayudar a gestionar servidores, proporcionar comandos útiles y hacer la experiencia de Discord más divertida y eficiente.</p>
+        <p>¡Invita a mi bot a tu servidor haciendo clic en el botón de abajo!</p>
         <a href="https://discord.com/oauth2/authorize?client_id=1212433297674600488" class="invite-btn">Invitar Bot</a>
     </div>
 
+    <!-- Botón para mostrar comandos -->
     <div class="commands-toggle">
-        <button id="toggle-commands" class="toggle-btn">Mostrar Comandos</button>
+        <button id="toggle-commands" class="toggle-btn">Comandos Principales</button>
     </div>
-
+    
     <div class="commands" id="commands-list">
-        <h2>Comandos Disponibles</h2>
-        <ul>
-            <li>/play - Reproduce una canción</li>
-            <li>/ban - Banea a un miembro</li>
-            <li>/kick - Expulsa a un miembro</li>
-            <!-- Agrega más comandos aquí -->
-        </ul>
-    </div>
-
-    <div class="testimonials">
-        <h2>Testimonios de Usuarios</h2>
-        <p>"EnergyBot es increíble, ha mejorado la gestión de mi servidor." - Usuario 1</p>
-        <p>"No podría estar más feliz con las funciones de EnergyBot." - Usuario 2</p>
-    </div>
-
-    <div class="faq">
-        <h2>Preguntas Frecuentes</h2>
-        <div class="faq-item">
-            <p><strong>¿Cómo invito a EnergyBot a mi servidor?</strong></p>
-            <p>Haz clic en el botón "Invitar Bot" para añadir EnergyBot a tu servidor.</p>
-        </div>
-        <div class="faq-item">
-            <p><strong>¿El bot es gratuito?</strong></p>
-            <p>Sí, EnergyBot es completamente gratuito. Sin embargo, siempre estamos abiertos a donaciones para mantener el proyecto activo.</p>
-        </div>
-        <div class="faq-item">
-            <p><strong>¿Dónde puedo reportar un problema?</strong></p>
-            <p>Usa el sistema de soporte en la esquina derecha de la pantalla.</p>
-        </div>
-    </div>
-
-    <div class="support-container">
-        <button id="support-btn" class="support-btn">Soporte</button>
-        <div class="support-panel" id="support-panel">
-            <h2>Soporte</h2>
-            <form id="support-form">
-                <label for="name">Tu Nombre:</label>
-                <input type="text" id="name" required>
-                <label for="message">Tu Mensaje:</label>
-                <textarea id="message" rows="5" required></textarea>
-                <button type="submit">Enviar</button>
-                <button type="button" id="close-btn">Cerrar</button>
-            </form>
-        </div>
+        <h2>Comandos Principales</h2>
+        <p><strong>/help</strong> - Busca ayuda para resolver dudas/problemas.</p>
+        <p><strong>/setup-tickets</strong> - Configura un sistema de tickets en tu servidor.</p>
+        <p><strong>/kick</strong> - Expulsa a un miembro del servidor.</p>
+        <p><strong>/ban</strong> - Banea a un miembro del servidor.</p>
+        <!-- Agrega más comandos aquí -->
     </div>
 
     <footer>
-        <p>Únete a nuestro servidor de Discord para más soporte y actualizaciones:</p>
-        <a href="https://discord.gg/fMnkZy92gf" class="invite-btn">Unirse al Servidor</a>
-
         <div class="social-icons">
-            <a href="https://www.youtube.com/@fonsifn" target="_blank">Youtube</a>
-            <a href="https://www.twitch.tv/fonsifn_" target="_blank">Twitch</a>
-            <a href="https://discord.gg/TGz8bWTMmx" target="_blank">Comunidad</a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-discord"></i></a>
         </div>
-
-        <p>&copy; 2024 EnergyBot. Todos los derechos reservados.</p>
+        <p>&copy; 2024 EnergyBot - Todos los derechos reservados.</p>
     </footer>
 
-    <!-- Sonidos -->
-    <audio id="click-sound" src="https://www.fesliyanstudios.com/play-mp3/387"></audio>
-
+    <!-- Partículas JS -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
-        // Partículas en el fondo
-        particlesJS("particles-js", {
-            "particles": {
-                "number": {
-                    "value": 80,
-                    "density": {
-                        "enable": true,
-                        "value_area": 800
-                    }
-                },
-                "color": {
-                    "value": "#ffffff"
-                },
-                "shape": {
-                    "type": "circle",
-                    "stroke": {
-                        "width": 0,
-                        "color": "#000000"
-                    },
-                    "polygon": {
-                        "nb_sides": 5
-                    },
-                    "image": {
-                        "src": "img/github.svg",
-                        "width": 100,
-                        "height": 100
-                    }
-                },
-                "opacity": {
-                    "value": 0.5,
-                    "random": false,
-                    "anim": {
-                        "enable": false,
-                        "speed": 1,
-                        "opacity_min": 0.1,
-                        "sync": false
-                    }
-                },
-                "size": {
-                    "value": 3,
-                    "random": true,
-                    "anim": {
-                        "enable": false,
-                        "speed": 40,
-                        "size_min": 0.1,
-                        "sync": false
-                    }
-                },
-                "line_linked": {
-                    "enable": true,
-                    "distance": 150,
-                    "color": "#ffffff",
-                    "opacity": 0.4,
-                    "width": 1
-                },
-                "move": {
-                    "enable": true,
-                    "speed": 6,
-                    "direction": "none",
-                    "random": false,
-                    "straight": false,
-                    "out_mode": "out",
-                    "bounce": false,
-                    "attract": {
-                        "enable": false,
-                        "rotateX": 600,
-                        "rotateY": 1200
-                    }
-                }
-            },
-            "interactivity": {
-                "detect_on": "canvas",
-                "events": {
-                    "onhover": {
-                        "enable": true,
-                        "mode": "repulse"
-                    },
-                    "onclick": {
-                        "enable": true,
-                        "mode": "push"
-                    },
-                    "resize": true
-                },
-                "modes": {
-                    "grab": {
-                        "distance": 400,
-                        "line_linked": {
-                            "opacity": 1
-                        }
-                    },
-                    "bubble": {
-                        "distance": 400,
-                        "size": 40,
-                        "duration": 2,
-                        "opacity": 8,
-                        "speed": 3
-                    },
-                    "repulse": {
-                        "distance": 200,
-                        "duration": 0.4
-                    },
-                    "push": {
-                        "particles_nb": 4
-                    },
-                    "remove": {
-                        "particles_nb": 2
-                    }
-                }
-            },
-            "retina_detect": true
-        });
+        particlesJS.load('particles-js', 'https://cdn.jsdelivr.net/particles.js/2.0.0/particles.json');
 
-        const clickSound = document.getElementById('click-sound');
-        
-        document.getElementById('support-btn').onclick = function() {
-            clickSound.play();
-            document.getElementById('support-panel').classList.toggle('open');
-        };
-
-        document.getElementById('close-btn').onclick = function() {
-            clickSound.play();
-            document.getElementById('support-panel').classList.remove('open');
-        };
-
-        document.getElementById('support-form').onsubmit = function(event) {
-            event.preventDefault();
-            alert('¡Mensaje enviado con éxito!');
-            clickSound.play();
-            document.getElementById('support-panel').classList.remove('open');
-        };
-
-        document.getElementById('toggle-commands').onclick = function() {
-            clickSound.play();
-            const commandsList = document.getElementById('commands-list');
+        document.getElementById('toggle-commands').addEventListener('click', function () {
+            var commandsList = document.getElementById('commands-list');
             commandsList.classList.toggle('show');
-        };
-
-        // Modo Claro/Oscuro
-        const toggleMode = document.createElement('button');
-        toggleMode.textContent = 'Modo Claro/Oscuro';
-        toggleMode.classList.add('toggle-btn');
-        document.body.appendChild(toggleMode);
-
-        toggleMode.onclick = function() {
-            document.body.classList.toggle('light-mode');
-        };
+        });
     </script>
 </body>
 </html>
