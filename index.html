@@ -11,15 +11,7 @@
             text-align: center;
             background-color: #23272a;
             color: #ffffff;
-            overflow: hidden; /* Evita el desplazamiento por el fondo de partículas */
-        }
-        #particles-js {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            z-index: -1; /* Asegura que las partículas están detrás del contenido */
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
         h1 {
             margin-top: 50px;
@@ -239,9 +231,6 @@
     </style>
 </head>
 <body>
-    <!-- Contenedor para las partículas -->
-    <div id="particles-js"></div>
-    
     <div class="header">
         <img src="https://imgur.com/iDq3OFg.png" alt="Logo" class="logo">
         <div class="white-line"></div>
@@ -265,78 +254,99 @@
             <li>/play - Reproduce una canción</li>
             <li>/ban - Banea a un miembro</li>
             <li>/kick - Expulsa a un miembro</li>
-            <li>/help - Muestra la lista de comandos</li>
+            <!-- Agrega más comandos aquí -->
         </ul>
     </div>
 
-    <div class="support-container">
-        <button class="support-btn" id="support-btn">Soporte</button>
-        <div class="support-panel" id="support-panel">
-            <h2>Soporte</h2>
-            <button id="close-btn">Cerrar</button>
-            <form id="support-form">
-                <label for="name">Nombre:</label>
-                <input type="text" id="name" required>
-                <label for="message">Mensaje:</label>
-                <textarea id="message" rows="4" required></textarea>
-                <button type="submit">Enviar</button>
-            </form>
-        </div>
-    </div>
-
-    <div class="social-icons">
-        <a href="https://twitter.com" target="_blank">🐦</a>
-        <a href="https://discord.com" target="_blank">💬</a>
-        <a href="https://github.com" target="_blank">🐙</a>
-    </div>
-
     <div class="testimonials">
-        <h2>Testimonios</h2>
-        <p>"EnergyBot ha transformado mi servidor en una comunidad activa y divertida!" - Usuario A</p>
-        <p>"Las funcionalidades son increíbles y el soporte es excepcional." - Usuario B</p>
+        <h2>Testimonios de Usuarios</h2>
+        <p>"EnergyBot es increíble, ha mejorado la gestión de mi servidor." - Usuario 1</p>
+        <p>"No podría estar más feliz con las funciones de EnergyBot." - Usuario 2</p>
     </div>
 
     <div class="faq">
         <h2>Preguntas Frecuentes</h2>
         <div class="faq-item">
-            <strong>¿Cómo invito a EnergyBot?</strong>
-            <p>Haz clic en el botón de invitar arriba y sigue las instrucciones.</p>
+            <p><strong>¿Cómo invito a EnergyBot a mi servidor?</strong></p>
+            <p>Haz clic en el botón "Invitar Bot" para añadir EnergyBot a tu servidor.</p>
         </div>
         <div class="faq-item">
-            <strong>¿Qué comandos puedo usar?</strong>
-            <p>Puedes ver la lista de comandos haciendo clic en "Mostrar Comandos".</p>
+            <p><strong>¿El bot es gratuito?</strong></p>
+            <p>Sí, EnergyBot es completamente gratuito. Sin embargo, siempre estamos abiertos a donaciones para mantener el proyecto activo.</p>
+        </div>
+        <div class="faq-item">
+            <p><strong>¿Dónde puedo reportar un problema?</strong></p>
+            <p>Usa el sistema de soporte en la esquina derecha de la pantalla.</p>
+        </div>
+    </div>
+
+    <div class="support-container">
+        <button id="support-btn" class="support-btn">Soporte</button>
+        <div class="support-panel" id="support-panel">
+            <h2>Soporte</h2>
+            <form id="support-form">
+                <label for="name">Tu Nombre:</label>
+                <input type="text" id="name" required>
+                <label for="message">Tu Mensaje:</label>
+                <textarea id="message" rows="5" required></textarea>
+                <button type="submit">Enviar</button>
+                <button type="button" id="close-btn">Cerrar</button>
+            </form>
         </div>
     </div>
 
     <footer>
+        <p>Únete a nuestro servidor de Discord para más soporte y actualizaciones:</p>
+        <a href="https://discord.gg/fMnkZy92gf" class="invite-btn">Unirse al Servidor</a>
+
+        <div class="social-icons">
+            <a href="https://www.youtube.com/@fonsifn" target="_blank">Youtube</a>
+            <a href="https://www.twitch.tv/fonsifn_" target="_blank">Twitch</a>
+            <a href="https://discord.gg/TGz8bWTMmx" target="_blank">Comunidad</a>
+        </div>
+
         <p>&copy; 2024 EnergyBot. Todos los derechos reservados.</p>
     </footer>
 
-    <!-- Scripts de Partículas -->
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <!-- Sonidos -->
+    <audio id="click-sound" src="https://www.fesliyanstudios.com/play-mp3/387"></audio>
+
     <script>
-        particlesJS.load('particles-js', 'https://raw.githubusercontent.com/VincentGarreau/particles.js/master/particles.json', function() {
-            console.log('callback - particles.js config loaded');
-        });
+        const clickSound = document.getElementById('click-sound');
+        
+        document.getElementById('support-btn').onclick = function() {
+            clickSound.play();
+            document.getElementById('support-panel').classList.toggle('open');
+        };
 
-        document.getElementById("toggle-commands").addEventListener("click", function() {
-            const commands = document.getElementById("commands-list");
-            commands.classList.toggle("show");
-        });
+        document.getElementById('close-btn').onclick = function() {
+            clickSound.play();
+            document.getElementById('support-panel').classList.remove('open');
+        };
 
-        document.getElementById("support-btn").addEventListener("click", function() {
-            document.getElementById("support-panel").classList.toggle("open");
-        });
+        document.getElementById('support-form').onsubmit = function(event) {
+            event.preventDefault();
+            alert('¡Mensaje enviado con éxito!');
+            clickSound.play();
+            document.getElementById('support-panel').classList.remove('open');
+        };
 
-        document.getElementById("close-btn").addEventListener("click", function() {
-            document.getElementById("support-panel").classList.remove("open");
-        });
+        document.getElementById('toggle-commands').onclick = function() {
+            clickSound.play();
+            const commandsList = document.getElementById('commands-list');
+            commandsList.classList.toggle('show');
+        };
 
-        document.getElementById("support-form").addEventListener("submit", function(e) {
-            e.preventDefault();
-            alert("Mensaje enviado con éxito.");
-            document.getElementById("support-panel").classList.remove("open");
-        });
+        // Modo Claro/Oscuro
+        const toggleMode = document.createElement('button');
+        toggleMode.textContent = 'Modo Claro/Oscuro';
+        toggleMode.classList.add('toggle-btn');
+        document.body.appendChild(toggleMode);
+
+        toggleMode.onclick = function() {
+            document.body.classList.toggle('light-mode');
+        };
     </script>
 </body>
 </html>
+
