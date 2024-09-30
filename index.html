@@ -23,6 +23,11 @@
         }
         .logo {
             width: 80px;
+            animation: logoBounce 2s infinite;
+        }
+        @keyframes logoBounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
         }
         .white-line {
             height: 2px;
@@ -48,13 +53,13 @@
         }
         .commands {
             margin-top: 20px;
-            display: none; /* Oculto por defecto */
-            opacity: 0; /* Comienza oculto */
-            transition: opacity 0.5s ease; /* Animación de desvanecimiento */
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease;
         }
         .commands.show {
-            display: block; /* Mostrar comandos */
-            opacity: 1; /* Hacer visible */
+            display: block;
+            opacity: 1;
         }
         .commands h2 {
             color: #28a745;
@@ -80,7 +85,7 @@
             padding: 15px 25px;
             background-color: #007bff;
             color: #ffffff;
-            border: none; /* Sin borde */
+            border: none;
             border-radius: 5px;
             font-size: 18px;
             display: inline-block;
@@ -89,7 +94,7 @@
         }
         .toggle-btn:hover {
             background-color: #0056b3;
-            transform: scale(1.05); /* Aumenta ligeramente el tamaño */
+            transform: scale(1.05);
         }
         footer {
             margin-top: 50px;
@@ -209,7 +214,6 @@
         <a href="https://discord.com/oauth2/authorize?client_id=1212433297674600488" class="invite-btn">Invitar Bot</a>
     </div>
 
-    <!-- Botón para mostrar comandos -->
     <div class="commands-toggle">
         <button id="toggle-commands" class="toggle-btn">Comandos Principales</button>
     </div>
@@ -273,21 +277,30 @@
         <p>&copy; 2024 EnergyBot. Todos los derechos reservados.</p>
     </footer>
 
+    <!-- Sonidos -->
+    <audio id="click-sound" src="https://www.fesliyanstudios.com/play-mp3/387"></audio>
+
     <script>
+        const clickSound = document.getElementById('click-sound');
+        
         document.getElementById('support-btn').onclick = function() {
+            clickSound.play();
             document.getElementById('support-panel').style.display = 'block';
         };
 
         document.getElementById('close-btn').onclick = function() {
+            clickSound.play();
             document.getElementById('support-panel').style.display = 'none';
         };
 
         document.getElementById('support-form').onsubmit = function(event) {
             alert('¡Mensaje enviado con éxito!');
+            clickSound.play();
             document.getElementById('support-panel').style.display = 'none';
         };
 
         document.getElementById('toggle-commands').onclick = function() {
+            clickSound.play();
             const commandsList = document.getElementById('commands-list');
             if (commandsList.classList.contains('show')) {
                 commandsList.classList.remove('show'); // Ocultar comandos
@@ -298,3 +311,4 @@
     </script>
 </body>
 </html>
+
