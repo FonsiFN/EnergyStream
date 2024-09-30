@@ -48,7 +48,7 @@
         }
         .commands {
             margin-top: 20px;
-            display: none; /* Oculto por defecto */
+            display: none;
         }
         .commands h2 {
             color: #28a745;
@@ -129,6 +129,10 @@
             margin-bottom: 10px;
             border: none;
             border-radius: 5px;
+        }
+        .support-panel .button-container {
+            display: flex;
+            justify-content: space-between;
         }
         .support-panel button {
             padding: 10px;
@@ -230,9 +234,11 @@
                 <input type="email" name="email" id="email" required placeholder="energybotsuport@gmail.com">
                 <label for="message">Mensaje:</label>
                 <textarea name="message" id="message" required placeholder="Escribe tu mensaje aquí..."></textarea>
-                <button type="submit">Enviar</button>
+                <div class="button-container">
+                    <button type="submit">Enviar</button>
+                    <button id="close-btn" type="button">Cerrar</button>
+                </div>
             </form>
-            <button id="close-btn">Cerrar</button>
         </div>
     </div>
 
@@ -274,4 +280,5 @@
     </script>
 </body>
 </html>
+
 
