@@ -132,7 +132,7 @@
         }
         .support-panel .button-container {
             display: flex;
-            justify-content: center; /* Centramos los botones */
+            justify-content: center;
         }
         .support-panel button {
             padding: 10px;
@@ -154,8 +154,8 @@
         .support-panel button#close-btn:hover {
             background-color: #c82333;
         }
-        .support-panel button + button { 
-            margin-left: 20px; /* Espacio uniforme entre los botones */
+        .support-panel button + button {
+            margin-left: 20px;
         }
         .support-btn {
             padding: 15px 25px;
@@ -234,12 +234,12 @@
             <h2>Formulario de Soporte</h2>
             <form action="https://formspree.io/f/manwglze" method="POST" id="support-form">
                 <label for="email">Correo Electrónico (obligatorio):</label>
-                <input type="email" name="email" id="email" required placeholder="Nombre/Córreo">
+                <input type="email" name="email" id="email" required placeholder="ejemplo@gmail.com">
                 <label for="message">Mensaje:</label>
                 <textarea name="message" id="message" required placeholder="Escribe tu mensaje aquí..."></textarea>
                 <div class="button-container">
-                    <button id="close-btn" type="button">Cerrar</button>
-                    <button type="submit">Enviar</button>
+                    <button type="submit">Cerrar</button>
+                    <button id="close-btn" type="button">Enviar</button>
                 </div>
             </form>
         </div>
