@@ -9,20 +9,18 @@
         body {
             font-family: Arial, sans-serif;
             text-align: center;
+            background-color: #23272a;
             color: #ffffff;
-            transition: color 0.3s ease;
-            /* Añadir el fondo animado */
-            background: linear-gradient(270deg, #ff005f, #ffb300);
-            background-size: 400% 400%;
-            animation: gradientAnimation 15s ease infinite;
+            overflow: hidden; /* Evita el desplazamiento por el fondo de partículas */
         }
-
-        @keyframes gradientAnimation {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1; /* Asegura que las partículas están detrás del contenido */
         }
-
         h1 {
             margin-top: 50px;
             animation: fadeIn 2s;
@@ -241,6 +239,9 @@
     </style>
 </head>
 <body>
+    <!-- Contenedor para las partículas -->
+    <div id="particles-js"></div>
+    
     <div class="header">
         <img src="https://imgur.com/iDq3OFg.png" alt="Logo" class="logo">
         <div class="white-line"></div>
@@ -262,10 +263,9 @@
         <h2>Comandos Disponibles</h2>
         <ul>
             <li>/play - Reproduce una canción</li>
-            <li>/stop - Detiene la música</li>
-            <li>/skip - Salta a la siguiente canción</li>
+            <li>/ban - Banea a un miembro</li>
+            <li>/kick - Expulsa a un miembro</li>
             <li>/help - Muestra la lista de comandos</li>
-            <li>/info - Muestra información sobre el bot</li>
         </ul>
     </div>
 
@@ -273,41 +273,69 @@
         <button class="support-btn" id="support-btn">Soporte</button>
         <div class="support-panel" id="support-panel">
             <h2>Soporte</h2>
-            <label for="name">Nombre:</label>
-            <input type="text" id="name" placeholder="Ingresa tu nombre">
-            <label for="issue">Descripción del problema:</label>
-            <textarea id="issue" rows="4" placeholder="Describe tu problema aquí..."></textarea>
-            <button type="submit">Enviar</button>
             <button id="close-btn">Cerrar</button>
+            <form id="support-form">
+                <label for="name">Nombre:</label>
+                <input type="text" id="name" required>
+                <label for="message">Mensaje:</label>
+                <textarea id="message" rows="4" required></textarea>
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="social-icons">
+        <a href="https://twitter.com" target="_blank">🐦</a>
+        <a href="https://discord.com" target="_blank">💬</a>
+        <a href="https://github.com" target="_blank">🐙</a>
+    </div>
+
+    <div class="testimonials">
+        <h2>Testimonios</h2>
+        <p>"EnergyBot ha transformado mi servidor en una comunidad activa y divertida!" - Usuario A</p>
+        <p>"Las funcionalidades son increíbles y el soporte es excepcional." - Usuario B</p>
+    </div>
+
+    <div class="faq">
+        <h2>Preguntas Frecuentes</h2>
+        <div class="faq-item">
+            <strong>¿Cómo invito a EnergyBot?</strong>
+            <p>Haz clic en el botón de invitar arriba y sigue las instrucciones.</p>
+        </div>
+        <div class="faq-item">
+            <strong>¿Qué comandos puedo usar?</strong>
+            <p>Puedes ver la lista de comandos haciendo clic en "Mostrar Comandos".</p>
         </div>
     </div>
 
     <footer>
-        <div class="social-icons">
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-discord"></i></a>
-            <a href="#"><i class="fab fa-facebook"></i></a>
-        </div>
-        <p>© 2024 EnergyBot. Todos los derechos reservados.</p>
+        <p>&copy; 2024 EnergyBot. Todos los derechos reservados.</p>
     </footer>
 
+    <!-- Scripts de Partículas -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
-        const toggleCommandsButton = document.getElementById('toggle-commands');
-        const commandsList = document.getElementById('commands-list');
-        const supportButton = document.getElementById('support-btn');
-        const supportPanel = document.getElementById('support-panel');
-        const closeButton = document.getElementById('close-btn');
-
-        toggleCommandsButton.addEventListener('click', () => {
-            commandsList.classList.toggle('show');
+        particlesJS.load('particles-js', 'https://raw.githubusercontent.com/VincentGarreau/particles.js/master/particles.json', function() {
+            console.log('callback - particles.js config loaded');
         });
 
-        supportButton.addEventListener('click', () => {
-            supportPanel.classList.toggle('open');
+        document.getElementById("toggle-commands").addEventListener("click", function() {
+            const commands = document.getElementById("commands-list");
+            commands.classList.toggle("show");
         });
 
-        closeButton.addEventListener('click', () => {
-            supportPanel.classList.remove('open');
+        document.getElementById("support-btn").addEventListener("click", function() {
+            document.getElementById("support-panel").classList.toggle("open");
+        });
+
+        document.getElementById("close-btn").addEventListener("click", function() {
+            document.getElementById("support-panel").classList.remove("open");
+        });
+
+        document.getElementById("support-form").addEventListener("submit", function(e) {
+            e.preventDefault();
+            alert("Mensaje enviado con éxito.");
+            document.getElementById("support-panel").classList.remove("open");
         });
     </script>
 </body>
