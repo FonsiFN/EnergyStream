@@ -11,6 +11,7 @@
             text-align: center;
             background-color: #23272a;
             color: #ffffff;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
         h1 {
             margin-top: 50px;
@@ -44,6 +45,7 @@
             background-color: #2c2f33;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
         }
         .bot-info h2 {
             color: #28a745;
@@ -73,10 +75,11 @@
             font-size: 18px;
             display: inline-block;
             margin-top: 10px;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.3s ease;
         }
         .invite-btn:hover {
             background-color: #218838;
+            transform: scale(1.1);
         }
         .commands-toggle {
             margin-top: 20px;
@@ -100,6 +103,7 @@
             margin-top: 50px;
             padding: 20px;
             background-color: #2c2f33;
+            transition: background-color 0.3s ease;
         }
         .social-icons {
             margin: 20px 0;
@@ -121,6 +125,7 @@
             background-color: #2c2f33;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
         }
         .testimonials h2, .faq h2 {
             color: #28a745;
@@ -143,6 +148,11 @@
             padding: 20px;
             box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
             z-index: 1000;
+            transition: transform 0.3s ease-in-out;
+            transform: translateX(100%);
+        }
+        .support-panel.open {
+            transform: translateX(0);
         }
         .support-panel h2 {
             color: #28a745;
@@ -198,6 +208,26 @@
             from { opacity: 0; }
             to { opacity: 1; }
         }
+        
+        /* Modo Claro */
+        .light-mode {
+            background-color: #f5f5f5;
+            color: #000000;
+        }
+        .light-mode .header {
+            background-color: #007bff;
+        }
+        .light-mode .bot-info {
+            background-color: #ffffff;
+            color: #000000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .light-mode footer, 
+        .light-mode .testimonials, 
+        .light-mode .faq {
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
     </style>
 </head>
 <body>
@@ -210,34 +240,35 @@
     <div class="bot-info">
         <h2>¿Qué es EnergyBot?</h2>
         <p>EnergyBot está diseñado para ayudar a gestionar servidores, proporcionar comandos útiles y hacer la experiencia de Discord más divertida y eficiente.</p>
-        <p>¡Invita a mi bot a tu servidor haciendo clic en el botón de abajo!</p>
-        <a href="https://discord.com/oauth2/authorize?client_id=1212433297674600488" class="invite-btn">Invitar Bot</a>
+        <p>¡Invita a EnergyBot ahora para aprovechar todas sus funcionalidades!</p>
+        <a href="#" class="invite-btn">Invitar Bot</a>
     </div>
 
     <div class="commands-toggle">
-        <button id="toggle-commands" class="toggle-btn">Comandos Principales</button>
+        <button id="toggle-commands" class="toggle-btn">Mostrar Comandos</button>
     </div>
-    
+
     <div class="commands" id="commands-list">
-        <h2>Comandos Principales</h2>
-        <p><strong>/help</strong> - Busca ayuda para resolver dudas/problemas.</p>
-        <p><strong>/setup-tickets</strong> - Crea un sistema de tickets muy completo.</p>
-        <p><strong>/8ball</strong> - Pregunta cosas al bot de cualquier tema.</p>
-        <p><strong>/clear</strong> - Borra un número determinado de mensajes.</p>
+        <h2>Comandos Disponibles</h2>
+        <ul>
+            <li>/play - Reproduce una canción</li>
+            <li>/ban - Banea a un miembro</li>
+            <li>/kick - Expulsa a un miembro</li>
+            <!-- Agrega más comandos aquí -->
+        </ul>
     </div>
 
     <div class="testimonials">
         <h2>Testimonios de Usuarios</h2>
-        <p><em>"¡El mejor bot que he usado! Facilita mucho la gestión del servidor."</em> - Usuario1</p>
-        <p><em>"Los comandos de música son increíbles y funcionan sin problemas."</em> - Usuario2</p>
-        <p><em>"Recomiendo totalmente este bot para cualquier servidor de Discord."</em> - Usuario3</p>
+        <p>"EnergyBot es increíble, ha mejorado la gestión de mi servidor." - Usuario 1</p>
+        <p>"No podría estar más feliz con las funciones de EnergyBot." - Usuario 2</p>
     </div>
 
     <div class="faq">
-        <h2>Preguntas Frecuentes (FAQ)</h2>
+        <h2>Preguntas Frecuentes</h2>
         <div class="faq-item">
-            <p><strong>¿Cómo puedo invitar el bot a mi servidor?</strong></p>
-            <p>Haz clic en el botón de "Invitar Bot" arriba y sigue las instrucciones en Discord para añadir el bot a tu servidor.</p>
+            <p><strong>¿Cómo invito a EnergyBot a mi servidor?</strong></p>
+            <p>Haz clic en el botón "Invitar Bot" para añadir EnergyBot a tu servidor.</p>
         </div>
         <div class="faq-item">
             <p><strong>¿El bot es gratuito?</strong></p>
@@ -285,30 +316,36 @@
         
         document.getElementById('support-btn').onclick = function() {
             clickSound.play();
-            document.getElementById('support-panel').style.display = 'block';
+            document.getElementById('support-panel').classList.toggle('open');
         };
 
         document.getElementById('close-btn').onclick = function() {
             clickSound.play();
-            document.getElementById('support-panel').style.display = 'none';
+            document.getElementById('support-panel').classList.remove('open');
         };
 
         document.getElementById('support-form').onsubmit = function(event) {
+            event.preventDefault();
             alert('¡Mensaje enviado con éxito!');
             clickSound.play();
-            document.getElementById('support-panel').style.display = 'none';
+            document.getElementById('support-panel').classList.remove('open');
         };
 
         document.getElementById('toggle-commands').onclick = function() {
             clickSound.play();
             const commandsList = document.getElementById('commands-list');
-            if (commandsList.classList.contains('show')) {
-                commandsList.classList.remove('show'); // Ocultar comandos
-            } else {
-                commandsList.classList.add('show'); // Mostrar comandos
-            }
+            commandsList.classList.toggle('show');
+        };
+
+        // Modo Claro/Oscuro
+        const toggleMode = document.createElement('button');
+        toggleMode.textContent = 'Modo Claro/Oscuro';
+        toggleMode.classList.add('toggle-btn');
+        document.body.appendChild(toggleMode);
+
+        toggleMode.onclick = function() {
+            document.body.classList.toggle('light-mode');
         };
     </script>
 </body>
 </html>
-
