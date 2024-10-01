@@ -42,11 +42,9 @@
             border: none;
             cursor: pointer;
             font-size: 1.1em;
-            position: absolute;
-            top: 20px;
-            right: 20px; /* Botón de soporte a la derecha */
             border-radius: 5px;
             transition: background-color 0.3s ease;
+            display: none; /* Ocultar inicialmente */
         }
         header nav button:hover {
             background-color: #d4ac0d;
@@ -54,7 +52,7 @@
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://via.placeholder.com/1920x1080') center/cover no-repeat;
+            background-color: #000; /* Cambiado a negro */
             height: 100vh;
             display: flex;
             justify-content: center;
@@ -228,9 +226,6 @@
     <!-- Header -->
     <header>
         <img src="https://imgur.com/iDq3OFg.png" alt="Logo" class="logo">
-        <nav>
-            <button id="support-btn">Soporte</button>
-        </nav>
     </header>
 
     <!-- Hero Section -->
@@ -275,6 +270,12 @@
             <li><strong>/unmute [usuario]</strong> - Quita el silencio a un usuario.</li>
             <li><strong>/info</strong> - Muestra información sobre el bot.</li>
         </ul>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact">
+        <h2>Contacto y Soporte</h2>
+        <button id="support-btn">Soporte</button> <!-- Botón de soporte aquí -->
     </section>
 
     <!-- Contact Form -->
