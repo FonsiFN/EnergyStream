@@ -292,18 +292,22 @@
 
     <script>
         // Función para obtener estadísticas del bot
-        async function updateBotStats() {
-            try {
-                const response = await fetch('http://localhost:3000/stats'); // Cambia a la URL correcta si es necesario
-                const data = await response.json();
-
-                document.getElementById('user-count').innerText = data.userCount || '0';
-                document.getElementById('server-count').innerText = data.serverCount || '0';
-                document.getElementById('command-count').innerText = data.commandCount || '0';
-            } catch (error) {
-                console.error('Error al obtener estadísticas:', error);
-            }
+       // Función para obtener estadísticas del bot
+async function updateBotStats() {
+    try {
+        const response = await fetch('http://localhost:3000/stats'); // Cambia a la URL correcta si es necesario
+        if (!response.ok) {
+            throw new Error('Error en la red: ' + response.statusText);
         }
+        const data = await response.json();
+        document.getElementById('user-count').innerText = data.userCount || '0';
+        document.getElementById('server-count').innerText = data.serverCount || '0';
+        document.getElementById('command-count').innerText = data.commandCount || '0';
+    } catch (error) {
+        console.error('Error al obtener estadísticas:', error);
+    }
+}
+
 
         // Mostrar y ocultar comandos
         document.getElementById('toggle-commands').addEventListener('click', function() {
