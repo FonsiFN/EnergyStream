@@ -63,6 +63,7 @@
             display: inline-block;
             margin-top: 10px;
             transition: background-color 0.3s ease;
+            border: none; /* Quitar borde del botón */
         }
         .invite-btn:hover {
             background-color: #218838;
@@ -172,6 +173,21 @@
         .support-btn:hover {
             background-color: #e0a800;
         }
+        .commands-toggle button {
+            padding: 15px 25px;
+            background-color: #28a745;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            display: inline-block;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+            border: none; /* Quitar borde del botón de comandos */
+        }
+        .commands-toggle button:hover {
+            background-color: #218838;
+        }
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
@@ -194,7 +210,7 @@
 
     <!-- Botón para mostrar comandos -->
     <div class="commands-toggle">
-        <button id="toggle-commands" class="invite-btn">Comandos Principales</button>
+        <button id="toggle-commands">Comandos Principales</button>
     </div>
     
     <div class="commands" id="commands-list">
