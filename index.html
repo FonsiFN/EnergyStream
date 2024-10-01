@@ -64,7 +64,7 @@
         /* Features Section */
         .features {
             padding: 50px 20px;
-            display: flex;
+            display: none; /* Inicialmente oculto */
             justify-content: space-around;
             background-color: #2c2f33;
         }
@@ -88,6 +88,7 @@
             padding: 50px 20px;
             text-align: center;
             background-color: #23272a;
+            display: none; /* Inicialmente oculto */
         }
         .contact h2 {
             color: #28a745;
@@ -126,6 +127,7 @@
         .faq {
             padding: 50px 20px;
             background-color: #2c2f33;
+            display: none; /* Inicialmente oculto */
         }
         .faq h2 {
             color: #28a745;
@@ -161,9 +163,9 @@
     <header>
         <img src="https://imgur.com/iDq3OFg.png" alt="Logo" class="logo">
         <nav>
-            <a href="#features">Características</a>
-            <a href="#support">Soporte</a>
-            <a href="#faq">FAQ</a>
+            <a href="#" onclick="showSection('features')">Características</a>
+            <a href="#" onclick="showSection('contact')">Soporte</a>
+            <a href="#" onclick="showSection('faq')">FAQ</a>
         </nav>
     </header>
 
@@ -192,7 +194,7 @@
     </section>
 
     <!-- Contact Section -->
-    <section class="contact" id="support">
+    <section class="contact" id="contact">
         <h2>Formulario de Soporte</h2>
         <form action="https://formspree.io/f/manwglze" method="POST">
             <label for="email">Correo Electrónico:</label>
@@ -228,13 +230,22 @@
     </footer>
 
     <script>
-        // Script para el FAQ desplegable
-        document.querySelectorAll('.faq-item h3').forEach(item => {
-            item.addEventListener('click', () => {
-                const answer = item.nextElementSibling;
-                answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+        // Función para mostrar solo la sección seleccionada
+        function showSection(sectionId) {
+            // Ocultar todas las secciones
+            document.querySelectorAll('section').forEach(section => {
+                section.style.display = 'none';
             });
+
+            // Mostrar la sección seleccionada
+            document.getElementById(sectionId).style.display = 'block';
+        }
+
+        // Mostrar la sección de características por defecto cuando se carga la página
+        document.addEventListener("DOMContentLoaded", () => {
+            showSection('features');
         });
     </script>
+
 </body>
 </html>
