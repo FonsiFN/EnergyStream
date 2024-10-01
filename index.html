@@ -6,222 +6,235 @@
     <title>EnergyBot - Tu Bot de Discord</title>
     <link rel="icon" href="https://imgur.com/iDq3OFg.png" type="image/png">
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
             background-color: #23272a;
-            color: #ffffff;
+            color: #fff;
+            line-height: 1.6;
         }
+        /* Header */
         header {
-            background-color: #ff0000;
-            padding: 20px;
+            background-color: #111;
+            padding: 20px 0;
             text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
         }
-        header h1 {
-            margin: 0;
-            font-size: 2.5em;
-            animation: fadeIn 2s;
+        header .logo {
+            height: 60px;
         }
-        .logo {
-            width: 100px;
-            margin-bottom: 10px;
+        header nav {
+            margin-top: 10px;
         }
-        nav {
-            margin-top: 20px;
-        }
-        nav a {
-            color: #ffffff;
-            margin: 0 15px;
+        header nav a {
+            color: #fff;
             text-decoration: none;
+            margin: 0 15px;
             font-size: 1.2em;
-            transition: color 0.3s;
         }
-        nav a:hover {
+        header nav a:hover {
             color: #28a745;
         }
+
+        /* Hero Section */
         .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://via.placeholder.com/1920x1080') center/cover no-repeat;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             text-align: center;
-            padding: 50px 20px;
+            color: #fff;
         }
-        .hero h2 {
-            color: #28a745;
-            font-size: 2em;
+        .hero h1 {
+            font-size: 4em;
+            margin-bottom: 20px;
         }
         .hero p {
-            font-size: 1.2em;
+            font-size: 1.5em;
         }
+
+        /* Features Section */
         .features {
+            padding: 50px 20px;
             display: flex;
             justify-content: space-around;
-            padding: 50px 20px;
+            background-color: #2c2f33;
         }
         .feature {
-            background-color: #2c2f33;
-            border-radius: 10px;
+            background-color: #1e2124;
             padding: 20px;
+            border-radius: 10px;
             width: 30%;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            transition: transform 0.2s;
-        }
-        .feature:hover {
-            transform: scale(1.05);
+            text-align: center;
         }
         .feature h3 {
             color: #28a745;
+            margin-bottom: 15px;
         }
-        .commands {
-            padding: 50px 20px;
-            text-align: center;
-        }
-        .commands h2 {
-            color: #28a745;
-        }
-        .commands p {
+        .feature p {
             font-size: 1.1em;
         }
+
+        /* Contact Section */
         .contact {
-            background-color: #2c2f33;
-            padding: 20px;
+            padding: 50px 20px;
             text-align: center;
+            background-color: #23272a;
         }
         .contact h2 {
             color: #28a745;
+            margin-bottom: 20px;
         }
         .contact form {
-            display: inline-block;
-            text-align: left;
-            margin-top: 20px;
-            width: 400px;
+            max-width: 600px;
+            margin: 0 auto;
         }
         .contact label {
             display: block;
-            margin: 10px 0 5px;
+            margin-bottom: 10px;
+            font-size: 1.2em;
         }
-        .contact input, .contact textarea {
+        .contact input,
+        .contact textarea {
             width: 100%;
             padding: 10px;
-            margin: 10px 0;
+            margin-bottom: 20px;
             border: none;
             border-radius: 5px;
-        }
-        .button-container {
-            display: flex;
-            justify-content: space-between;
         }
         .contact button {
             background-color: #28a745;
-            color: #ffffff;
+            color: #fff;
             padding: 10px 20px;
             border: none;
-            border-radius: 5px;
             cursor: pointer;
-            transition: background-color 0.3s;
+            font-size: 1.2em;
         }
         .contact button:hover {
             background-color: #218838;
         }
-        footer {
+
+        /* FAQ Section */
+        .faq {
+            padding: 50px 20px;
             background-color: #2c2f33;
+        }
+        .faq h2 {
+            color: #28a745;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .faq-item {
+            margin-bottom: 20px;
+        }
+        .faq-item h3 {
+            cursor: pointer;
+            color: #fff;
+        }
+        .faq-item p {
+            display: none;
+            margin-top: 10px;
+        }
+
+        /* Footer */
+        footer {
             padding: 20px;
             text-align: center;
+            background-color: #111;
         }
         footer p {
-            margin: 0;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            color: #888;
         }
     </style>
 </head>
 <body>
 
-<header>
-    <img src="https://imgur.com/iDq3OFg.png" alt="Logo" class="logo">
-    <h1>EnergyBot</h1>
-    <nav>
-        <a href="#features">Características</a>
-        <a href="#commands">Comandos</a>
-        <a href="#support">Soporte</a>
-        <a href="#faq">FAQ</a>
-    </nav>
-</header>
+    <!-- Header -->
+    <header>
+        <img src="https://imgur.com/iDq3OFg.png" alt="Logo" class="logo">
+        <nav>
+            <a href="#features">Características</a>
+            <a href="#support">Soporte</a>
+            <a href="#faq">FAQ</a>
+        </nav>
+    </header>
 
-<div class="hero">
-    <h2>Tu Bot de Discord</h2>
-    <p>EnergyBot está diseñado para ayudarte a gestionar tu servidor de Discord de manera eficiente y divertida.</p>
-</div>
-
-<section class="features" id="features">
-    <h2>Características</h2>
-    <div class="feature">
-        <h3>Gestión de Moderación</h3>
-        <p>EnergyBot incluye herramientas avanzadas de moderación que permiten gestionar usuarios, evitar spam y mantener el orden en tu servidor.</p>
-    </div>
-    <div class="feature">
-        <h3>Comandos Personalizables</h3>
-        <p>Crea y personaliza tus propios comandos para que se adapten a las necesidades de tu comunidad.</p>
-    </div>
-    <div class="feature">
-        <h3>Integraciones de Terceros</h3>
-        <p>Conéctate con otros servicios como Twitch y YouTube para notificar a tus miembros sobre nuevas transmisiones y videos.</p>
-    </div>
-</section>
-
-<section class="commands" id="commands">
-    <h2>Comandos Útiles</h2>
-    <p><strong>/setrole</strong> - Asigna un rol específico a un usuario rápidamente.</p>
-    <p><strong>/clearchat</strong> - Borra mensajes en un canal para mantenerlo limpio.</p>
-    <p><strong>/poll</strong> - Crea encuestas para obtener la opinión de los miembros de tu servidor.</p>
-    <p><strong>/welcome</strong> - Envía un mensaje de bienvenida a nuevos miembros en un canal específico.</p>
-</section>
-
-<section class="contact" id="support">
-    <h2>Formulario de Soporte</h2>
-    <form action="https://formspree.io/f/manwglze" method="POST" id="support-form">
-        <label for="email">Correo Electrónico (obligatorio):</label>
-        <input type="email" name="email" id="email" required placeholder="ejemplo@gmail.com">
-        <label for="message">Mensaje:</label>
-        <textarea name="message" id="message" required placeholder="Escribe tu mensaje aquí..."></textarea>
-        <div class="button-container">
-            <button type="submit">Enviar</button>
-            <button id="close-btn" type="button" onclick="closeForm()">Cerrar</button>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div>
+            <h1>Bienvenido a EnergyBot</h1>
+            <p>Gestiona tu servidor de Discord de manera eficiente</p>
         </div>
-    </form>
-</section>
+    </section>
 
-<section id="faq">
-    <h2>Preguntas Frecuentes</h2>
-    <div>
-        <h3>¿Cómo puedo invitar a EnergyBot a mi servidor?</h3>
-        <p>Utiliza el comando <strong>/invite</strong> y sigue el enlace proporcionado para invitar al bot a tu servidor.</p>
-    </div>
-    <div>
-        <h3>¿El bot es seguro y confiable?</h3>
-        <p>Sí, EnergyBot está diseñado con seguridad en mente y cumple con las normas de Discord para mantener tu servidor seguro.</p>
-    </div>
-    <div>
-        <h3>¿Puedo usar EnergyBot en varios servidores?</h3>
-        <p>¡Claro! Puedes invitar a EnergyBot a tantos servidores como desees.</p>
-    </div>
-    <div>
-        <h3>¿Cómo puedo obtener soporte adicional?</h3>
-        <p>Si necesitas ayuda, puedes llenar el formulario de soporte y nuestro equipo te responderá lo antes posible.</p>
-    </div>
-</section>
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="feature">
+            <h3>Gestión Eficiente</h3>
+            <p>Herramientas avanzadas de moderación para tu servidor.</p>
+        </div>
+        <div class="feature">
+            <h3>Automatización</h3>
+            <p>Automatiza tareas repetitivas y ahorra tiempo.</p>
+        </div>
+        <div class="feature">
+            <h3>Personalización</h3>
+            <p>Configura EnergyBot según las necesidades de tu comunidad.</p>
+        </div>
+    </section>
 
-<footer>
-    <p>&copy; 2024 EnergyBot. Todos los derechos reservados.</p>
-</footer>
+    <!-- Contact Section -->
+    <section class="contact" id="support">
+        <h2>Formulario de Soporte</h2>
+        <form action="https://formspree.io/f/manwglze" method="POST">
+            <label for="email">Correo Electrónico:</label>
+            <input type="email" id="email" name="email" required placeholder="ejemplo@gmail.com">
+            
+            <label for="message">Mensaje:</label>
+            <textarea id="message" name="message" required placeholder="Escribe tu mensaje aquí..."></textarea>
+            
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
 
-<script>
-    // Función para cerrar el formulario
-    function closeForm() {
-        document.getElementById('support-form').reset();
-    }
-</script>
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+        <h2>Preguntas Frecuentes</h2>
+        <div class="faq-item">
+            <h3>¿Cómo invitar a EnergyBot?</h3>
+            <p>Utiliza el comando <strong>/invite</strong> para obtener el enlace de invitación.</p>
+        </div>
+        <div class="faq-item">
+            <h3>¿Qué tipos de comandos están disponibles?</h3>
+            <p>EnergyBot ofrece comandos para moderación, información y más. Usa <strong>/help</strong> para ver la lista completa.</p>
+        </div>
+        <div class="faq-item">
+            <h3>¿Puedo personalizar EnergyBot?</h3>
+            <p>Sí, puedes ajustar la configuración del bot según tus preferencias.</p>
+        </div>
+    </section>
 
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 EnergyBot. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        // Script para el FAQ desplegable
+        document.querySelectorAll('.faq-item h3').forEach(item => {
+            item.addEventListener('click', () => {
+                const answer = item.nextElementSibling;
+                answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+            });
+        });
+    </script>
 </body>
 </html>
-
