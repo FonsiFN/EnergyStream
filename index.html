@@ -193,14 +193,14 @@
             to { opacity: 1; }
         }
         .stats {
-            margin-top: 20px;
+             margin-top: 20px;
             background-color: #2c2f33;
             padding: 10px; /* Reduce el padding */
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
             width: 30%; /* Ajusta el ancho al 30% */
-            margin-left: auto;  /* Centrando el cuadro */
-            margin-right: auto; /* Centrando el cuadro */
+        }
+        
         }
         .stats h2 {
             color: #28a745;
@@ -239,71 +239,123 @@
     
     <div class="commands" id="commands-list">
         <h2>Comandos Principales</h2>
-        <p><strong>/help</strong> - Muestra todos los comandos disponibles.</p>
-        <p><strong>/ping</strong> - Comprueba la latencia del bot.</p>
-        <p><strong>/info</strong> - Muestra información sobre el bot.</p>
-        <p><strong>/invite</strong> - Envía el enlace de invitación del bot.</p>
+        <p><strong>/help</strong> - Busca ayuda para resolver dudas/problemas.</p>
+        <p><strong>/setup-tickets</strong> - Crea un sistema de tickets muy completo.</p>
+        <p><strong>/8ball</strong> - Pregunta cosas al bot de cualquier tema.</p>
+        <p><strong>/clear</strong> - Borra un número determinado de mensajes.</p>
+    </div>
+
+    <div class="testimonials">
+        <h2>Testimonios de Usuarios</h2>
+        <p><em>"¡El mejor bot que he usado! Facilita mucho la gestión del servidor."</em> - Usuario1</p>
+        <p><em>"Los comandos de música son increíbles y funcionan sin problemas."</em> - Usuario2</p>
+        <p><em>"Recomiendo totalmente este bot para cualquier servidor de Discord."</em> - Usuario3</p>
+    </div>
+
+    <div class="faq">
+        <h2>Preguntas Frecuentes</h2>
+        <div class="faq-item">
+            <strong>¿Cómo puedo invitar al bot a mi servidor?</strong>
+            <p>Puedes invitar a EnergyBot haciendo clic en el botón de arriba.</p>
+        </div>
+        <div class="faq-item">
+            <strong>¿Qué tipos de comandos tiene?</strong>
+            <p>EnergyBot tiene comandos de utilidad, música y más. ¡Explora y pruébalos!</p>
+        </div>
+        <div class="faq-item">
+            <strong>¿Es gratuito?</strong>
+            <p>Sí, EnergyBot es completamente gratuito de usar.</p>
+        </div>
+    </div>
+
+    <div class="support-container">
+        <button id="support-btn" class="support-btn">Soporte</button>
+        <div id="support-panel" class="support-panel">
+            <h2>Formulario de Soporte</h2>
+            <form action="https://formspree.io/f/manwglze" method="POST" id="support-form">
+                <label for="email">Correo Electrónico (obligatorio):</label>
+                <input type="email" name="email" id="email" required placeholder="ejemplo@gmail.com">
+                <label for="message">Mensaje:</label>
+                <textarea name="message" id="message" required placeholder="Escribe tu mensaje aquí..."></textarea>
+                <div class="button-container">
+                    <button type="submit">Enviar</button>
+                    <button id="close-btn" type="button">Cerrar</button>
+            </div>
+        </div>
     </div>
 
     <footer>
-        <div class="social-icons">
-            <a href="https://twitter.com/tu_usuario" target="_blank">🐦</a>
-            <a href="https://discord.gg/tu_servidor" target="_blank">💬</a>
-            <a href="https://github.com/tu_usuario" target="_blank">🐱‍💻</a>
-        </div>
         <p>&copy; 2024 EnergyBot. Todos los derechos reservados.</p>
+        <div class="social-icons">
+            <a href="https://twitter.com/tu_usuario" target="_blank">Twitter</a>
+            <a href="https://github.com/tu_usuario" target="_blank">GitHub</a>
+            <a href="https://discord.com/invite/tu_invite" target="_blank">Discord</a>
+        </div>
     </footer>
 
-    <!-- Soporte -->
-    <div class="support-container">
-        <button class="support-btn" onclick="toggleSupportPanel()">Soporte</button>
-        <div class="support-panel" id="support-panel">
-            <h2>Contáctanos</h2>
-            <form id="support-form">
-                <label for="name">Nombre:</label>
-                <input type="text" id="name" required>
-                <label for="email">Email:</label>
-                <input type="email" id="email" required>
-                <label for="message">Mensaje:</label>
-                <textarea id="message" rows="4" required></textarea>
-                <div class="button-container">
-                    <button type="submit">Enviar</button>
-                    <button type="button" id="close-btn" onclick="toggleSupportPanel()">Cerrar</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
     <script>
-        // Mostrar estadísticas al cargar
-        window.onload = function() {
-            fetch('https://api.yourbot.com/stats') // Reemplaza con tu API
-                .then(response => response.json())
-                .then(data => {
-                    document.getElementById('user-count').textContent = data.users;
-                    document.getElementById('server-count').textContent = data.servers;
-                    document.getElementById('command-count').textContent = data.commands;
-                });
-        };
-
-        // Toggle de comandos
-        document.getElementById('toggle-commands').onclick = function() {
-            var commands = document.getElementById('commands-list');
-            commands.style.display = (commands.style.display === 'none' || commands.style.display === '') ? 'block' : 'none';
-        };
-
-        // Función para alternar el panel de soporte
-        function toggleSupportPanel() {
-            var panel = document.getElementById('support-panel');
-            panel.style.display = (panel.style.display === 'none' || panel.style.display === '') ? 'block' : 'none';
+        // Función para obtener estadísticas del bot
+       // Función para obtener estadísticas del bot
+async function updateBotStats() {
+    try {
+        const response = await fetch('http://localhost:3000/stats'); // Cambia a la URL correcta si es necesario
+        if (!response.ok) {
+            throw new Error('Error en la red: ' + response.statusText);
         }
+        const data = await response.json();
+        document.getElementById('user-count').innerText = data.userCount || '0';
+        document.getElementById('server-count').innerText = data.serverCount || '0';
+        document.getElementById('command-count').innerText = data.commandCount || '0';
+    } catch (error) {
+        console.error('Error al obtener estadísticas:', error);
+    }
+}
 
-        // Manejar el envío del formulario de soporte
-        document.getElementById('support-form').onsubmit = function(e) {
-            e.preventDefault();
-            alert('Gracias por tu mensaje, nos pondremos en contacto contigo pronto.');
-            toggleSupportPanel();
-        };
+
+        // Mostrar y ocultar comandos
+        document.getElementById('toggle-commands').addEventListener('click', function() {
+            const commands = document.getElementById('commands-list');
+            commands.style.display = commands.style.display === 'none' ? 'block' : 'none';
+        });
+
+        // Mostrar panel de soporte
+        document.getElementById('support-btn').addEventListener('click', function() {
+            document.getElementById('support-panel').style.display = 'block';
+        });
+
+        // Cerrar panel de soporte
+        document.getElementById('close-btn').addEventListener('click', function() {
+            document.getElementById('support-panel').style.display = 'none';
+        });
+
+        // Enviar mensaje de soporte
+        document.getElementById('support-submit').addEventListener('click', async function() {
+            const name = document.getElementById('support-name').value;
+            const email = document.getElementById('support-email').value;
+            const message = document.getElementById('support-message').value;
+
+            if (name && email && message) {
+                // Envía el mensaje de soporte a tu servidor
+                try {
+                    await fetch('http://localhost:3000/support', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ name, email, message })
+                    });
+                    alert('Mensaje enviado. ¡Gracias por tu consulta!');
+                    document.getElementById('support-panel').style.display = 'none';
+                } catch (error) {
+                    console.error('Error al enviar el mensaje:', error);
+                }
+            } else {
+                alert('Por favor, completa todos los campos.');
+            }
+        });
+
+        // Actualizar estadísticas al cargar la página
+        updateBotStats();
     </script>
 </body>
 </html>
