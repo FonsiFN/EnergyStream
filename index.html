@@ -30,26 +30,12 @@
         }
         header .logo {
             height: 60px;
-            float: left;
         }
         header nav {
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
+            margin-top: 10px;
+            position: relative;
         }
-        header nav a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 15px;
-            font-size: 1.2em;
-            transition: color 0.3s ease;
-        }
-        header nav a:hover {
-            color: #28a745;
-        }
-
-        /* Soporte Button */
-        #support-btn {
+        header nav button {
             background-color: #f1c40f;
             color: #000;
             padding: 10px 20px;
@@ -62,7 +48,7 @@
             border-radius: 5px;
             transition: background-color 0.3s ease;
         }
-        #support-btn:hover {
+        header nav button:hover {
             background-color: #d4ac0d;
         }
 
@@ -82,6 +68,28 @@
         }
         .hero p {
             font-size: 1.5em;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 50px 20px;
+            display: flex;
+            justify-content: space-around;
+            background-color: #2c2f33;
+        }
+        .feature {
+            background-color: #1e2124;
+            padding: 20px;
+            border-radius: 10px;
+            width: 30%;
+            text-align: center;
+        }
+        .feature h3 {
+            color: #28a745;
+            margin-bottom: 15px;
+        }
+        .feature p {
+            font-size: 1.1em;
         }
 
         /* Invite Section */
@@ -106,8 +114,39 @@
         .invite a:hover {
             background-color: #218838;
         }
-        .invite p {
-            margin-top: 20px;
+
+        /* Commands Section */
+        .commands {
+            padding: 50px 20px;
+            background-color: #2c2f33;
+            text-align: center;
+        }
+        .commands h2 {
+            color: #28a745;
+            margin-bottom: 20px;
+        }
+        .commands p {
+            font-size: 1.1em;
+        }
+        .commands ul {
+            list-style: none;
+        }
+        .commands ul li {
+            background-color: #1e2124;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 50px 20px;
+            text-align: center;
+            background-color: #23272a;
+        }
+        .contact h2 {
+            color: #28a745;
+            margin-bottom: 20px;
         }
 
         /* Contact Form (Hidden by default) */
@@ -199,6 +238,22 @@
         </div>
     </section>
 
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="feature">
+            <h3>Moderación Automática</h3>
+            <p>EnergyBot ofrece herramientas automáticas para moderar tu servidor, expulsar usuarios problemáticos y más.</p>
+        </div>
+        <div class="feature">
+            <h3>Integraciones Avanzadas</h3>
+            <p>EnergyBot se integra fácilmente con sistemas de música, juegos y otros servicios.</p>
+        </div>
+        <div class="feature">
+            <h3>Personalización Completa</h3>
+            <p>Ajusta el comportamiento del bot con comandos personalizados para adaptarse a tu comunidad.</p>
+        </div>
+    </section>
+
     <!-- Invite Section -->
     <section class="invite" id="invite">
         <h2>Invita a EnergyBot a tu Servidor</h2>
@@ -206,9 +261,22 @@
         <p>Haz clic en el enlace para añadir EnergyBot a tu servidor de Discord.</p>
     </section>
 
+    <!-- Commands Section -->
+    <section class="commands" id="commands">
+        <h2>Comandos Principales</h2>
+        <ul>
+            <li><strong>/help</strong> - Muestra todos los comandos disponibles.</li>
+            <li><strong>/kick [usuario]</strong> - Expulsa a un usuario del servidor.</li>
+            <li><strong>/ban [usuario]</strong> - Banea a un usuario.</li>
+            <li><strong>/mute [usuario]</strong> - Silencia a un usuario por un tiempo determinado.</li>
+            <li><strong>/unmute [usuario]</strong> - Quita el silencio a un usuario.</li>
+            <li><strong>/info</strong> - Muestra información sobre el bot.</li>
+        </ul>
+    </section>
+
     <!-- Contact Form -->
     <div class="contact-form" id="contact-form">
-        <h2>Formulario de Soporte</h2>
+        <h2>Contacto y Soporte</h2>
         <form action="https://formspree.io/f/manwglze" method="POST">
             <label for="email">Correo Electrónico:</label>
             <input type="email" id="email" name="email" required placeholder="ejemplo@gmail.com">
@@ -217,7 +285,7 @@
             <textarea id="message" name="message" required placeholder="Escribe tu mensaje aquí..."></textarea>
             
             <button type="submit" class="btn-green">Enviar</button>
-            <button type="button" class="btn-red" onclick="closeForm()">Cerrar</button>
+            <button type="button" class="btn-red" id="close-btn">Cerrar</button>
         </form>
     </div>
 
@@ -227,18 +295,20 @@
     </footer>
 
     <script>
+        // Mostrar el formulario de contacto
         const supportBtn = document.getElementById('support-btn');
         const contactForm = document.getElementById('contact-form');
+        const closeBtn = document.getElementById('close-btn');
 
-        supportBtn.addEventListener('click', function() {
+        supportBtn.addEventListener('click', () => {
             contactForm.style.display = 'block';
         });
 
-        function closeForm() {
+        // Cerrar el formulario de contacto
+        closeBtn.addEventListener('click', () => {
             contactForm.style.display = 'none';
-        }
+        });
     </script>
 
 </body>
 </html>
-
