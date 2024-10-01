@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EnergyBot - Tu Bot de Discord</title>
+    <title>EnergyBot - Información y Soporte</title>
     <link rel="icon" href="https://imgur.com/iDq3OFg.png" type="image/png">
     <style>
         * {
@@ -17,10 +17,11 @@
             color: #fff;
             line-height: 1.6;
         }
+
         /* Header */
         header {
             background-color: #111;
-            padding: 20px 0;
+            padding: 20px;
             text-align: center;
             position: fixed;
             width: 100%;
@@ -38,6 +39,7 @@
             text-decoration: none;
             margin: 0 15px;
             font-size: 1.2em;
+            transition: color 0.3s ease;
         }
         header nav a:hover {
             color: #28a745;
@@ -64,7 +66,7 @@
         /* Features Section */
         .features {
             padding: 50px 20px;
-            display: none; /* Inicialmente oculto */
+            display: flex;
             justify-content: space-around;
             background-color: #2c2f33;
         }
@@ -83,12 +85,57 @@
             font-size: 1.1em;
         }
 
+        /* Invite Section */
+        .invite {
+            padding: 50px 20px;
+            text-align: center;
+            background-color: #23272a;
+        }
+        .invite h2 {
+            color: #28a745;
+            margin-bottom: 20px;
+        }
+        .invite a {
+            background-color: #28a745;
+            color: #fff;
+            padding: 15px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1.2em;
+            transition: background-color 0.3s ease;
+        }
+        .invite a:hover {
+            background-color: #218838;
+        }
+
+        /* Commands Section */
+        .commands {
+            padding: 50px 20px;
+            background-color: #2c2f33;
+            text-align: center;
+        }
+        .commands h2 {
+            color: #28a745;
+            margin-bottom: 20px;
+        }
+        .commands p {
+            font-size: 1.1em;
+        }
+        .commands ul {
+            list-style: none;
+        }
+        .commands ul li {
+            background-color: #1e2124;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+
         /* Contact Section */
         .contact {
             padding: 50px 20px;
             text-align: center;
             background-color: #23272a;
-            display: none; /* Inicialmente oculto */
         }
         .contact h2 {
             color: #28a745;
@@ -123,29 +170,6 @@
             background-color: #218838;
         }
 
-        /* FAQ Section */
-        .faq {
-            padding: 50px 20px;
-            background-color: #2c2f33;
-            display: none; /* Inicialmente oculto */
-        }
-        .faq h2 {
-            color: #28a745;
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        .faq-item {
-            margin-bottom: 20px;
-        }
-        .faq-item h3 {
-            cursor: pointer;
-            color: #fff;
-        }
-        .faq-item p {
-            display: none;
-            margin-top: 10px;
-        }
-
         /* Footer */
         footer {
             padding: 20px;
@@ -163,9 +187,10 @@
     <header>
         <img src="https://imgur.com/iDq3OFg.png" alt="Logo" class="logo">
         <nav>
-            <a href="#" onclick="showSection('features')">Características</a>
-            <a href="#" onclick="showSection('contact')">Soporte</a>
-            <a href="#" onclick="showSection('faq')">FAQ</a>
+            <a href="#features">Características</a>
+            <a href="#invite">Invitar Bot</a>
+            <a href="#commands">Comandos</a>
+            <a href="#contact">Soporte</a>
         </nav>
     </header>
 
@@ -173,29 +198,49 @@
     <section class="hero">
         <div>
             <h1>Bienvenido a EnergyBot</h1>
-            <p>Gestiona tu servidor de Discord de manera eficiente</p>
+            <p>Gestiona tu servidor de Discord con las herramientas más avanzadas y fáciles de usar.</p>
         </div>
     </section>
 
     <!-- Features Section -->
     <section class="features" id="features">
         <div class="feature">
-            <h3>Gestión Eficiente</h3>
-            <p>Herramientas avanzadas de moderación para tu servidor.</p>
+            <h3>Moderación Automática</h3>
+            <p>EnergyBot ofrece herramientas automáticas para moderar tu servidor, expulsar usuarios problemáticos y más.</p>
         </div>
         <div class="feature">
-            <h3>Automatización</h3>
-            <p>Automatiza tareas repetitivas y ahorra tiempo.</p>
+            <h3>Integraciones Avanzadas</h3>
+            <p>EnergyBot se integra fácilmente con sistemas de música, juegos y otros servicios.</p>
         </div>
         <div class="feature">
-            <h3>Personalización</h3>
-            <p>Configura EnergyBot según las necesidades de tu comunidad.</p>
+            <h3>Personalización Completa</h3>
+            <p>Ajusta el comportamiento del bot con comandos personalizados para adaptarse a tu comunidad.</p>
         </div>
+    </section>
+
+    <!-- Invite Section -->
+    <section class="invite" id="invite">
+        <h2>Invita a EnergyBot a tu Servidor</h2>
+        <a href="https://discord.com/oauth2/authorize?client_id=TU_CLIENT_ID&scope=bot&permissions=8" target="_blank">Invitar Bot</a>
+        <p>Haz clic en el enlace para añadir EnergyBot a tu servidor de Discord.</p>
+    </section>
+
+    <!-- Commands Section -->
+    <section class="commands" id="commands">
+        <h2>Comandos Principales</h2>
+        <ul>
+            <li><strong>/help</strong> - Muestra todos los comandos disponibles.</li>
+            <li><strong>/kick [usuario]</strong> - Expulsa a un usuario del servidor.</li>
+            <li><strong>/ban [usuario]</strong> - Banea a un usuario.</li>
+            <li><strong>/mute [usuario]</strong> - Silencia a un usuario por un tiempo determinado.</li>
+            <li><strong>/unmute [usuario]</strong> - Quita el silencio a un usuario.</li>
+            <li><strong>/info</strong> - Muestra información sobre el bot.</li>
+        </ul>
     </section>
 
     <!-- Contact Section -->
     <section class="contact" id="contact">
-        <h2>Formulario de Soporte</h2>
+        <h2>Contacto y Soporte</h2>
         <form action="https://formspree.io/f/manwglze" method="POST">
             <label for="email">Correo Electrónico:</label>
             <input type="email" id="email" name="email" required placeholder="ejemplo@gmail.com">
@@ -207,45 +252,10 @@
         </form>
     </section>
 
-    <!-- FAQ Section -->
-    <section class="faq" id="faq">
-        <h2>Preguntas Frecuentes</h2>
-        <div class="faq-item">
-            <h3>¿Cómo invitar a EnergyBot?</h3>
-            <p>Utiliza el comando <strong>/invite</strong> para obtener el enlace de invitación.</p>
-        </div>
-        <div class="faq-item">
-            <h3>¿Qué tipos de comandos están disponibles?</h3>
-            <p>EnergyBot ofrece comandos para moderación, información y más. Usa <strong>/help</strong> para ver la lista completa.</p>
-        </div>
-        <div class="faq-item">
-            <h3>¿Puedo personalizar EnergyBot?</h3>
-            <p>Sí, puedes ajustar la configuración del bot según tus preferencias.</p>
-        </div>
-    </section>
-
     <!-- Footer -->
     <footer>
         <p>&copy; 2024 EnergyBot. Todos los derechos reservados.</p>
     </footer>
-
-    <script>
-        // Función para mostrar solo la sección seleccionada
-        function showSection(sectionId) {
-            // Ocultar todas las secciones
-            document.querySelectorAll('section').forEach(section => {
-                section.style.display = 'none';
-            });
-
-            // Mostrar la sección seleccionada
-            document.getElementById(sectionId).style.display = 'block';
-        }
-
-        // Mostrar la sección de características por defecto cuando se carga la página
-        document.addEventListener("DOMContentLoaded", () => {
-            showSection('features');
-        });
-    </script>
 
 </body>
 </html>
