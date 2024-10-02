@@ -27,27 +27,101 @@
             width: 100%;
             top: 0;
             z-index: 1000;
+            transition: background-color 0.5s;
+        }
+        header.scrolled {
+            background-color: #222;
         }
         header .logo {
             height: 60px;
         }
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.2em;
+            padding: 10px;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #28a745;
+        }
+
+        /* Dropdown Menu */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #333;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+        .dropdown-content a {
+            color: #fff;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .dropdown-content a:hover {
+            background-color: #575757;
+        }
 
         /* Hero Section */
         .hero {
-            background-color: #000; /* Cambiado a negro */
+            background-color: #000;
             height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
             text-align: center;
             color: #fff;
+            position: relative;
         }
         .hero h1 {
             font-size: 4em;
             margin-bottom: 20px;
+            animation: fadeIn 1.5s;
         }
         .hero p {
             font-size: 1.5em;
+            animation: fadeIn 2s;
+        }
+
+        /* Keyframes for animations */
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Carousel */
+        .carousel {
+            position: absolute;
+            bottom: 10%;
+            width: 80%;
+            display: flex;
+            overflow: hidden;
+            justify-content: center;
+        }
+        .carousel img {
+            width: 300px;
+            margin: 0 10px;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+        .carousel img:hover {
+            transform: scale(1.1);
         }
 
         /* Features Section */
@@ -72,6 +146,21 @@
             font-size: 1.1em;
         }
 
+        /* Buttons */
+        .btn {
+            background-color: #28a745;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            font-size: 1.2em;
+            border-radius: 50px;
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+        .btn:hover {
+            background-color: #218838;
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.5);
+        }
+
         /* Invite Section */
         .invite {
             padding: 50px 20px;
@@ -94,120 +183,6 @@
         .invite a:hover {
             background-color: #218838;
         }
-        .invite p {
-            margin-top: 20px; /* Separación añadida entre el texto y el botón */
-        }
-
-        /* Commands Section */
-        .commands {
-            padding: 50px 20px;
-            background-color: #2c2f33;
-            text-align: center;
-        }
-        .commands h2 {
-            color: #28a745;
-            margin-bottom: 20px;
-        }
-        .commands p {
-            font-size: 1.1em;
-        }
-        .commands ul {
-            list-style: none;
-        }
-        .commands ul li {
-            background-color: #1e2124;
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 5px;
-        }
-
-        /* Contact Section */
-        .contact {
-            padding: 50px 20px;
-            text-align: center;
-            background-color: #23272a;
-        }
-        .contact h2 {
-            color: #28a745;
-            margin-bottom: 20px;
-        }
-
-        /* Botón de soporte mejorado */
-        #support-btn {
-            background-color: #28a745;
-            color: #fff;
-            padding: 15px 40px;
-            border-radius: 50px;
-            border: none;
-            font-size: 1.5em;
-            cursor: pointer;
-            transition: background-color 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
-        }
-        #support-btn:hover {
-            background-color: #218838;
-            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.5);
-        }
-
-        /* Contact Form (Hidden by default) */
-        .contact-form {
-            display: none;
-            padding: 50px 20px;
-            text-align: center;
-            background-color: #2c2f33;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            max-width: 500px;
-            width: 100%;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-            border-radius: 10px;
-            z-index: 9999;
-        }
-        .contact-form h2 {
-            color: #28a745;
-            margin-bottom: 20px;
-        }
-        .contact-form form {
-            max-width: 100%;
-        }
-        .contact-form label {
-            display: block;
-            margin-bottom: 10px;
-            font-size: 1.2em;
-        }
-        .contact-form input,
-        .contact-form textarea {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 20px;
-            border: none;
-            border-radius: 5px;
-        }
-        .contact-form .btn-green {
-            background-color: #28a745;
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            cursor: pointer;
-            font-size: 1.2em;
-            margin-right: 10px;
-        }
-        .contact-form .btn-green:hover {
-            background-color: #218838;
-        }
-        .contact-form .btn-red {
-            background-color: #e74c3c;
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            cursor: pointer;
-            font-size: 1.2em;
-        }
-        .contact-form .btn-red:hover {
-            background-color: #c0392b;
-        }
 
         /* Footer */
         footer {
@@ -225,13 +200,32 @@
     <!-- Header -->
     <header>
         <img src="https://imgur.com/iDq3OFg.png" alt="Logo" class="logo">
+        <nav>
+            <a href="#description">Inicio</a>
+            <a href="#features">Características</a>
+            <a href="#invite">Invitar</a>
+            <div class="dropdown">
+                <a href="#">Más Opciones</a>
+                <div class="dropdown-content">
+                    <a href="#commands">Comandos</a>
+                    <a href="#contact">Soporte</a>
+                </div>
+            </div>
+        </nav>
     </header>
 
     <!-- Hero Section -->
     <section class="hero">
         <div>
             <h1>Bienvenido a EnergyBot</h1>
-            <p>Gestiona tu servidor de Discord con las herramientas más avanzadas y fáciles de usar.</p>
+            <p>Gestiona tu servidor de Discord con las herramientas más avanzadas.</p>
+        </div>
+
+        <!-- Carousel -->
+        <div class="carousel">
+            <img src="https://via.placeholder.com/300x200/28a745/fff?text=Feature+1" alt="Feature 1">
+            <img src="https://via.placeholder.com/300x200/23272a/fff?text=Feature+2" alt="Feature 2">
+            <img src="https://via.placeholder.com/300x200/28a745/fff?text=Feature+3" alt="Feature 3">
         </div>
     </section>
 
@@ -239,7 +233,7 @@
     <section class="description" id="description">
         <div style="text-align: center; padding: 30px 20px;">
             <h2>¿Qué es EnergyBot?</h2>
-            <p>EnergyBot es una solución avanzada para administrar servidores de Discord. Con características de moderación automática, integración con servicios populares y un sistema de comandos personalizables, te permite mantener el control y optimizar la gestión de tu comunidad.</p>
+            <p>EnergyBot es una solución avanzada para administrar servidores de Discord...</p>
         </div>
     </section>
 
@@ -262,43 +256,8 @@
     <!-- Invite Section -->
     <section class="invite" id="invite">
         <h2>Invita a EnergyBot a tu Servidor</h2>
-        <a href="https://discord.com/oauth2/authorize?client_id=TU_CLIENT_ID&scope=bot&permissions=8" target="_blank">Invitar Bot</a>
-        <p>Haz clic en el enlace para añadir EnergyBot a tu servidor de Discord.</p> <!-- Separación añadida aquí -->
+        <a href="https://discord.com/oauth2/authorize?client_id=TU_CLIENT_ID&scope=bot&permissions=8" target="_blank" class="btn">Invitar Bot</a>
     </section>
-
-    <!-- Commands Section -->
-    <section class="commands" id="commands">
-        <h2>Comandos Principales</h2>
-        <ul>
-            <li><strong>/help</strong> - Muestra todos los comandos disponibles.</li>
-            <li><strong>/kick [usuario]</strong> - Expulsa a un usuario del servidor.</li>
-            <li><strong>/ban [usuario]</strong> - Banea a un usuario.</li>
-            <li><strong>/mute [usuario]</strong> - Silencia a un usuario por un tiempo determinado.</li>
-            <li><strong>/unmute [usuario]</strong> - Quita el silencio a un usuario.</li>
-            <li><strong>/info</strong> - Muestra información sobre el bot.</li>
-        </ul>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact">
-        <h2>Contacto y Soporte</h2>
-        <button id="support-btn">Soporte</button> <!-- Botón de soporte mejorado -->
-    </section>
-
-    <!-- Contact Form -->
-    <div class="contact-form" id="contact-form">
-        <h2>Contacto y Soporte</h2>
-        <form action="https://formspree.io/f/manwglze" method="POST">
-            <label for="email">Correo Electrónico:</label>
-            <input type="email" id="email" name="email" required placeholder="ejemplo@gmail.com">
-            
-            <label for="message">Mensaje:</label>
-            <textarea id="message" name="message" required placeholder="Escribe tu mensaje aquí..."></textarea>
-            
-            <button type="submit" class="btn-green">Enviar</button>
-            <button type="button" class="btn-red" id="close-btn">Cerrar</button>
-        </form>
-    </div>
 
     <!-- Footer -->
     <footer>
@@ -306,20 +265,15 @@
     </footer>
 
     <script>
-        // Mostrar el formulario de contacto
-        const supportBtn = document.getElementById('support-btn');
-        const contactForm = document.getElementById('contact-form');
-        const closeBtn = document.getElementById('close-btn');
-
-        supportBtn.addEventListener('click', () => {
-            contactForm.style.display = 'block';
-        });
-
-        // Cerrar el formulario de contacto
-        closeBtn.addEventListener('click', () => {
-            contactForm.style.display = 'none';
+        // Cambiar el color del header cuando se hace scroll
+        const header = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
         });
     </script>
-
 </body>
 </html>
