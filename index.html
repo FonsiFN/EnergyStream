@@ -3,277 +3,299 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EnergyBot - Información y Soporte</title>
+    <title>EnergyBot</title>
     <link rel="icon" href="https://imgur.com/iDq3OFg.png" type="image/png">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
         body {
             font-family: Arial, sans-serif;
+            text-align: center;
             background-color: #23272a;
-            color: #fff;
-            line-height: 1.6;
+            color: #ffffff;
         }
-
-        /* Header */
-        header {
-            background-color: #111;
-            padding: 20px;
-            text-align: center;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            transition: background-color 0.5s;
-        }
-        header.scrolled {
-            background-color: #222;
-        }
-        header .logo {
-            height: 60px;
-        }
-        nav {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 1.2em;
-            padding: 10px;
-            transition: color 0.3s;
-        }
-        nav a:hover {
-            color: #28a745;
-        }
-
-        /* Dropdown Menu */
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #333;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-            z-index: 1;
-        }
-        .dropdown-content a {
-            color: #fff;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-            text-align: left;
-        }
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-        .dropdown-content a:hover {
-            background-color: #575757;
-        }
-
-        /* Hero Section */
-        .hero {
-            background-color: #000;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: #fff;
-            position: relative;
-        }
-        .hero h1 {
-            font-size: 4em;
-            margin-bottom: 20px;
-            animation: fadeIn 1.5s;
-        }
-        .hero p {
-            font-size: 1.5em;
+        h1 {
+            margin-top: 50px;
             animation: fadeIn 2s;
         }
-
-        /* Keyframes for animations */
-        @keyframes fadeIn {
-            0% { opacity: 0; transform: translateY(20px); }
-            100% { opacity: 1; transform: translateY(0); }
+        .header {
+            background-color: #ff0000;
+            padding: 20px 0;
+            position: relative;
         }
-
-        /* Carousel */
-        .carousel {
+        .logo {
+            width: 80px;
+        }
+        .white-line {
+            height: 2px;
+            background-color: #ffffff;
             position: absolute;
-            bottom: 10%;
-            width: 80%;
-            display: flex;
-            overflow: hidden;
-            justify-content: center;
+            bottom: 0;
+            left: 0;
+            right: 0;
         }
-        .carousel img {
-            width: 300px;
-            margin: 0 10px;
+        .bot-info {
+            margin: 20px auto;
+            padding: 20px;
+            width: 50%;
+            background-color: #2c2f33;
             border-radius: 10px;
-            transition: transform 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
-        .carousel img:hover {
-            transform: scale(1.1);
+        .bot-info h2 {
+            color: #28a745;
         }
-
-        /* Features Section */
-        .features {
-            padding: 50px 20px;
-            display: flex;
-            justify-content: space-around;
+        .bot-info p {
+            font-size: 18px;
+        }
+        .commands {
+            margin-top: 20px;
+            display: none;
+        }
+        .commands h2 {
+            color: #28a745;
+        }
+        .invite-btn {
+            padding: 15px 25px;
+            background-color: #28a745;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            display: inline-block;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+            border: none; /* Quitar borde del botón */
+        }
+        .invite-btn:hover {
+            background-color: #218838;
+        }
+        footer {
+            margin-top: 50px;
+            padding: 20px;
             background-color: #2c2f33;
         }
-        .feature {
-            background-color: #1e2124;
+        .social-icons {
+            margin: 20px 0;
+        }
+        .social-icons a {
+            margin: 0 10px;
+            color: #ffffff;
+            font-size: 24px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .social-icons a:hover {
+            color: #28a745;
+        }
+        .testimonials, .faq {
+            margin: 30px auto;
             padding: 20px;
+            width: 70%;
+            background-color: #2c2f33;
             border-radius: 10px;
-            width: 30%;
-            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
-        .feature h3 {
+        .testimonials h2, .faq h2 {
             color: #28a745;
-            margin-bottom: 15px;
         }
-        .feature p {
-            font-size: 1.1em;
+        .faq-item {
+            margin: 10px 0;
         }
-
-        /* Buttons */
-        .btn {
-            background-color: #28a745;
-            color: white;
-            padding: 15px 30px;
-            text-decoration: none;
-            font-size: 1.2em;
-            border-radius: 50px;
-            transition: background-color 0.3s, box-shadow 0.3s;
+        .support-container {
+            position: relative;
         }
-        .btn:hover {
-            background-color: #218838;
-            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.5);
-        }
-
-        /* Invite Section */
-        .invite {
-            padding: 50px 20px;
-            text-align: center;
-            background-color: #23272a;
-        }
-        .invite h2 {
-            color: #28a745;
-            margin-bottom: 20px;
-        }
-        .invite a {
-            background-color: #28a745;
-            color: #fff;
-            padding: 15px 30px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-size: 1.2em;
-            transition: background-color 0.3s ease;
-        }
-        .invite a:hover {
-            background-color: #218838;
-        }
-
-        /* Footer */
-        footer {
+        .support-panel {
+            display: none;
+            position: fixed;
+            right: 0;
+            top: 0;
+            width: 300px;
+            height: 100%;
+            background-color: #2c2f33;
+            color: #ffffff;
             padding: 20px;
-            text-align: center;
-            background-color: #111;
+            box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+            z-index: 1000;
         }
-        footer p {
-            color: #888;
+        .support-panel h2 {
+            color: #28a745;
+        }
+        .support-panel label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        .support-panel input,
+        .support-panel textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+        .support-panel .button-container {
+            display: flex;
+            justify-content: center;
+        }
+        .support-panel button {
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .support-panel button[type="submit"] {
+            background-color: #28a745;
+            color: #ffffff;
+        }
+        .support-panel button[type="submit"]:hover {
+            background-color: #218838;
+        }
+        .support-panel button#close-btn {
+            background-color: #dc3545;
+            color: #ffffff;
+        }
+        .support-panel button#close-btn:hover {
+            background-color: #c82333;
+        }
+        .support-panel button + button {
+            margin-left: 20px;
+        }
+        .support-btn {
+            padding: 15px 25px;
+            background-color: #ffc107;
+            color: #000000;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            display: inline-block;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+        }
+        .support-btn:hover {
+            background-color: #e0a800;
+        }
+        .commands-toggle button {
+            padding: 15px 25px;
+            background-color: #28a745;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            display: inline-block;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+            border: none; /* Quitar borde del botón de comandos */
+        }
+        .commands-toggle button:hover {
+            background-color: #218838;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
     </style>
 </head>
 <body>
-
-    <!-- Header -->
-    <header>
+    <div class="header">
         <img src="https://imgur.com/iDq3OFg.png" alt="Logo" class="logo">
-        <nav>
-            <a href="#description">Inicio</a>
-            <a href="#features">Características</a>
-            <a href="#invite">Invitar</a>
-            <div class="dropdown">
-                <a href="#">Más Opciones</a>
-                <div class="dropdown-content">
-                    <a href="#commands">Comandos</a>
-                    <a href="#contact">Soporte</a>
+        <div class="white-line"></div>
+    </div>
+    <h1>Bienvenido a la Página de EnergyBot</h1>
+
+    <div class="bot-info">
+        <h2>¿Qué es EnergyBot?</h2>
+        <p>EnergyBot está diseñado para ayudar a gestionar servidores, proporcionar comandos útiles y hacer la experiencia de Discord más divertida y eficiente.</p>
+        <p>¡Invita a mi bot a tu servidor haciendo clic en el botón de abajo!</p>
+        <a href="https://discord.com/oauth2/authorize?client_id=1212433297674600488" class="invite-btn">Invitar Bot</a>
+    </div>
+
+    <!-- Botón para mostrar comandos -->
+    <div class="commands-toggle">
+        <button id="toggle-commands">Comandos Principales</button>
+    </div>
+    
+    <div class="commands" id="commands-list">
+        <h2>Comandos Principales</h2>
+        <p><strong>/help</strong> - Busca ayuda para resolver dudas/problemas.</p>
+        <p><strong>/setup-tickets</strong> - Crea un sistema de tickets muy completo.</p>
+        <p><strong>/8ball</strong> - Pregunta cosas al bot de cualquier tema.</p>
+        <p><strong>/clear</strong> - Borra un número determinado de mensajes.</p>
+    </div>
+
+    <div class="testimonials">
+        <h2>Testimonios de Usuarios</h2>
+        <p><em>"¡El mejor bot que he usado! Facilita mucho la gestión del servidor."</em> - Usuario1</p>
+        <p><em>"Los comandos de música son increíbles y funcionan sin problemas."</em> - Usuario2</p>
+        <p><em>"Recomiendo totalmente este bot para cualquier servidor de Discord."</em> - Usuario3</p>
+    </div>
+
+    <div class="faq">
+        <h2>Preguntas Frecuentes (FAQ)</h2>
+        <div class="faq-item">
+            <p><strong>¿Cómo puedo invitar el bot a mi servidor?</strong></p>
+            <p>Haz clic en el botón de "Invitar Bot" arriba y sigue las instrucciones en Discord para añadir el bot a tu servidor.</p>
+        </div>
+        <div class="faq-item">
+            <p><strong>¿El bot es gratuito?</strong></p>
+            <p>Sí, EnergyBot es completamente gratuito. Sin embargo, siempre estamos abiertos a donaciones para mantener el proyecto activo.</p>
+        </div>
+        <div class="faq-item">
+            <p><strong>¿Cómo puedo obtener soporte?</strong></p>
+            <p>Únete a nuestro servidor de soporte haciendo clic en el botón "Unirse al Servidor" más abajo.</p>
+        </div>
+    </div>
+
+    <div class="support-container">
+        <button id="support-btn" class="support-btn">Soporte</button>
+        <div id="support-panel" class="support-panel">
+            <h2>Formulario de Soporte</h2>
+            <form action="https://formspree.io/f/manwglze" method="POST" id="support-form">
+                <label for="email">Correo Electrónico (obligatorio):</label>
+                <input type="email" name="email" id="email" required placeholder="ejemplo@gmail.com">
+                <label for="message">Mensaje:</label>
+                <textarea name="message" id="message" required placeholder="Escribe tu mensaje aquí..."></textarea>
+                <div class="button-container">
+                    <button type="submit">Enviar</button>
+                    <button id="close-btn" type="button">Cerrar</button>
                 </div>
-            </div>
-        </nav>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div>
-            <h1>Bienvenido a EnergyBot</h1>
-            <p>Gestiona tu servidor de Discord con las herramientas más avanzadas.</p>
+            </form>
         </div>
+    </div>
 
-        <!-- Carousel -->
-        <div class="carousel">
-            <img src="https://via.placeholder.com/300x200/28a745/fff?text=Feature+1" alt="Feature 1">
-            <img src="https://via.placeholder.com/300x200/23272a/fff?text=Feature+2" alt="Feature 2">
-            <img src="https://via.placeholder.com/300x200/28a745/fff?text=Feature+3" alt="Feature 3">
-        </div>
-    </section>
-
-    <!-- Descripción General -->
-    <section class="description" id="description">
-        <div style="text-align: center; padding: 30px 20px;">
-            <h2>¿Qué es EnergyBot?</h2>
-            <p>EnergyBot es una solución avanzada para administrar servidores de Discord...</p>
-        </div>
-    </section>
-
-    <!-- Features Section -->
-    <section class="features" id="features">
-        <div class="feature">
-            <h3>Moderación Automática</h3>
-            <p>EnergyBot ofrece herramientas automáticas para moderar tu servidor, expulsar usuarios problemáticos y más.</p>
-        </div>
-        <div class="feature">
-            <h3>Integraciones Avanzadas</h3>
-            <p>EnergyBot se integra fácilmente con sistemas de música, juegos y otros servicios.</p>
-        </div>
-        <div class="feature">
-            <h3>Personalización Completa</h3>
-            <p>Ajusta el comportamiento del bot con comandos personalizados para adaptarse a tu comunidad.</p>
-        </div>
-    </section>
-
-    <!-- Invite Section -->
-    <section class="invite" id="invite">
-        <h2>Invita a EnergyBot a tu Servidor</h2>
-        <a href="https://discord.com/oauth2/authorize?client_id=TU_CLIENT_ID&scope=bot&permissions=8" target="_blank" class="btn">Invitar Bot</a>
-    </section>
-
-    <!-- Footer -->
     <footer>
+        <p>Únete a nuestro servidor de Discord para más soporte y actualizaciones:</p>
+        <a href="https://discord.gg/fMnkZy92gf" class="invite-btn">Unirse al Servidor</a>
+
+        <div class="social-icons">
+            <a href="https://www.youtube.com/@fonsifn" target="_blank">Youtube</a>
+            <a href="https://www.twitch.tv/fonsifn_" target="_blank">Twitch</a>
+            <a href="https://discord.gg/TGz8bWTMmx" target="_blank">Comunidad</a>
+        </div>
+
         <p>&copy; 2024 EnergyBot. Todos los derechos reservados.</p>
     </footer>
 
     <script>
-        // Cambiar el color del header cuando se hace scroll
-        const header = document.querySelector('header');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
+        document.getElementById('support-btn').onclick = function() {
+            document.getElementById('support-panel').style.display = 'block';
+        };
+
+        document.getElementById('close-btn').onclick = function() {
+            document.getElementById('support-panel').style.display = 'none';
+        };
+
+        document.getElementById('support-form').onsubmit = function(event) {
+            alert('¡Mensaje enviado con éxito!');
+            document.getElementById('support-panel').style.display = 'none';
+        };
+
+        document.getElementById('toggle-commands').onclick = function() {
+            const commandsList = document.getElementById('commands-list');
+            if (commandsList.style.display === 'none' || commandsList.style.display === '') {
+                commandsList.style.display = 'block'; // Mostrar los comandos
             } else {
-                header.classList.remove('scrolled');
+                commandsList.style.display = 'none'; // Ocultar los comandos
             }
-        });
+        };
     </script>
 </body>
 </html>
