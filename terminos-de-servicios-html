@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Términos de Servicio - EnergyBot</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #23272a;
+            color: #ffffff;
+            margin: 0;
+            padding: 20px;
+        }
+        h1, h2 {
+            color: #28a745;
+        }
+        a {
+            color: #28a745;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            margin-top: 20px;
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Términos de Servicio de EnergyBot</h1>
+    <p>Al utilizar EnergyBot, aceptas cumplir con los siguientes términos y condiciones. Si no estás de acuerdo, por favor, no utilices el bot.</p>
+
+    <h2>1. Uso Aceptable</h2>
+    <p>No debes utilizar EnergyBot para actividades ilegales, acosar a otros usuarios, o cualquier otro uso que sea inapropiado o perjudicial.</p>
+
+    <h2>2. Responsabilidad</h2>
+    <p>EnergyBot se proporciona "tal cual". No nos hacemos responsables de ningún daño, pérdida o perjuicio que pueda surgir del uso del bot. Utiliza EnergyBot bajo tu propio riesgo.</p>
+
+    <h2>3. Modificaciones</h2>
+    <p>Nos reservamos el derecho de modificar o interrumpir EnergyBot en cualquier momento y sin previo aviso.</p>
+
+    <h2>4. Propiedad Intelectual</h2>
+    <p>Todos los derechos sobre EnergyBot y su contenido son propiedad de sus respectivos dueños. No se permite la reproducción total o parcial sin el consentimiento previo.</p>
+
+    <h2>5. Cambios a los Términos</h2>
+    <p>Podemos actualizar estos términos de servicio de vez en cuando. Te notificaremos sobre cambios importantes a través de nuestra página web o a través del bot.</p>
+
+    <h2>6. Contacto</h2>
+    <p>Si tienes preguntas sobre estos términos, por favor contáctanos a través de nuestro servidor de Discord o por correo electrónico.</p>
+
+    <footer>
+        <p>&copy; 2024 EnergyBot. Todos los derechos reservados.</p>
+        <a href="enlace_a_política_de_privacidad">Política de Privacidad</a>
+    </footer>
+</body>
+</html>
