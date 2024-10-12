@@ -272,11 +272,13 @@
         </div>
 
         <p>&copy; 2024 EnergyBot. Todos los derechos reservados.</p>
+        <p><a href="enlace_a_política_de_privacidad" style="color: #ffffff;">Política de Privacidad</a> | <a href="enlace_a_términos_de_servicio" style="color: #ffffff;">Términos de Servicio</a></p>
     </footer>
 
     <script>
         document.getElementById('support-btn').onclick = function() {
             document.getElementById('support-panel').style.display = 'block';
+            window.scrollTo({ top: 0, behavior: 'smooth' }); // Desplazarse hacia arriba
         };
 
         document.getElementById('close-btn').onclick = function() {
