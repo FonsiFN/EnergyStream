@@ -3,52 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio de Sesión Persistente</title>
+    <title>Dashboard de Bot</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
             margin: 0;
-            background-color: #f0f0f0;
+            padding: 0;
+            height: 100vh;
+            background-color: #36393f; /* Color de fondo de Discord */
+            color: #dcddde; /* Color de texto de Discord */
         }
+
         .login-container {
-            background-color: white;
+            background-color: #2f3136; /* Fondo oscuro para el login */
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             width: 300px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             text-align: center;
         }
+
         input[type="text"], input[type="password"] {
             width: 100%;
             padding: 10px;
             margin: 10px 0;
             border-radius: 4px;
-            border: 1px solid #ccc;
+            border: 1px solid #202225;
+            background-color: #292b2f;
+            color: #dcddde;
         }
+
         button {
             width: 100%;
             padding: 10px;
-            background-color: #007bff;
+            background-color: #7289da; /* Botón estilo Discord */
             color: white;
             border: none;
             border-radius: 4px;
             cursor: pointer;
         }
+
+        button:hover {
+            background-color: #5b6eae;
+        }
+
         .error {
-            color: red;
+            color: #f04747; /* Color de error de Discord */
             margin-top: 10px;
         }
+
         #protected-content {
             display: none;
             text-align: center;
+            padding: 20px;
+        }
+
+        .embed {
+            background-color: #2f3136;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 10px 0;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .embed-title {
+            color: #dcddde;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .embed-description {
+            color: #b9bbbe;
+            font-size: 14px;
+        }
+
+        .logout-button {
+            background-color: #f04747;
+            margin-top: 20px;
+        }
+
+        .logout-button:hover {
+            background-color: #e03e3e;
+        }
+
+        .top-right {
+            position: absolute;
+            top: 10px;
+            right: 10px;
         }
     </style>
 </head>
 <body>
+    <!-- Botón de Cerrar Sesión -->
+    <button class="top-right" onclick="logout()">Cerrar Sesión</button>
+
     <div class="login-container" id="login-container">
         <h2>Iniciar Sesión</h2>
         <input type="text" id="email" placeholder="Correo Electrónico">
@@ -58,9 +110,18 @@
     </div>
 
     <div id="protected-content">
-        <h2>Bienvenido</h2>
-        <p>Has iniciado sesión con éxito.</p>
-        <button onclick="logout()">Cerrar Sesión</button>
+        <h2>Bienvenido al Dashboard</h2>
+        <div class="embed">
+            <div class="embed-title">Información del Bot</div>
+            <div class="embed-description">Este es el panel de control de tu bot. Aquí puedes gestionar todas las funcionalidades.</div>
+        </div>
+
+        <div class="embed">
+            <div class="embed-title">Últimas Actualizaciones</div>
+            <div class="embed-description">Asegúrate de revisar las últimas actualizaciones y cambios que se han implementado en tu bot.</div>
+        </div>
+
+        <button class="logout-button" onclick="logout()">Cerrar Sesión</button>
     </div>
 
     <script>
@@ -120,4 +181,3 @@
     </script>
 </body>
 </html>
-
