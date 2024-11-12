@@ -64,11 +64,11 @@
     </div>
 
     <script>
-        // Simulación de usuarios registrados
-        const users = [
-            { email: "usuario1@example.com", password: "contraseña1" },
-            { email: "usuario2@example.com", password: "contraseña2" }
-        ];
+        // Solo un usuario permitido: FonsiFN
+        const validUser = {
+            email: "FonsiFN",
+            password: "Rijafusa932345"
+        };
 
         // Verificar si el usuario está guardado en localStorage
         function checkLoginStatus() {
@@ -91,10 +91,8 @@
             const password = document.getElementById("password").value;
             const errorMessage = document.getElementById("error-message");
 
-            // Buscar el usuario en la lista simulada
-            const user = users.find(user => user.email === email && user.password === password);
-
-            if (user) {
+            // Comprobar si las credenciales coinciden con el usuario válido
+            if (email === validUser.email && password === validUser.password) {
                 // Guardar el estado de inicio de sesión en localStorage
                 localStorage.setItem("loggedIn", "true");
 
@@ -122,3 +120,4 @@
     </script>
 </body>
 </html>
+
