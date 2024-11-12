@@ -90,12 +90,6 @@
             background-color: #e03e3e;
         }
 
-        .top-right {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-        }
-
         .control-buttons {
             display: flex;
             flex-direction: column;
@@ -108,9 +102,6 @@
     </style>
 </head>
 <body>
-    <!-- Botón de Cerrar Sesión -->
-    <button class="top-right" onclick="logout()" id="logout-button" style="display: none;">Cerrar Sesión</button>
-
     <div class="login-container" id="login-container">
         <h2>Iniciar Sesión</h2>
         <input type="text" id="email" placeholder="Correo Electrónico">
@@ -150,11 +141,9 @@
             if (loggedIn === "true") {
                 document.getElementById("login-container").style.display = "none";
                 document.getElementById("protected-content").style.display = "block";
-                document.getElementById("logout-button").style.display = "inline-block"; // Mostrar el botón de cerrar sesión
             } else {
                 document.getElementById("login-container").style.display = "block";
                 document.getElementById("protected-content").style.display = "none";
-                document.getElementById("logout-button").style.display = "none";
             }
         }
 
@@ -176,7 +165,6 @@
                 document.getElementById("login-container").style.display = "none";
                 document.getElementById("protected-content").style.display = "block";
                 errorMessage.textContent = "";
-                document.getElementById("logout-button").style.display = "inline-block"; // Mostrar el botón de cerrar sesión
             } else {
                 // Error de inicio de sesión
                 errorMessage.textContent = "Correo o contraseña incorrectos.";
@@ -193,7 +181,6 @@
             document.getElementById("protected-content").style.display = "none";
             document.getElementById("email").value = "";
             document.getElementById("password").value = "";
-            document.getElementById("logout-button").style.display = "none"; // Ocultar el botón de cerrar sesión
         }
 
         // Función para controlar el bot
