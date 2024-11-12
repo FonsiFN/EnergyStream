@@ -45,6 +45,7 @@
             border: none;
             border-radius: 4px;
             cursor: pointer;
+            margin: 5px 0;
         }
 
         button:hover {
@@ -83,7 +84,6 @@
 
         .logout-button {
             background-color: #f04747;
-            margin-top: 20px;
         }
 
         .logout-button:hover {
@@ -95,11 +95,21 @@
             top: 10px;
             right: 10px;
         }
+
+        .control-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .control-buttons button {
+            width: 200px;
+        }
     </style>
 </head>
 <body>
     <!-- Botón de Cerrar Sesión -->
-    <button class="top-right" onclick="logout()">Cerrar Sesión</button>
+    <button class="top-right" onclick="logout()" id="logout-button" style="display: none;">Cerrar Sesión</button>
 
     <div class="login-container" id="login-container">
         <h2>Iniciar Sesión</h2>
@@ -113,12 +123,13 @@
         <h2>Bienvenido al Dashboard</h2>
         <div class="embed">
             <div class="embed-title">Información del Bot</div>
-            <div class="embed-description">Este es el panel de control de tu bot. Aquí puedes gestionar todas las funcionalidades.</div>
+            <div class="embed-description">Este es el panel de control de tu bot. Aquí puedes gestionar las funcionalidades.</div>
         </div>
 
-        <div class="embed">
-            <div class="embed-title">Últimas Actualizaciones</div>
-            <div class="embed-description">Asegúrate de revisar las últimas actualizaciones y cambios que se han implementado en tu bot.</div>
+        <div class="control-buttons">
+            <button id="start-btn" onclick="controlBot('start')">Encender Bot</button>
+            <button id="stop-btn" onclick="controlBot('stop')">Apagar Bot</button>
+            <button id="restart-btn" onclick="controlBot('restart')">Reiniciar Bot</button>
         </div>
 
         <button class="logout-button" onclick="logout()">Cerrar Sesión</button>
@@ -131,15 +142,19 @@
             password: "Rijafusa932345"
         };
 
+        let botStatus = "off"; // Estado del bot
+
         // Verificar si el usuario está guardado en localStorage
         function checkLoginStatus() {
             const loggedIn = localStorage.getItem("loggedIn");
             if (loggedIn === "true") {
                 document.getElementById("login-container").style.display = "none";
                 document.getElementById("protected-content").style.display = "block";
+                document.getElementById("logout-button").style.display = "inline-block"; // Mostrar el botón de cerrar sesión
             } else {
                 document.getElementById("login-container").style.display = "block";
                 document.getElementById("protected-content").style.display = "none";
+                document.getElementById("logout-button").style.display = "none";
             }
         }
 
@@ -161,6 +176,7 @@
                 document.getElementById("login-container").style.display = "none";
                 document.getElementById("protected-content").style.display = "block";
                 errorMessage.textContent = "";
+                document.getElementById("logout-button").style.display = "inline-block"; // Mostrar el botón de cerrar sesión
             } else {
                 // Error de inicio de sesión
                 errorMessage.textContent = "Correo o contraseña incorrectos.";
@@ -177,6 +193,32 @@
             document.getElementById("protected-content").style.display = "none";
             document.getElementById("email").value = "";
             document.getElementById("password").value = "";
+            document.getElementById("logout-button").style.display = "none"; // Ocultar el botón de cerrar sesión
+        }
+
+        // Función para controlar el bot
+        function controlBot(action) {
+            const statusMessage = document.querySelector('.embed-description');
+
+            if (action === 'start') {
+                if (botStatus === "off") {
+                    botStatus = "on";
+                    statusMessage.textContent = "El bot ha sido encendido.";
+                    document.getElementById("start-btn").disabled = true; // Deshabilitar el botón de encender cuando el bot está encendido
+                }
+            } else if (action === 'stop') {
+                if (botStatus === "on") {
+                    botStatus = "off";
+                    statusMessage.textContent = "El bot ha sido apagado.";
+                    document.getElementById("start-btn").disabled = false; // Habilitar el botón de encender cuando el bot está apagado
+                }
+            } else if (action === 'restart') {
+                if (botStatus === "on") {
+                    botStatus = "off";
+                    statusMessage.textContent = "El bot ha sido reiniciado y está apagado. Ahora puedes encenderlo.";
+                    document.getElementById("start-btn").disabled = false; // Habilitar el botón de encender después del reinicio
+                }
+            }
         }
     </script>
 </body>
