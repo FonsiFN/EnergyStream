@@ -127,7 +127,6 @@
     </div>
 
     <script>
-        // Solo un usuario permitido: FonsiFN
         const validUser = {
             email: "FonsiFN",
             password: "Rijafusa932345"
@@ -135,7 +134,6 @@
 
         let botStatus = "off"; // Estado del bot
 
-        // Verificar si el usuario está guardado en localStorage
         function checkLoginStatus() {
             const loggedIn = localStorage.getItem("loggedIn");
             if (loggedIn === "true") {
@@ -147,66 +145,62 @@
             }
         }
 
-        // Llamar a la función al cargar la página
         checkLoginStatus();
 
-        // Función de inicio de sesión
         function login() {
             const email = document.getElementById("email").value;
             const password = document.getElementById("password").value;
             const errorMessage = document.getElementById("error-message");
 
-            // Comprobar si las credenciales coinciden con el usuario válido
             if (email === validUser.email && password === validUser.password) {
-                // Guardar el estado de inicio de sesión en localStorage
                 localStorage.setItem("loggedIn", "true");
-
-                // Mostrar contenido protegido
                 document.getElementById("login-container").style.display = "none";
                 document.getElementById("protected-content").style.display = "block";
                 errorMessage.textContent = "";
             } else {
-                // Error de inicio de sesión
                 errorMessage.textContent = "Correo o contraseña incorrectos.";
             }
         }
 
-        // Función de cierre de sesión
         function logout() {
-            // Borrar el estado de inicio de sesión de localStorage
             localStorage.removeItem("loggedIn");
-
-            // Mostrar el formulario de inicio de sesión
             document.getElementById("login-container").style.display = "block";
             document.getElementById("protected-content").style.display = "none";
             document.getElementById("email").value = "";
             document.getElementById("password").value = "";
         }
 
-        // Función para controlar el bot
-        function controlBot(action) {
+        async function controlBot(action) {
             const statusMessage = document.querySelector('.embed-description');
+            let url = '';
 
-            if (action === 'start') {
-                if (botStatus === "off") {
-                    botStatus = "on";
-                    statusMessage.textContent = "El bot ha sido encendido.";
-                    document.getElementById("start-btn").disabled = true; // Deshabilitar el botón de encender cuando el bot está encendido
+            if (action === 'start') url = '/start';
+            else if (action === 'stop') url = '/stop';
+            else if (action === 'restart') url = '/restart';
+
+            try {
+                const response = await fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+                const data = await response.json();
+                statusMessage.textContent = data.message;
+
+                if (action === 'start' && data.message.includes('encendido')) {
+                    document.getElementById("start-btn").disabled = true;
+                } else if (action === 'stop' && data.message.includes('apagado')) {
+                    document.getElementById("start-btn").disabled = false;
+                } else if (action === 'restart') {
+                    document.getElementById("start-btn").disabled = false;
                 }
-            } else if (action === 'stop') {
-                if (botStatus === "on") {
-                    botStatus = "off";
-                    statusMessage.textContent = "El bot ha sido apagado.";
-                    document.getElementById("start-btn").disabled = false; // Habilitar el botón de encender cuando el bot está apagado
-                }
-            } else if (action === 'restart') {
-                if (botStatus === "on") {
-                    botStatus = "off";
-                    statusMessage.textContent = "El bot ha sido reiniciado y está apagado. Ahora puedes encenderlo.";
-                    document.getElementById("start-btn").disabled = false; // Habilitar el botón de encender después del reinicio
-                }
+            } catch (error) {
+                console.error('Error:', error);
+                statusMessage.textContent = "Error al comunicar con el servidor.";
             }
         }
     </script>
 </body>
 </html>
+
