@@ -4,44 +4,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard de Bot</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         /* Estilos generales */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
             height: 100vh;
-            background-color: #36393f;
+            background: linear-gradient(135deg, #4c5562, #2f3136);
             color: #dcddde;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
+        /* Contenedor del Login */
         .login-container {
             background-color: #2f3136;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 300px;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            width: 350px;
             text-align: center;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        /* Animación de Fade In */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h2 {
+            color: #ffffff;
+            font-size: 24px;
+            margin-bottom: 20px;
         }
 
         input[type="text"], input[type="password"], button {
             width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 4px;
+            padding: 12px;
+            margin: 12px 0;
+            border-radius: 8px;
             border: 1px solid #202225;
             background-color: #292b2f;
             color: #dcddde;
+            font-size: 16px;
         }
 
         button {
             background-color: #7289da;
+            transition: background-color 0.3s ease;
             cursor: pointer;
-            margin: 5px 0;
         }
 
         button:hover {
@@ -56,43 +77,122 @@
         #protected-content {
             display: none;
             text-align: center;
-            padding: 20px;
+            padding: 30px;
+            width: 80%;
+            max-width: 800px;
+            animation: slideIn 0.5s ease-in-out;
         }
 
+        /* Animación para mostrar contenido protegido */
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Estilos del contenido protegido */
         .embed {
             background-color: #2f3136;
             padding: 20px;
             border-radius: 8px;
-            margin: 10px 0;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 20px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         }
 
         .embed-title {
             font-size: 20px;
             margin-bottom: 10px;
+            color: #ffffff;
         }
 
         .embed-description {
-            font-size: 14px;
+            font-size: 16px;
             color: #b9bbbe;
+        }
+
+        .control-buttons button {
+            padding: 12px;
+            background-color: #3ba55c;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin: 10px 0;
+        }
+
+        .control-buttons button:hover {
+            background-color: #2d9e4e;
         }
 
         .logout-button {
             background-color: #f04747;
+            transition: background-color 0.3s ease;
         }
 
         .logout-button:hover {
             background-color: #e03e3e;
         }
 
-        .control-buttons {
+        /* Barra lateral */
+        .sidebar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 80px;
+            height: 100%;
+            background-color: #23272a;
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            align-items: center;
+            padding-top: 20px;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar a {
+            color: white;
+            font-size: 24px;
+            margin: 20px 0;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .sidebar a:hover {
+            color: #7289da;
+        }
+
+        /* Estilos de la Barra de Progreso (botón de control del bot) */
+        .progress-bar-container {
+            margin-top: 20px;
+            background: #202225;
+            border-radius: 10px;
+            height: 10px;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            width: 0%;
+            background-color: #7289da;
+            height: 100%;
+            transition: width 2s ease-in-out;
         }
     </style>
 </head>
 <body>
+    <!-- Barra Lateral -->
+    <div class="sidebar">
+        <a href="#">🏠</a>
+        <a href="#">⚙️</a>
+        <a href="#">📊</a>
+    </div>
+
+    <!-- Contenedor de Login -->
     <div class="login-container" id="login-container">
         <h2>Iniciar Sesión</h2>
         <input type="text" id="email" placeholder="Correo Electrónico">
@@ -101,6 +201,7 @@
         <p class="error" id="error-message"></p>
     </div>
 
+    <!-- Contenido Protegido -->
     <div id="protected-content">
         <h2>Bienvenido al Dashboard</h2>
         <div class="embed">
@@ -115,6 +216,11 @@
         </div>
 
         <button class="logout-button" onclick="logout()">Cerrar Sesión</button>
+
+        <!-- Barra de Progreso -->
+        <div class="progress-bar-container">
+            <div class="progress-bar" id="progress-bar"></div>
+        </div>
     </div>
 
     <script>
@@ -170,15 +276,19 @@
                 const data = await response.json();
 
                 statusMessage.textContent = data.message;
+
                 if (action === 'start') {
                     botStatus = "on";
                     document.getElementById("start-btn").disabled = true;
+                    document.getElementById("progress-bar").style.width = "100%";  // Barra de progreso
                 } else if (action === 'stop') {
                     botStatus = "off";
                     document.getElementById("start-btn").disabled = false;
+                    document.getElementById("progress-bar").style.width = "0%";  // Barra de progreso
                 } else if (action === 'restart') {
                     botStatus = "off";
                     document.getElementById("start-btn").disabled = false;
+                    document.getElementById("progress-bar").style.width = "0%";  // Barra de progreso
                 }
             } catch (error) {
                 console.error('Error:', error);
