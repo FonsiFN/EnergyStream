@@ -182,14 +182,19 @@
             height: 100%;
             transition: width 2s ease-in-out;
         }
+
+        /* Estilos de las secciones de contenido */
+        .content-section {
+            display: none;
+        }
     </style>
 </head>
 <body>
     <!-- Barra Lateral -->
     <div class="sidebar">
-        <a href="#">🏠</a>
-        <a href="#">⚙️</a>
-        <a href="#">📊</a>
+        <a href="#" onclick="navigateTo('home')">🏠</a>
+        <a href="#" onclick="navigateTo('settings')">⚙️</a>
+        <a href="#" onclick="navigateTo('stats')">📊</a>
     </div>
 
     <!-- Contenedor de Login -->
@@ -203,24 +208,36 @@
 
     <!-- Contenido Protegido -->
     <div id="protected-content">
-        <h2>Bienvenido al Dashboard</h2>
-        <div class="embed">
-            <div class="embed-title">Información del Bot</div>
-            <div class="embed-description">Este es el panel de control de tu bot. Aquí puedes gestionar las funcionalidades.</div>
+        <!-- Sección de Inicio -->
+        <div id="home-content" class="content-section">
+            <h2>Inicio</h2>
+            <p>Bienvenido al dashboard de control.</p>
         </div>
-
-        <div class="control-buttons">
-            <button id="start-btn" onclick="controlBot('start')">Encender Bot</button>
-            <button id="stop-btn" onclick="controlBot('stop')">Apagar Bot</button>
-            <button id="restart-btn" onclick="controlBot('restart')">Reiniciar Bot</button>
+        
+        <!-- Sección de Configuración -->
+        <div id="settings-content" class="content-section">
+            <h2>Configuración</h2>
+            <div class="embed">
+                <div class="embed-title">Información del Bot</div>
+                <div class="embed-description">Este es el panel de control de tu bot. Aquí puedes gestionar las funcionalidades.</div>
+            </div>
+            <div class="control-buttons">
+                <button id="start-btn" onclick="controlBot('start')">Encender Bot</button>
+                <button id="stop-btn" onclick="controlBot('stop')">Apagar Bot</button>
+                <button id="restart-btn" onclick="controlBot('restart')">Reiniciar Bot</button>
+            </div>
+        </div>
+        
+        <!-- Sección de Estadísticas -->
+        <div id="stats-content" class="content-section">
+            <h2>Estadísticas</h2>
+            <p>Aquí puedes ver las estadísticas del bot.</p>
+            <div class="progress-bar-container">
+                <div class="progress-bar" id="progress-bar"></div>
+            </div>
         </div>
 
         <button class="logout-button" onclick="logout()">Cerrar Sesión</button>
-
-        <!-- Barra de Progreso -->
-        <div class="progress-bar-container">
-            <div class="progress-bar" id="progress-bar"></div>
-        </div>
     </div>
 
     <script>
@@ -265,36 +282,25 @@
             let url = `http://localhost:3000/${action}`;
 
             try {
-                const response = await fetch(url, {
-                    method: 'GET',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    }
-                });
-
-                if (!response.ok) throw new Error('Error en la solicitud al servidor');
-                const data = await response.json();
-
-                statusMessage.textContent = data.message;
-
-                if (action === 'start') {
-                    botStatus = "on";
-                    document.getElementById("start-btn").disabled = true;
-                    document.getElementById("progress-bar").style.width = "100%";  // Barra de progreso
-                } else if (action === 'stop') {
-                    botStatus = "off";
-                    document.getElementById("start-btn").disabled = false;
-                    document.getElementById("progress-bar").style.width = "0%";  // Barra de progreso
-                } else if (action === 'restart') {
-                    botStatus = "off";
-                    document.getElementById("start-btn").disabled = false;
-                    document.getElementById("progress-bar").style.width = "0%";  // Barra de progreso
+                const response = await fetch(url);
+                if (response.ok) {
+                    botStatus = action === "start" ? "on" : action === "stop" ? "off" : botStatus;
+                    statusMessage.textContent = `Bot ${action === "start" ? "encendido" : action === "stop" ? "apagado" : "reiniciado"} correctamente.`;
                 }
             } catch (error) {
-                console.error('Error:', error);
                 statusMessage.textContent = "Error al comunicar con el servidor.";
             }
         }
+
+        function navigateTo(section) {
+            document.getElementById("home-content").style.display = "none";
+            document.getElementById("settings-content").style.display = "none";
+            document.getElementById("stats-content").style.display = "none";
+
+            document.getElementById(`${section}-content`).style.display = "block";
+        }
+
+        window.onload = () => navigateTo("home");
     </script>
 </body>
 </html>
