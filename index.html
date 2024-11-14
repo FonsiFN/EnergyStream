@@ -166,23 +166,6 @@
             color: #7289da;
         }
 
-        /* Estilos de la Barra de Progreso (botón de control del bot) */
-        .progress-bar-container {
-            margin-top: 20px;
-            background: #202225;
-            border-radius: 10px;
-            height: 10px;
-            width: 100%;
-            overflow: hidden;
-        }
-
-        .progress-bar {
-            width: 0%;
-            background-color: #7289da;
-            height: 100%;
-            transition: width 2s ease-in-out;
-        }
-
         /* Estilos de las secciones de contenido */
         .content-section {
             display: none;
@@ -211,20 +194,22 @@
         <!-- Sección de Inicio -->
         <div id="home-content" class="content-section">
             <h2>Inicio</h2>
-            <p>Bienvenido al dashboard de control.</p>
+            <div class="control-buttons">
+                <button id="start-btn" onclick="controlBot('start')">Encender Bot</button>
+                <button id="stop-btn" onclick="controlBot('stop')">Apagar Bot</button>
+            </div>
+            <button class="logout-button" onclick="logout()">Cerrar Sesión</button>
         </div>
         
         <!-- Sección de Configuración -->
         <div id="settings-content" class="content-section">
             <h2>Configuración</h2>
             <div class="embed">
-                <div class="embed-title">Información del Bot</div>
-                <div class="embed-description">Este es el panel de control de tu bot. Aquí puedes gestionar las funcionalidades.</div>
-            </div>
-            <div class="control-buttons">
-                <button id="start-btn" onclick="controlBot('start')">Encender Bot</button>
-                <button id="stop-btn" onclick="controlBot('stop')">Apagar Bot</button>
-                <button id="restart-btn" onclick="controlBot('restart')">Reiniciar Bot</button>
+                <h3>Enviar Embed a Discord</h3>
+                <input type="text" id="embed-title" placeholder="Título del Embed">
+                <input type="text" id="embed-description" placeholder="Descripción del Embed">
+                <input type="text" id="channel-id" placeholder="ID del Canal de Discord">
+                <button onclick="sendEmbed()">Enviar Embed</button>
             </div>
         </div>
         
@@ -232,12 +217,7 @@
         <div id="stats-content" class="content-section">
             <h2>Estadísticas</h2>
             <p>Aquí puedes ver las estadísticas del bot.</p>
-            <div class="progress-bar-container">
-                <div class="progress-bar" id="progress-bar"></div>
-            </div>
         </div>
-
-        <button class="logout-button" onclick="logout()">Cerrar Sesión</button>
     </div>
 
     <script>
@@ -285,7 +265,7 @@
                 const response = await fetch(url);
                 if (response.ok) {
                     botStatus = action === "start" ? "on" : action === "stop" ? "off" : botStatus;
-                    statusMessage.textContent = `Bot ${action === "start" ? "encendido" : action === "stop" ? "apagado" : "reiniciado"} correctamente.`;
+                    statusMessage.textContent = `Bot ${action === "start" ? "encendido" : "apagado"} correctamente.`;
                 }
             } catch (error) {
                 statusMessage.textContent = "Error al comunicar con el servidor.";
@@ -298,6 +278,37 @@
             document.getElementById("stats-content").style.display = "none";
 
             document.getElementById(`${section}-content`).style.display = "block";
+        }
+
+        async function sendEmbed() {
+            const title = document.getElementById("embed-title").value;
+            const description = document.getElementById("embed-description").value;
+            const channelId = document.getElementById("channel-id").value;
+
+            const payload = {
+                title: title,
+                description: description,
+                color: 3447003 // Color azul Discord
+            };
+
+            try {
+                const response = await fetch(`http://localhost:3000/sendEmbed/${channelId}`, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(payload)
+                });
+
+                if (response.ok) {
+                    alert("Embed enviado correctamente.");
+                } else {
+                    alert("Error al enviar el embed.");
+                }
+            } catch (error) {
+                alert("Error al comunicar con el servidor.");
+                console.error(error);
+            }
         }
 
         window.onload = () => navigateTo("home");
