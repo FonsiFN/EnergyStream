@@ -19,126 +19,6 @@
             align-items: center;
         }
 
-        /* Contenedor del Login */
-        .login-container {
-            background-color: #2f3136;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            width: 350px;
-            text-align: center;
-            animation: fadeIn 0.5s ease-in-out;
-        }
-
-        /* Animación de Fade In */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        h2 {
-            color: #ffffff;
-            font-size: 24px;
-            margin-bottom: 20px;
-        }
-
-        input[type="text"], input[type="password"], button {
-            width: 100%;
-            padding: 12px;
-            margin: 12px 0;
-            border-radius: 8px;
-            border: 1px solid #202225;
-            background-color: #292b2f;
-            color: #dcddde;
-            font-size: 16px;
-        }
-
-        button {
-            background-color: #7289da;
-            transition: background-color 0.3s ease;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #5b6eae;
-        }
-
-        .error {
-            color: #f04747;
-            margin-top: 10px;
-        }
-
-        #protected-content {
-            display: none;
-            text-align: center;
-            padding: 30px;
-            width: 80%;
-            max-width: 800px;
-            animation: slideIn 0.5s ease-in-out;
-        }
-
-        /* Animación para mostrar contenido protegido */
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateX(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        /* Estilos del contenido protegido */
-        .embed {
-            background-color: #2f3136;
-            padding: 20px;
-            border-radius: 8px;
-            margin: 20px 0;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        }
-
-        .embed-title {
-            font-size: 20px;
-            margin-bottom: 10px;
-            color: #ffffff;
-        }
-
-        .embed-description {
-            font-size: 16px;
-            color: #b9bbbe;
-        }
-
-        .control-buttons button {
-            padding: 12px;
-            background-color: #3ba55c;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            margin: 10px 0;
-        }
-
-        .control-buttons button:hover {
-            background-color: #2d9e4e;
-        }
-
-        .logout-button {
-            background-color: #f04747;
-            transition: background-color 0.3s ease;
-        }
-
-        .logout-button:hover {
-            background-color: #e03e3e;
-        }
-
         /* Barra lateral */
         .sidebar {
             position: absolute;
@@ -166,127 +46,149 @@
             color: #7289da;
         }
 
-        /* Estilos de las secciones de contenido */
-        .content-section {
+        /* Contenido protegido */
+        #protected-content {
             display: none;
+            text-align: center;
+            padding: 30px;
+            width: 80%;
+            max-width: 800px;
+        }
+
+        /* Configuración */
+        .settings {
+            display: flex;
+            gap: 20px;
+        }
+
+        .settings-panel, .preview-panel {
+            background-color: #2f3136;
+            padding: 20px;
+            border-radius: 10px;
+            flex: 1;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .settings-panel h3, .preview-panel h3 {
+            color: #ffffff;
+        }
+
+        .settings-panel input[type="text"], 
+        .settings-panel input[type="file"], 
+        .settings-panel button {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border: 1px solid #202225;
+            background-color: #292b2f;
+            color: #dcddde;
+            font-size: 16px;
+        }
+
+        .settings-panel button {
+            background-color: #7289da;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .settings-panel button:hover {
+            background-color: #5b6eae;
+        }
+
+        .preview-panel {
+            text-align: center;
+        }
+
+        .bot-preview {
+            background-color: #23272a;
+            padding: 20px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .bot-preview img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        .bot-preview .bot-name {
+            font-size: 24px;
+            color: #ffffff;
+        }
+
+        .bot-preview .bot-description {
+            font-size: 16px;
+            color: #b9bbbe;
         }
     </style>
 </head>
 <body>
-    <!-- Barra Lateral -->
     <div class="sidebar">
         <a href="#" onclick="navigateTo('home')">🏠</a>
         <a href="#" onclick="navigateTo('settings')">⚙️</a>
-        <a href="#" onclick="navigateTo('stats')">📊</a>
     </div>
 
-    <!-- Contenedor de Login -->
-    <div class="login-container" id="login-container">
-        <h2>Iniciar Sesión</h2>
-        <input type="text" id="email" placeholder="Usuario">
-        <input type="password" id="password" placeholder="Contraseña">
-        <button onclick="login()">Iniciar Sesión</button>
-        <p class="error" id="error-message"></p>
-    </div>
-
-    <!-- Contenido Protegido -->
     <div id="protected-content">
-        <!-- Sección de Inicio -->
-        <div id="home-content" class="content-section">
-            <h2>Inicio</h2>
-            <div class="control-buttons">
-                <button id="start-btn" onclick="controlBot('start')">Encender Bot</button>
-                <button id="stop-btn" onclick="controlBot('stop')">Apagar Bot</button>
-            </div>
-            <button class="logout-button" onclick="logout()">Cerrar Sesión</button>
-        </div>
-        
-        <!-- Sección de Configuración -->
         <div id="settings-content" class="content-section">
-            <h2>Configuración</h2>
-            <div class="embed">
-                <h3>Enviar Embed a Discord</h3>
-                <input type="text" id="embed-title" placeholder="Título del Embed">
-                <input type="text" id="embed-description" placeholder="Descripción del Embed">
-                <input type="text" id="channel-id" placeholder="ID del Canal de Discord">
-                <button onclick="sendEmbed()">Enviar Embed</button>
+            <h2>Configuración del Bot</h2>
+            <div class="settings">
+                <!-- Panel de configuración -->
+                <div class="settings-panel">
+                    <h3>Personalizar Bot</h3>
+                    <input type="file" id="bot-logo" accept="image/*" onchange="updatePreview('logo')" />
+                    <input type="text" id="bot-name" placeholder="Nombre del Bot" oninput="updatePreview('name')" />
+                    <input type="text" id="bot-description" placeholder="Descripción del Bot" oninput="updatePreview('description')" />
+                </div>
+
+                <!-- Panel de vista previa -->
+                <div class="preview-panel">
+                    <h3>Vista previa</h3>
+                    <div class="bot-preview">
+                        <img id="preview-logo" src="https://via.placeholder.com/100" alt="Bot Logo" />
+                        <div class="bot-name" id="preview-name">Nombre del Bot</div>
+                        <div class="bot-description" id="preview-description">Descripción del Bot</div>
+                    </div>
+                </div>
             </div>
-        </div>
-        
-        <!-- Sección de Estadísticas -->
-        <div id="stats-content" class="content-section">
-            <h2>Estadísticas</h2>
-            <p>Aquí puedes ver las estadísticas del bot.</p>
         </div>
     </div>
 
     <script>
-        const validUser = {
-            email: "FonsiFN",
-            password: "ENERGY932345"
-        };
-
-        let botStatus = "off";
-
-        function checkLoginStatus() {
-            const loggedIn = localStorage.getItem("loggedIn");
-            document.getElementById("login-container").style.display = loggedIn === "true" ? "none" : "block";
-            document.getElementById("protected-content").style.display = loggedIn === "true" ? "block" : "none";
-        }
-
-        checkLoginStatus();
-
-        function login() {
-            const email = document.getElementById("email").value;
-            const password = document.getElementById("password").value;
-            const errorMessage = document.getElementById("error-message");
-
-            if (email === validUser.email && password === validUser.password) {
-                localStorage.setItem("loggedIn", "true");
-                checkLoginStatus();
-                errorMessage.textContent = "";
-            } else {
-                errorMessage.textContent = "Correo o contraseña incorrectos.";
-            }
-        }
-
-        function logout() {
-            localStorage.removeItem("loggedIn");
-            checkLoginStatus();
-            document.getElementById("email").value = "";
-            document.getElementById("password").value = "";
-        }
-
-        async function controlBot(action) {
-            const statusMessage = document.querySelector('.embed-description');
-            let url = `http://localhost:3000/${action}`;
-
-            try {
-                const response = await fetch(url);
-                if (response.ok) {
-                    botStatus = action === "start" ? "on" : action === "stop" ? "off" : botStatus;
-                    statusMessage.textContent = `Bot ${action === "start" ? "encendido" : "apagado"} correctamente.`;
-                }
-            } catch (error) {
-                statusMessage.textContent = "Error al comunicar con el servidor.";
-            }
-        }
-
         function navigateTo(section) {
-            document.getElementById("home-content").style.display = "none";
             document.getElementById("settings-content").style.display = "none";
-            document.getElementById("stats-content").style.display = "none";
             document.getElementById(section + "-content").style.display = "block";
         }
 
-        window.onload = () => navigateTo("home");
-
-        function sendEmbed() {
-            const title = document.getElementById("embed-title").value;
-            const description = document.getElementById("embed-description").value;
-            const channelId = document.getElementById("channel-id").value;
-            alert(`Embed enviado:\nTítulo: ${title}\nDescripción: ${description}\nCanal ID: ${channelId}`);
+        function updatePreview(field) {
+            if (field === "logo") {
+                const fileInput = document.getElementById("bot-logo");
+                const previewImage = document.getElementById("preview-logo");
+                const file = fileInput.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        previewImage.src = e.target.result;
+                    };
+                    reader.readAsDataURL(file);
+                }
+            } else if (field === "name") {
+                const nameInput = document.getElementById("bot-name");
+                const previewName = document.getElementById("preview-name");
+                previewName.textContent = nameInput.value || "Nombre del Bot";
+            } else if (field === "description") {
+                const descriptionInput = document.getElementById("bot-description");
+                const previewDescription = document.getElementById("preview-description");
+                previewDescription.textContent = descriptionInput.value || "Descripción del Bot";
+            }
         }
+
+        // Inicializar
+        navigateTo("settings");
     </script>
 </body>
 </html>
