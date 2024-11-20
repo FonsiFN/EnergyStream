@@ -15,135 +15,17 @@
             background: linear-gradient(135deg, #4c5562, #2f3136);
             color: #dcddde;
             display: flex;
-            justify-content: center;
-            align-items: center;
+            flex-direction: column;
         }
 
-        /* Contenedor del Login */
-        .login-container {
-            background-color: #2f3136;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            width: 350px;
-            text-align: center;
-            animation: fadeIn 0.5s ease-in-out;
-        }
-
-        /* Animación de Fade In */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        h2 {
-            color: #ffffff;
-            font-size: 24px;
-            margin-bottom: 20px;
-        }
-
-        input[type="text"], input[type="password"], button {
-            width: 100%;
-            padding: 12px;
-            margin: 12px 0;
-            border-radius: 8px;
-            border: 1px solid #202225;
-            background-color: #292b2f;
-            color: #dcddde;
-            font-size: 16px;
-        }
-
-        button {
-            background-color: #7289da;
-            transition: background-color 0.3s ease;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #5b6eae;
-        }
-
-        .error {
-            color: #f04747;
-            margin-top: 10px;
-        }
-
-        #protected-content {
-            display: none;
-            text-align: center;
-            padding: 30px;
-            width: 80%;
-            max-width: 800px;
-            animation: slideIn 0.5s ease-in-out;
-        }
-
-        /* Animación para mostrar contenido protegido */
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateX(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        /* Estilos del contenido protegido */
-        .embed {
-            background-color: #2f3136;
-            padding: 20px;
-            border-radius: 8px;
-            margin: 20px 0;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        }
-
-        .embed-title {
-            font-size: 20px;
-            margin-bottom: 10px;
-            color: #ffffff;
-        }
-
-        .embed-description {
-            font-size: 16px;
-            color: #b9bbbe;
-        }
-
-        .control-buttons button {
-            padding: 12px;
-            background-color: #3ba55c;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            margin: 10px 0;
-        }
-
-        .control-buttons button:hover {
-            background-color: #2d9e4e;
-        }
-
-        .logout-button {
-            background-color: #f04747;
-            transition: background-color 0.3s ease;
-        }
-
-        .logout-button:hover {
-            background-color: #e03e3e;
+        /* Contenedor principal */
+        #main-container {
+            display: flex;
+            flex: 1;
         }
 
         /* Barra lateral */
         .sidebar {
-            position: absolute;
-            top: 0;
-            left: 0;
             width: 80px;
             height: 100%;
             background-color: #23272a;
@@ -166,153 +48,131 @@
             color: #7289da;
         }
 
-        /* Estilos de las secciones de contenido */
-        .content-section {
+        /* Área principal */
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .editor {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            border-bottom: 2px solid #202225;
+        }
+
+        .terminal {
+            height: 150px;
+            background-color: #000000;
+            color: #00ff00;
+            font-family: monospace;
+            padding: 10px;
+            overflow-y: auto;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background-color: #292b2f;
+        }
+
+        input[type="file"] {
             display: none;
         }
 
-        img {
-            max-width: 100px;
-            max-height: 100px;
+        label {
+            background-color: #7289da;
+            padding: 10px 20px;
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        label:hover {
+            background-color: #5b6eae;
+        }
+
+        button {
+            background-color: #3ba55c;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #2d9e4e;
         }
     </style>
 </head>
 <body>
-    <!-- Barra Lateral -->
-    <div class="sidebar">
-        <a href="#" onclick="navigateTo('home')">🏠</a>
-        <a href="#" onclick="navigateTo('settings')">⚙️</a>
-        <a href="#" onclick="navigateTo('stats')">📊</a>
-        <a href="#" onclick="navigateTo('customize')">🎨</a>
-    </div>
-
-    <!-- Contenedor de Login -->
-    <div class="login-container" id="login-container">
-        <h2>Iniciar Sesión</h2>
-        <input type="text" id="email" placeholder="Usuario">
-        <input type="password" id="password" placeholder="Contraseña">
-        <button onclick="login()">Iniciar Sesión</button>
-        <p class="error" id="error-message"></p>
-    </div>
-
-    <!-- Contenido Protegido -->
-    <div id="protected-content">
-        <div id="home-content" class="content-section">
-            <h2>Inicio</h2>
-            <div class="control-buttons">
-                <button id="start-btn" onclick="controlBot('start')">Encender Bot</button>
-                <button id="stop-btn" onclick="controlBot('stop')">Apagar Bot</button>
-            </div>
-            <button class="logout-button" onclick="logout()">Cerrar Sesión</button>
+    <!-- Contenedor principal -->
+    <div id="main-container">
+        <!-- Barra lateral -->
+        <div class="sidebar">
+            <a href="#" onclick="navigateTo('editor')">📝</a>
+            <a href="#" onclick="navigateTo('dashboard')">🏠</a>
         </div>
 
-        <div id="settings-content" class="content-section">
-            <h2>Configuración</h2>
-            <div class="embed">
-                <h3>Enviar Embed a Discord</h3>
-                <input type="text" id="embed-title" placeholder="Título del Embed">
-                <input type="text" id="embed-description" placeholder="Descripción del Embed">
-                <input type="text" id="channel-id" placeholder="ID del Canal de Discord">
-                <button onclick="sendEmbed()">Enviar Embed</button>
+        <!-- Contenido principal -->
+        <div class="main-content">
+            <!-- Sección del editor -->
+            <div id="editor-section" class="content-section">
+                <div class="controls">
+                    <label for="file-upload">Subir Archivo</label>
+                    <input type="file" id="file-upload" onchange="handleFileUpload(event)">
+                    <button onclick="runBot()">Run</button>
+                </div>
+                <textarea id="code-editor" class="editor" placeholder="// Escribe tu código aquí"></textarea>
+                <div id="terminal" class="terminal">Terminal de salida...</div>
             </div>
-        </div>
 
-        <div id="stats-content" class="content-section">
-            <h2>Estadísticas</h2>
-            <p>Aquí puedes ver las estadísticas del bot.</p>
-        </div>
-
-        <div id="customize-content" class="content-section">
-            <h2>Personalización</h2>
-            <div class="embed">
-                <h3>Cambiar Logo y Descripción</h3>
-                <input type="text" id="logo-url" placeholder="URL del Logo">
-                <input type="text" id="custom-description" placeholder="Nueva Descripción">
-                <button onclick="updatePreview()">Actualizar Vista Previa</button>
-            </div>
-            <h3>Vista Previa</h3>
-            <div class="embed" id="preview">
-                <img id="preview-logo" src="" alt="Logo">
-                <p id="preview-description" style="color: #b9bbbe;">Aquí aparecerá la nueva descripción.</p>
+            <!-- Sección del Dashboard -->
+            <div id="dashboard-section" class="content-section" style="display:none;">
+                <h2>Dashboard</h2>
+                <p>Bienvenido al dashboard de tu bot.</p>
             </div>
         </div>
     </div>
 
     <script>
-        const validUser = {
-            email: "FonsiFN",
-            password: "ENERGY932345"
-        };
-
-        let botStatus = "off";
-
-        function checkLoginStatus() {
-            const loggedIn = localStorage.getItem("loggedIn");
-            document.getElementById("login-container").style.display = loggedIn === "true" ? "none" : "block";
-            document.getElementById("protected-content").style.display = loggedIn === "true" ? "block" : "none";
-        }
-
-        checkLoginStatus();
-
-        function login() {
-            const email = document.getElementById("email").value;
-            const password = document.getElementById("password").value;
-            const errorMessage = document.getElementById("error-message");
-
-            if (email === validUser.email && password === validUser.password) {
-                localStorage.setItem("loggedIn", "true");
-                checkLoginStatus();
-                errorMessage.textContent = "";
-            } else {
-                errorMessage.textContent = "Correo o contraseña incorrectos.";
-            }
-        }
-
-        function logout() {
-            localStorage.removeItem("loggedIn");
-            checkLoginStatus();
-            document.getElementById("email").value = "";
-            document.getElementById("password").value = "";
-        }
-
-        async function controlBot(action) {
-            const statusMessage = document.querySelector('.embed-description');
-            let url = `http://localhost:3000/${action}`;
-
-            try {
-                const response = await fetch(url);
-                if (response.ok) {
-                    botStatus = action === "start" ? "on" : action === "stop" ? "off" : botStatus;
-                    statusMessage.textContent = `Bot ${action === "start" ? "encendido" : "apagado"} correctamente.`;
-                }
-            } catch (error) {
-                statusMessage.textContent = "Error al comunicar con el servidor.";
-            }
-        }
-
+        // Manejar la navegación entre pestañas
         function navigateTo(section) {
             document.querySelectorAll('.content-section').forEach(sec => sec.style.display = "none");
-            document.getElementById(`${section}-content`).style.display = "block";
+            document.getElementById(`${section}-section`).style.display = "block";
         }
 
-        window.onload = () => navigateTo("home");
-
-        function sendEmbed() {
-            const title = document.getElementById("embed-title").value;
-            const description = document.getElementById("embed-description").value;
-            const channelId = document.getElementById("channel-id").value;
-            alert(`Embed enviado:\nTítulo: ${title}\nDescripción: ${description}\nCanal ID: ${channelId}`);
+        // Manejar la subida de archivos
+        function handleFileUpload(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById('code-editor').value = e.target.result;
+                };
+                reader.readAsText(file);
+            }
         }
 
-        function updatePreview() {
-            const logoUrl = document.getElementById("logo-url").value;
-            const description = document.getElementById("custom-description").value;
-            const previewLogo = document.getElementById("preview-logo");
-            const previewDescription = document.getElementById("preview-description");
-
-            previewLogo.src = logoUrl || "https://via.placeholder.com/100";
-            previewDescription.textContent = description || "Aquí aparecerá la nueva descripción.";
+        // Simular la ejecución del bot
+        function runBot() {
+            const terminal = document.getElementById('terminal');
+            terminal.textContent += "\n> Ejecutando el bot...";
+            setTimeout(() => {
+                terminal.textContent += "\n> Bot ejecutado correctamente.";
+                terminal.scrollTop = terminal.scrollHeight;
+            }, 2000);
         }
+
+        // Inicialización
+        window.onload = () => navigateTo("editor");
     </script>
 </body>
 </html>
