@@ -124,22 +124,35 @@
             margin-top: 0;
         }
 
-        .map-container img {
-            width: 100%;
-            border-radius: 10px;
-        }
-
-        .data-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .data-list li {
-            margin: 10px 0;
-            padding: 10px;
+        /* Barras de progreso */
+        .progress-bar {
+            margin: 15px 0;
             background: #0b0f17;
-            border-left: 5px solid #00ffcc;
+            border: 1px solid #00ffcc;
             border-radius: 5px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-bar div {
+            height: 20px;
+            background: #00ffcc;
+            transition: width 0.5s;
+        }
+
+        .progress-bar div:nth-child(2) {
+            background: #ffcc00;
+        }
+
+        .progress-bar div:nth-child(3) {
+            background: #ff5555;
+        }
+
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9em;
+            margin-top: 5px;
         }
     </style>
 </head>
@@ -162,6 +175,7 @@
             <h2>Sistema de Agentes</h2>
             <nav class="nav">
                 <button onclick="showSection('dashboard')">Panel</button>
+                <button onclick="showSection('stats')">Estadísticas</button>
                 <button onclick="showSection('map')">Mapa</button>
                 <button onclick="showSection('missions')">Misiones</button>
             </nav>
@@ -170,19 +184,32 @@
             <h3>Panel de Control</h3>
             <p>Bienvenido, agente. Consulta el estado de tus misiones y analiza datos estratégicos.</p>
         </div>
+        <div class="content" id="stats" style="display:none;">
+            <h3>Estadísticas</h3>
+            <p>Progreso de la misión:</p>
+            <div class="progress-bar">
+                <div style="width: 75%;"></div>
+            </div>
+            <div class="progress-label">
+                <span>Progreso:</span>
+                <span>75%</span>
+            </div>
+            <p>Precisión en combate:</p>
+            <div class="progress-bar">
+                <div style="width: 60%;"></div>
+            </div>
+            <div class="progress-label">
+                <span>Precisión:</span>
+                <span>60%</span>
+            </div>
+        </div>
         <div class="content" id="map" style="display:none;">
             <h3>Mapa Estratégico</h3>
-            <div class="map-container">
-                <img src="https://via.placeholder.com/1000x500" alt="Mapa estratégico">
-            </div>
+            <img src="https://via.placeholder.com/1000x500" alt="Mapa estratégico">
         </div>
         <div class="content" id="missions" style="display:none;">
             <h3>Misiones Activas</h3>
-            <ul class="data-list">
-                <li><strong>Objetivo:</strong> Recuperar información clasificada en la Zona 42.</li>
-                <li><strong>Estado:</strong> En progreso.</li>
-                <li><strong>Descripción:</strong> Sigue la ruta marcada en el mapa estratégico y evita ser detectado.</li>
-            </ul>
+            <p>Detalles de las misiones en curso:</p>
         </div>
     </div>
 
