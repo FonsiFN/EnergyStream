@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard de Fortnite</title>
+    <title>Inicio de Sesión - Fortnite</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         /* Estilos generales */
@@ -15,91 +15,38 @@
             background: linear-gradient(135deg, #4c5562, #2f3136);
             color: #dcddde;
             display: flex;
-            flex-direction: column;
-        }
-
-        /* Contenedor principal */
-        #main-container {
-            display: flex;
-            flex: 1;
-        }
-
-        /* Barra lateral */
-        .sidebar {
-            width: 80px;
-            height: 100%;
-            background-color: #23272a;
-            display: flex;
-            flex-direction: column;
+            justify-content: center;
             align-items: center;
-            padding-top: 20px;
-            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .sidebar a {
-            color: white;
-            font-size: 24px;
-            margin: 20px 0;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .sidebar a:hover {
-            color: #7289da;
-        }
-
-        /* Área principal */
-        .main-content {
-            flex: 1;
-            display: flex;
             flex-direction: column;
-            overflow: hidden;
         }
 
-        .editor, .dashboard {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            border-bottom: 2px solid #202225;
-            padding: 20px;
-        }
-
-        /* Terminal */
-        .terminal {
-            height: 150px;
-            background-color: #000000;
-            color: #00ff00;
-            font-family: monospace;
-            padding: 10px;
-            overflow-y: auto;
-        }
-
-        /* Estilos para la sección de Fortnite */
-        .fortnite-info {
-            background-color: #3c3f44;
-            padding: 20px;
+        /* Contenedor del formulario */
+        .login-container {
+            background-color: #23272a;
+            padding: 30px;
             border-radius: 10px;
-            margin-top: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 300px;
         }
 
-        .fortnite-info h3 {
+        h2 {
             color: #ff9900;
+            margin-bottom: 20px;
         }
 
-        .fortnite-info ul {
-            list-style-type: none;
-            padding-left: 20px;
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            background-color: #2f3136;
+            color: white;
+            font-size: 14px;
         }
 
-        .fortnite-info li {
-            margin-bottom: 10px;
-        }
-
-        .map-container {
-            margin-top: 20px;
-        }
-
-        /* Estilos de los botones */
         button {
             background-color: #3ba55c;
             color: white;
@@ -113,92 +60,109 @@
         button:hover {
             background-color: #2d9e4e;
         }
+
+        .error-message {
+            color: #ff5555;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        /* Sección de contenido después de iniciar sesión */
+        .content-container {
+            display: none;
+            text-align: center;
+            padding: 20px;
+            background-color: #23272a;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 1000px;
+            margin-top: 20px;
+        }
+
+        .content-container h3 {
+            color: #ff9900;
+        }
+
+        .content-container ul {
+            list-style-type: none;
+            padding-left: 20px;
+        }
+
+        .content-container li {
+            margin-bottom: 10px;
+            color: white;
+        }
+
+        .map-container {
+            margin-top: 20px;
+        }
+
+        a {
+            color: #7289da;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
-    <!-- Contenedor principal -->
-    <div id="main-container">
-        <!-- Barra lateral -->
-        <div class="sidebar">
-            <a href="#" onclick="navigateTo('editor')">📝</a>
-            <a href="#" onclick="navigateTo('dashboard')">🏠</a>
+
+    <!-- Contenedor del formulario de inicio de sesión -->
+    <div class="login-container">
+        <h2>Iniciar Sesión</h2>
+        <form id="login-form">
+            <input type="text" id="username" placeholder="Nombre de usuario" required>
+            <input type="password" id="password" placeholder="Contraseña" required>
+            <button type="submit">Iniciar Sesión</button>
+        </form>
+        <div id="error-message" class="error-message" style="display:none;">Credenciales incorrectas. Intenta de nuevo.</div>
+    </div>
+
+    <!-- Contenido después de iniciar sesión -->
+    <div class="content-container" id="content-container">
+        <h3>Bienvenido a la Guía de Fortnite</h3>
+        <p>Aquí encontrarás recursos y consejos para mejorar rápidamente en Fortnite.</p>
+
+        <div>
+            <h4>Drop Maps</h4>
+            <div class="map-container">
+                <p>Visita estos mapas de drop spots populares para mejorar tu juego:</p>
+                <a href="https://fortnite.gg/maps" target="_blank">Fortnite.gg - Mapas de drops</a><br>
+                <a href="https://dropmaps.com" target="_blank">DropMaps - Mapas de ubicación</a>
+            </div>
         </div>
 
-        <!-- Contenido principal -->
-        <div class="main-content">
-            <!-- Sección del editor -->
-            <div id="editor-section" class="content-section">
-                <div class="controls">
-                    <label for="file-upload">Subir Archivo</label>
-                    <input type="file" id="file-upload" onchange="handleFileUpload(event)">
-                    <button onclick="runBot()">Run</button>
-                </div>
-                <textarea id="code-editor" class="editor" placeholder="// Escribe tu código aquí"></textarea>
-                <div id="terminal" class="terminal">Terminal de salida...</div>
-            </div>
-
-            <!-- Sección del Dashboard con tips de Fortnite -->
-            <div id="dashboard-section" class="content-section" style="display:none;">
-                <h2>Bienvenido al Dashboard</h2>
-                <p>Mejora tus habilidades en Fortnite con estos consejos y mapas:</p>
-                
-                <div class="fortnite-info">
-                    <h3>Consejos de jugadores profesionales:</h3>
-                    <ul>
-                        <li><strong>Controla tu altura:</strong> Siempre es mejor estar en una posición más alta que tu enemigo.</li>
-                        <li><strong>Construcción rápida:</strong> Aprende a construir rampas y paredes rápidamente para protegerte.</li>
-                        <li><strong>Ubicación del mapa:</strong> Evita caer en lugares muy concurridos. Busca zonas con buen loot pero alejadas del centro.</li>
-                    </ul>
-                    
-                    <h3>Mapas de Drop Spots:</h3>
-                    <div class="map-container">
-                        <p>Visita estos mapas de drop spots populares:</p>
-                        <a href="https://fortnite.gg/maps" target="_blank">Fortnite.gg - Mapas de drops</a><br>
-                        <a href="https://dropmaps.com" target="_blank">DropMaps - Mapas de ubicación</a>
-                    </div>
-
-                    <h3>Spots recomendados:</h3>
-                    <ul>
-                        <li><strong>Colina Solitaria:</strong> Perfecto para loot de calidad sin mucha competencia.</li>
-                        <li><strong>Frenesí Fragmentado:</strong> Muchos cofres y buena cobertura.</li>
-                        <li><strong>Ciudad Comercio:</strong> Ideal para un combate temprano con gran loot.</li>
-                    </ul>
-                </div>
-            </div>
+        <div>
+            <h4>Consejos para mejorar en Fortnite:</h4>
+            <ul>
+                <li><strong>Aprende a construir rápido:</strong> La construcción es clave para protegerte y ganar ventajas sobre tus enemigos.</li>
+                <li><strong>Gestiona tu loot:</strong> Siempre prioriza tener materiales, curaciones y armas de largo alcance.</li>
+                <li><strong>Controla el ritmo del juego:</strong> Mantén siempre un ojo en el círculo y planifica tus movimientos.</li>
+            </ul>
         </div>
     </div>
 
     <script>
-        // Manejar la navegación entre pestañas
-        function navigateTo(section) {
-            document.querySelectorAll('.content-section').forEach(sec => sec.style.display = "none");
-            document.getElementById(`${section}-section`).style.display = "block";
-        }
+        // Manejar el envío del formulario de inicio de sesión
+        document.getElementById('login-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
 
-        // Manejar la subida de archivos
-        function handleFileUpload(event) {
-            const file = event.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    document.getElementById('code-editor').value = e.target.result;
-                };
-                reader.readAsText(file);
+            // Lógica de autenticación (puedes reemplazarla con una API real)
+            if (username === "usuario" && password === "contraseña") {
+                // Mostrar contenido después de iniciar sesión
+                document.querySelector('.login-container').style.display = "none";
+                document.getElementById('content-container').style.display = "block";
+            } else {
+                document.getElementById('error-message').style.display = "block"; // Mostrar mensaje de error
             }
-        }
-
-        // Simular la ejecución del bot
-        function runBot() {
-            const terminal = document.getElementById('terminal');
-            terminal.textContent += "\n> Ejecutando el bot...";
-            setTimeout(() => {
-                terminal.textContent += "\n> Bot ejecutado correctamente.";
-                terminal.scrollTop = terminal.scrollHeight;
-            }, 2000);
-        }
-
-        // Inicialización
-        window.onload = () => navigateTo("editor");
+        });
     </script>
+
 </body>
 </html>
