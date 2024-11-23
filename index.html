@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard de Bot</title>
+    <title>Dashboard de Fortnite</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         /* Estilos generales */
@@ -56,13 +56,15 @@
             overflow: hidden;
         }
 
-        .editor {
+        .editor, .dashboard {
             flex: 1;
             display: flex;
             flex-direction: column;
             border-bottom: 2px solid #202225;
+            padding: 20px;
         }
 
+        /* Terminal */
         .terminal {
             height: 150px;
             background-color: #000000;
@@ -72,31 +74,32 @@
             overflow-y: auto;
         }
 
-        .controls {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px;
-            background-color: #292b2f;
+        /* Estilos para la sección de Fortnite */
+        .fortnite-info {
+            background-color: #3c3f44;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
         }
 
-        input[type="file"] {
-            display: none;
+        .fortnite-info h3 {
+            color: #ff9900;
         }
 
-        label {
-            background-color: #7289da;
-            padding: 10px 20px;
-            color: white;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
+        .fortnite-info ul {
+            list-style-type: none;
+            padding-left: 20px;
         }
 
-        label:hover {
-            background-color: #5b6eae;
+        .fortnite-info li {
+            margin-bottom: 10px;
         }
 
+        .map-container {
+            margin-top: 20px;
+        }
+
+        /* Estilos de los botones */
         button {
             background-color: #3ba55c;
             color: white;
@@ -134,10 +137,33 @@
                 <div id="terminal" class="terminal">Terminal de salida...</div>
             </div>
 
-            <!-- Sección del Dashboard -->
+            <!-- Sección del Dashboard con tips de Fortnite -->
             <div id="dashboard-section" class="content-section" style="display:none;">
-                <h2>Dashboard</h2>
-                <p>Bienvenido al dashboard de tu bot.</p>
+                <h2>Bienvenido al Dashboard</h2>
+                <p>Mejora tus habilidades en Fortnite con estos consejos y mapas:</p>
+                
+                <div class="fortnite-info">
+                    <h3>Consejos de jugadores profesionales:</h3>
+                    <ul>
+                        <li><strong>Controla tu altura:</strong> Siempre es mejor estar en una posición más alta que tu enemigo.</li>
+                        <li><strong>Construcción rápida:</strong> Aprende a construir rampas y paredes rápidamente para protegerte.</li>
+                        <li><strong>Ubicación del mapa:</strong> Evita caer en lugares muy concurridos. Busca zonas con buen loot pero alejadas del centro.</li>
+                    </ul>
+                    
+                    <h3>Mapas de Drop Spots:</h3>
+                    <div class="map-container">
+                        <p>Visita estos mapas de drop spots populares:</p>
+                        <a href="https://fortnite.gg/maps" target="_blank">Fortnite.gg - Mapas de drops</a><br>
+                        <a href="https://dropmaps.com" target="_blank">DropMaps - Mapas de ubicación</a>
+                    </div>
+
+                    <h3>Spots recomendados:</h3>
+                    <ul>
+                        <li><strong>Colina Solitaria:</strong> Perfecto para loot de calidad sin mucha competencia.</li>
+                        <li><strong>Frenesí Fragmentado:</strong> Muchos cofres y buena cobertura.</li>
+                        <li><strong>Ciudad Comercio:</strong> Ideal para un combate temprano con gran loot.</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
