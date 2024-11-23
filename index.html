@@ -11,13 +11,23 @@
             margin: 0;
             padding: 0;
             font-family: 'Orbitron', sans-serif;
-            background-color: #0b0f17;
+            background: radial-gradient(circle, #0b0f17, #02060a);
             color: #00ffcc;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             overflow: hidden;
+        }
+
+        /* Fondo de partículas */
+        canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
         }
 
         /* Pantalla de inicio de sesión */
@@ -28,6 +38,7 @@
             box-shadow: 0 0 20px #00ffcc;
             text-align: center;
             width: 350px;
+            animation: fadeIn 2s ease;
         }
 
         h1 {
@@ -48,6 +59,11 @@
             font-size: 1em;
         }
 
+        input:focus {
+            outline: none;
+            border-color: #ffcc00;
+        }
+
         button {
             background: #00ffcc;
             color: #0b0f17;
@@ -56,11 +72,12 @@
             border-radius: 5px;
             font-size: 1em;
             cursor: pointer;
-            transition: background 0.3s;
+            transition: background 0.3s, transform 0.3s;
         }
 
         button:hover {
             background: #008f73;
+            transform: scale(1.05);
         }
 
         .error {
@@ -108,7 +125,7 @@
         }
 
         .nav button:hover {
-            color: #008f73;
+            color: #ffcc00;
         }
 
         .content {
@@ -118,48 +135,37 @@
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 255, 204, 0.3);
             overflow-y: auto;
+            display: none;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .content.active {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .content h3 {
             margin-top: 0;
         }
 
-        /* Barras de progreso */
-        .progress-bar {
-            margin: 15px 0;
-            background: #0b0f17;
-            border: 1px solid #00ffcc;
-            border-radius: 5px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .progress-bar div {
-            height: 20px;
-            transition: width 0.5s;
-        }
-
-        .progress-bar div:nth-child(1) {
-            background: #00ffcc;
-        }
-
-        .progress-bar div:nth-child(2) {
-            background: #ffcc00;
-        }
-
-        .progress-bar div:nth-child(3) {
-            background: #ff5555;
-        }
-
-        .progress-label {
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.9em;
-            margin-top: 5px;
+        /* Animaciones */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
     </style>
 </head>
 <body>
+
+    <!-- Fondo de partículas -->
+    <canvas id="particles"></canvas>
 
     <!-- Pantalla de inicio de sesión -->
     <div class="login-screen">
@@ -187,57 +193,53 @@
             <h3>Panel de Control</h3>
             <p>Bienvenido, agente. Consulta el estado de tus misiones y analiza datos estratégicos.</p>
         </div>
-        <div class="content" id="stats" style="display:none;">
+        <div class="content" id="stats">
             <h3>Estadísticas</h3>
-            <p>Progreso de la misión:</p>
-            <div class="progress-bar">
-                <div style="width: 75%;"></div>
-            </div>
-            <div class="progress-label">
-                <span>Progreso:</span>
-                <span>75%</span>
-            </div>
-            <p>Precisión en combate:</p>
-            <div class="progress-bar">
-                <div style="width: 60%;"></div>
-            </div>
-            <div class="progress-label">
-                <span>Precisión:</span>
-                <span>60%</span>
-            </div>
         </div>
-        <div class="content" id="map" style="display:none;">
+        <div class="content" id="map">
             <h3>Mapa Estratégico</h3>
             <img src="https://via.placeholder.com/1000x500" alt="Mapa estratégico">
         </div>
-        <div class="content" id="missions" style="display:none;">
+        <div class="content" id="missions">
             <h3>Misiones Activas</h3>
             <p>Detalles de las misiones en curso:</p>
         </div>
     </div>
 
     <script>
-        const loginForm = document.getElementById('login-form');
-        const errorElement = document.getElementById('error');
-        const mainScreen = document.querySelector('.main-screen');
-        const loginScreen = document.querySelector('.login-screen');
+        const canvas = document.getElementById('particles');
+        const ctx = canvas.getContext('2d');
 
-        loginForm.addEventListener('submit', (event) => {
-            event.preventDefault();
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
 
-            if (username === "agente" && password === "1234") {
-                loginScreen.style.display = "none";
-                mainScreen.style.display = "flex";
-            } else {
-                errorElement.style.display = "block";
-            }
-        });
+        const particles = Array.from({ length: 100 }).map(() => ({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            vx: Math.random() * 2 - 1,
+            vy: Math.random() * 2 - 1,
+        }));
 
-        function showSection(sectionId) {
-            document.querySelectorAll('.content').forEach(section => section.style.display = 'none');
-            document.getElementById(sectionId).style.display = 'block';
+        function drawParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => {
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, 2, 0, Math.PI * 2);
+                ctx.fillStyle = '#00ffcc';
+                ctx.fill();
+                p.x += p.vx;
+                p.y += p.vy;
+
+                if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+                if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+            });
+            requestAnimationFrame(drawParticles);
+        }
+        drawParticles();
+
+        function showSection(id) {
+            document.querySelectorAll('.content').forEach(section => section.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
         }
     </script>
 
