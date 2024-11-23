@@ -3,165 +3,212 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio de Sesión - Fortnite</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <title>Sistema de Agentes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     <style>
         /* Estilos generales */
         body {
-            font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            height: 100vh;
-            background: linear-gradient(135deg, #4c5562, #2f3136);
-            color: #dcddde;
+            font-family: 'Orbitron', sans-serif;
+            background-color: #0b0f17;
+            color: #00ffcc;
             display: flex;
             justify-content: center;
             align-items: center;
-            flex-direction: column;
+            height: 100vh;
+            overflow: hidden;
         }
 
-        /* Contenedor del formulario */
-        .login-container {
-            background-color: #23272a;
-            padding: 30px;
+        /* Pantalla de inicio de sesión */
+        .login-screen {
+            background: rgba(15, 20, 40, 0.95);
+            padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 20px #00ffcc;
             text-align: center;
-            width: 300px;
+            width: 350px;
         }
 
-        h2 {
-            color: #ff9900;
-            margin-bottom: 20px;
+        h1 {
+            margin: 0 0 20px;
+            color: #00ffcc;
+            font-size: 1.5em;
+            text-transform: uppercase;
         }
 
-        input[type="text"],
-        input[type="password"] {
+        input {
             width: 100%;
             padding: 10px;
-            margin: 10px 0;
-            border-radius: 8px;
-            border: 1px solid #ccc;
-            background-color: #2f3136;
-            color: white;
-            font-size: 14px;
+            margin-bottom: 15px;
+            border: 1px solid #00ffcc;
+            border-radius: 5px;
+            background: #0b0f17;
+            color: #00ffcc;
+            font-size: 1em;
         }
 
         button {
-            background-color: #3ba55c;
-            color: white;
+            background: #00ffcc;
+            color: #0b0f17;
             padding: 10px 20px;
             border: none;
-            border-radius: 8px;
+            border-radius: 5px;
+            font-size: 1em;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            transition: background 0.3s;
         }
 
         button:hover {
-            background-color: #2d9e4e;
+            background: #008f73;
         }
 
-        .error-message {
+        .error {
             color: #ff5555;
-            font-size: 14px;
-            margin-top: 10px;
-        }
-
-        /* Sección de contenido después de iniciar sesión */
-        .content-container {
+            font-size: 0.9em;
             display: none;
-            text-align: center;
+        }
+
+        /* Pantalla principal */
+        .main-screen {
+            display: none;
+            flex-direction: column;
+            width: 90%;
+            max-width: 1200px;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background: #1a202e;
+            border-bottom: 2px solid #00ffcc;
+            margin-bottom: 20px;
+        }
+
+        .header h2 {
+            margin: 0;
+            font-size: 1.2em;
+        }
+
+        .nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav button {
+            background: none;
+            border: none;
+            color: #00ffcc;
+            font-size: 1em;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        .nav button:hover {
+            color: #008f73;
+        }
+
+        .content {
+            flex-grow: 1;
+            background: #1a202e;
             padding: 20px;
-            background-color: #23272a;
             border-radius: 10px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            width: 80%;
-            max-width: 1000px;
-            margin-top: 20px;
+            box-shadow: 0 0 10px rgba(0, 255, 204, 0.3);
+            overflow-y: auto;
         }
 
-        .content-container h3 {
-            color: #ff9900;
+        .content h3 {
+            margin-top: 0;
         }
 
-        .content-container ul {
-            list-style-type: none;
-            padding-left: 20px;
+        .map-container img {
+            width: 100%;
+            border-radius: 10px;
         }
 
-        .content-container li {
-            margin-bottom: 10px;
-            color: white;
+        .data-list {
+            list-style: none;
+            padding: 0;
         }
 
-        .map-container {
-            margin-top: 20px;
-        }
-
-        a {
-            color: #7289da;
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
+        .data-list li {
+            margin: 10px 0;
+            padding: 10px;
+            background: #0b0f17;
+            border-left: 5px solid #00ffcc;
+            border-radius: 5px;
         }
     </style>
 </head>
 <body>
 
-    <!-- Contenedor del formulario de inicio de sesión -->
-    <div class="login-container">
-        <h2>Iniciar Sesión</h2>
+    <!-- Pantalla de inicio de sesión -->
+    <div class="login-screen">
+        <h1>Acceso Autorizado</h1>
         <form id="login-form">
-            <input type="text" id="username" placeholder="Nombre de usuario" required>
+            <input type="text" id="username" placeholder="Usuario" required>
             <input type="password" id="password" placeholder="Contraseña" required>
             <button type="submit">Iniciar Sesión</button>
         </form>
-        <div id="error-message" class="error-message" style="display:none;">Credenciales incorrectas. Intenta de nuevo.</div>
+        <div id="error" class="error">Credenciales incorrectas.</div>
     </div>
 
-    <!-- Contenido después de iniciar sesión -->
-    <div class="content-container" id="content-container">
-        <h3>Bienvenido a la Guía de Fortnite</h3>
-        <p>Aquí encontrarás recursos y consejos para mejorar rápidamente en Fortnite.</p>
-
-        <div>
-            <h4>Drop Maps</h4>
+    <!-- Pantalla principal -->
+    <div class="main-screen">
+        <div class="header">
+            <h2>Sistema de Agentes</h2>
+            <nav class="nav">
+                <button onclick="showSection('dashboard')">Panel</button>
+                <button onclick="showSection('map')">Mapa</button>
+                <button onclick="showSection('missions')">Misiones</button>
+            </nav>
+        </div>
+        <div class="content" id="dashboard">
+            <h3>Panel de Control</h3>
+            <p>Bienvenido, agente. Consulta el estado de tus misiones y analiza datos estratégicos.</p>
+        </div>
+        <div class="content" id="map" style="display:none;">
+            <h3>Mapa Estratégico</h3>
             <div class="map-container">
-                <p>Visita estos mapas de drop spots populares para mejorar tu juego:</p>
-                <a href="https://fortnite.gg/maps" target="_blank">Fortnite.gg - Mapas de drops</a><br>
-                <a href="https://dropmaps.com" target="_blank">DropMaps - Mapas de ubicación</a>
+                <img src="https://via.placeholder.com/1000x500" alt="Mapa estratégico">
             </div>
         </div>
-
-        <div>
-            <h4>Consejos para mejorar en Fortnite:</h4>
-            <ul>
-                <li><strong>Aprende a construir rápido:</strong> La construcción es clave para protegerte y ganar ventajas sobre tus enemigos.</li>
-                <li><strong>Gestiona tu loot:</strong> Siempre prioriza tener materiales, curaciones y armas de largo alcance.</li>
-                <li><strong>Controla el ritmo del juego:</strong> Mantén siempre un ojo en el círculo y planifica tus movimientos.</li>
+        <div class="content" id="missions" style="display:none;">
+            <h3>Misiones Activas</h3>
+            <ul class="data-list">
+                <li><strong>Objetivo:</strong> Recuperar información clasificada en la Zona 42.</li>
+                <li><strong>Estado:</strong> En progreso.</li>
+                <li><strong>Descripción:</strong> Sigue la ruta marcada en el mapa estratégico y evita ser detectado.</li>
             </ul>
         </div>
     </div>
 
     <script>
-        // Manejar el envío del formulario de inicio de sesión
-        document.getElementById('login-form').addEventListener('submit', function(event) {
+        const loginForm = document.getElementById('login-form');
+        const errorElement = document.getElementById('error');
+        const mainScreen = document.querySelector('.main-screen');
+        const loginScreen = document.querySelector('.login-screen');
+
+        loginForm.addEventListener('submit', (event) => {
             event.preventDefault();
-            
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
 
-            // Lógica de autenticación (puedes reemplazarla con una API real)
-            if (username === "usuario" && password === "contraseña") {
-                // Mostrar contenido después de iniciar sesión
-                document.querySelector('.login-container').style.display = "none";
-                document.getElementById('content-container').style.display = "block";
+            if (username === "agente" && password === "1234") {
+                loginScreen.style.display = "none";
+                mainScreen.style.display = "flex";
             } else {
-                document.getElementById('error-message').style.display = "block"; // Mostrar mensaje de error
+                errorElement.style.display = "block";
             }
         });
+
+        function showSection(sectionId) {
+            document.querySelectorAll('.content').forEach(section => section.style.display = 'none');
+            document.getElementById(sectionId).style.display = 'block';
+        }
     </script>
 
 </body>
