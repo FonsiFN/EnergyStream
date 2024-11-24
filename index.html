@@ -3,245 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema de Agentes</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        /* Estilos generales */
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Orbitron', sans-serif;
-            background: radial-gradient(circle, #0b0f17, #02060a);
-            color: #00ffcc;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            overflow: hidden;
-        }
-
-        /* Fondo de partículas */
-        canvas {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-        }
-
-        /* Pantalla de inicio de sesión */
-        .login-screen {
-            background: rgba(15, 20, 40, 0.95);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 20px #00ffcc;
-            text-align: center;
-            width: 350px;
-            animation: fadeIn 2s ease;
-        }
-
-        h1 {
-            margin: 0 0 20px;
-            color: #00ffcc;
-            font-size: 1.5em;
-            text-transform: uppercase;
-        }
-
-        input {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #00ffcc;
-            border-radius: 5px;
-            background: #0b0f17;
-            color: #00ffcc;
-            font-size: 1em;
-        }
-
-        input:focus {
-            outline: none;
-            border-color: #ffcc00;
-        }
-
-        button {
-            background: #00ffcc;
-            color: #0b0f17;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            font-size: 1em;
-            cursor: pointer;
-            transition: background 0.3s, transform 0.3s;
-        }
-
-        button:hover {
-            background: #008f73;
-            transform: scale(1.05);
-        }
-
-        .error {
-            color: #ff5555;
-            font-size: 0.9em;
-            display: none;
-        }
-
-        /* Pantalla principal */
-        .main-screen {
-            display: none;
-            flex-direction: column;
-            width: 90%;
-            max-width: 1200px;
-        }
-
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px;
-            background: #1a202e;
-            border-bottom: 2px solid #00ffcc;
-            margin-bottom: 20px;
-        }
-
-        .header h2 {
-            margin: 0;
-            font-size: 1.2em;
-        }
-
-        .nav {
-            display: flex;
-            gap: 20px;
-        }
-
-        .nav button {
-            background: none;
-            border: none;
-            color: #00ffcc;
-            font-size: 1em;
-            cursor: pointer;
-            text-transform: uppercase;
-            transition: color 0.3s;
-        }
-
-        .nav button:hover {
-            color: #ffcc00;
-        }
-
-        .content {
-            flex-grow: 1;
-            background: #1a202e;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 255, 204, 0.3);
-            overflow-y: auto;
-            display: none;
-            opacity: 0;
-            transform: translateY(10px);
-            transition: opacity 0.5s ease, transform 0.5s ease;
-        }
-
-        .content.active {
-            display: block;
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .content h3 {
-            margin-top: 0;
-        }
-
-        /* Animaciones */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-    </style>
+    <meta name="description" content="Comunidad de Twitch de FonsiFN y Aitor, conectando a los mejores streamers y jugadores.">
+    <title>Comunidad FonsiFN y Aitor</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.css">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Comunidad FonsiFN y Aitor">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#comunidad">Comunidad</a></li>
+                <li><a href="#stream">Streaming</a></li>
+                <li><a href="#noticias">Noticias</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <!-- Fondo de partículas -->
-    <canvas id="particles"></canvas>
+    <!-- Main Section -->
+    <section id="inicio" class="hero">
+        <div class="hero-content" data-aos="fade-up">
+            <h1>Bienvenidos a la Comunidad de FonsiFN y Aitor</h1>
+            <p>La mejor comunidad para los amantes de los videojuegos y el streaming en Twitch. ¡Conéctate y únete a nosotros!</p>
+            <a href="#comunidad" class="cta-button">Únete a la Comunidad</a>
+        </div>
+    </section>
 
-    <!-- Pantalla de inicio de sesión -->
-    <div class="login-screen">
-        <h1>Acceso Autorizado</h1>
-        <form id="login-form">
-            <input type="text" id="username" placeholder="Usuario" required>
-            <input type="password" id="password" placeholder="Contraseña" required>
-            <button type="submit">Iniciar Sesión</button>
+    <!-- Comunidad Section -->
+    <section id="comunidad" class="section" data-aos="fade-right">
+        <h2>La Comunidad</h2>
+        <p>Conoce a los miembros más activos y a los creadores de contenido de la comunidad. ¡No estás solo aquí!</p>
+        <div class="community-cards">
+            <div class="card">
+                <img src="fonsi.jpg" alt="FonsiFN">
+                <h3>FonsiFN</h3>
+                <p>Streamers expertos en Fortnite, ¡preparados para la acción!</p>
+            </div>
+            <div class="card">
+                <img src="aitor.jpg" alt="Aitor">
+                <h3>Aitor</h3>
+                <p>Un gamer dedicado con streams diarios de alta calidad.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Streaming Section -->
+    <section id="stream" class="section" data-aos="fade-left">
+        <h2>Próximos Streams</h2>
+        <p>¡No te pierdas las emisiones en vivo de FonsiFN y Aitor! Únete a sus transmisiones para vivir toda la emoción.</p>
+        <div class="stream-schedule">
+            <div class="stream-card">
+                <h3>FonsiFN</h3>
+                <p>Fortnite, lunes y miércoles a las 18:00</p>
+            </div>
+            <div class="stream-card">
+                <h3>Aitor</h3>
+                <p>Valorant, viernes a las 20:00</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Noticias Section -->
+    <section id="noticias" class="section" data-aos="fade-up">
+        <h2>Últimas Noticias</h2>
+        <ul>
+            <li>Nuevo evento en la comunidad de FonsiFN y Aitor. ¡No te lo pierdas!</li>
+            <li>¡FonsiFN alcanza los 5000 seguidores en Twitch! ¡Gracias por su apoyo!</li>
+            <li>Aitor lanza su nueva serie de tutoriales de Fortnite, ¡aprende de los mejores!</li>
+        </ul>
+    </section>
+
+    <!-- Contacto Section -->
+    <section id="contacto" class="section" data-aos="fade-down">
+        <h2>Contacto</h2>
+        <p>¿Tienes alguna pregunta? ¡Contáctanos ahora!</p>
+        <form>
+            <input type="text" placeholder="Tu nombre" required>
+            <input type="email" placeholder="Tu email" required>
+            <textarea placeholder="Escribe tu mensaje" required></textarea>
+            <button type="submit">Enviar</button>
         </form>
-        <div id="error" class="error">Credenciales incorrectas.</div>
-    </div>
+    </section>
 
-    <!-- Pantalla principal -->
-    <div class="main-screen">
-        <div class="header">
-            <h2>Sistema de Agentes</h2>
-            <nav class="nav">
-                <button onclick="showSection('dashboard')">Panel</button>
-                <button onclick="showSection('stats')">Estadísticas</button>
-                <button onclick="showSection('map')">Mapa</button>
-                <button onclick="showSection('missions')">Misiones</button>
-            </nav>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Comunidad FonsiFN y Aitor. Todos los derechos reservados.</p>
+        <div class="social-links">
+            <a href="https://twitter.com/FonsiFN" target="_blank">Twitter</a>
+            <a href="https://instagram.com/FonsiFN" target="_blank">Instagram</a>
+            <a href="https://twitch.tv/FonsiFN" target="_blank">Twitch</a>
         </div>
-        <div class="content" id="dashboard">
-            <h3>Panel de Control</h3>
-            <p>Bienvenido, agente. Consulta el estado de tus misiones y analiza datos estratégicos.</p>
-        </div>
-        <div class="content" id="stats">
-            <h3>Estadísticas</h3>
-        </div>
-        <div class="content" id="map">
-            <h3>Mapa Estratégico</h3>
-            <img src="https://via.placeholder.com/1000x500" alt="Mapa estratégico">
-        </div>
-        <div class="content" id="missions">
-            <h3>Misiones Activas</h3>
-            <p>Detalles de las misiones en curso:</p>
-        </div>
-    </div>
+    </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
     <script>
-        const canvas = document.getElementById('particles');
-        const ctx = canvas.getContext('2d');
-
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-
-        const particles = Array.from({ length: 100 }).map(() => ({
-            x: Math.random() * canvas.width,
-            y: Math.random() * canvas.height,
-            vx: Math.random() * 2 - 1,
-            vy: Math.random() * 2 - 1,
-        }));
-
-        function drawParticles() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            particles.forEach(p => {
-                ctx.beginPath();
-                ctx.arc(p.x, p.y, 2, 0, Math.PI * 2);
-                ctx.fillStyle = '#00ffcc';
-                ctx.fill();
-                p.x += p.vx;
-                p.y += p.vy;
-
-                if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
-                if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
-            });
-            requestAnimationFrame(drawParticles);
-        }
-        drawParticles();
-
-        function showSection(id) {
-            document.querySelectorAll('.content').forEach(section => section.classList.remove('active'));
-            document.getElementById(id).classList.add('active');
-        }
+        AOS.init();
     </script>
-
 </body>
 </html>
