@@ -32,23 +32,16 @@
             left: 0;
             right: 0;
         }
-        .announcement-container {
-            position: relative;
-            margin-top: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .announcement-box {
+        .announcement {
             background-color: #f1c40f;
             color: #000000;
             padding: 15px;
             margin-bottom: 20px;
             font-weight: bold;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            width: 70%;
-            margin-top: 10px;
+        }
+        .announcement-container {
+            position: relative;
+            margin-top: 20px;
         }
         .dropdown {
             background-color: #28a745;
@@ -58,7 +51,6 @@
             cursor: pointer;
             border-radius: 5px;
             transition: background-color 0.3s;
-            margin-top: 10px;
         }
         .dropdown:hover {
             background-color: #218838;
@@ -116,7 +108,7 @@
             display: inline-block;
             margin-top: 10px;
             transition: background-color 0.3s ease;
-            border: none; /* Quitar borde del botón */
+            border: none;
         }
         .invite-btn:hover {
             background-color: #218838;
@@ -236,11 +228,37 @@
             display: inline-block;
             margin-top: 10px;
             transition: background-color 0.3s ease;
-            border: none; /* Quitar borde del botón de comandos */
+            border: none;
         }
         .commands-toggle button:hover {
             background-color: #218838;
         }
+
+        /* Estilos para la nueva sección del emoji de rayo */
+        .lightning-section {
+            background-color: #ffcc00;
+            padding: 40px 0;
+            margin-top: 40px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .lightning-section h2 {
+            color: #23272a;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .lightning-section p {
+            font-size: 20px;
+            color: #23272a;
+        }
+
+        .lightning-section .lightning-icon {
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
@@ -255,7 +273,7 @@
     
     <!-- Sección de anuncios -->
     <div class="announcement-container">
-        <div class="announcement-box">
+        <div class="announcement">
             <p>Estamos trabajando en una dashboard para el bot.</p>
         </div>
 
@@ -272,74 +290,36 @@
     <h1>Bienvenido a la Página de EnergyBot</h1>
 
     <div class="bot-info">
-        <h2>¿Qué es EnergyBot?</h2>
-        <p>EnergyBot está diseñado para ayudar a gestionar servidores, proporcionar comandos útiles y hacer la experiencia de Discord más divertida y eficiente.</p>
-        <p>Comienza a interactuar con el bot usando los comandos en el menú de abajo.</p>
-        <div class="commands-toggle">
-            <button onclick="toggleCommands()">Mostrar Comandos</button>
-        </div>
-        <div class="commands">
-            <h2>Comandos</h2>
-            <ul>
-                <li>/help</li>
-                <li>/info</li>
-                <li>/ping</li>
-                <!-- Agrega más comandos según sea necesario -->
-            </ul>
-        </div>
+        <h2>Información del Bot</h2>
+        <p>EnergyBot es un bot que proporciona soporte y funciones avanzadas para tu servidor.</p>
     </div>
 
-    <a href="#" class="invite-btn">Invita a EnergyBot</a>
+    <div class="commands">
+        <h2>Comandos</h2>
+        <p>Lista de comandos disponibles:</p>
+        <ul>
+            <li>!comando1</li>
+            <li>!comando2</li>
+        </ul>
+    </div>
+
+    <!-- Nueva sección con el emoji de rayo -->
+    <div class="lightning-section">
+        <div class="lightning-icon">⚡</div>
+        <h2>¡Haz que tu servidor brille con EnergyBot!</h2>
+        <p>EnergyBot puede ayudar a mejorar la experiencia de tu servidor con funciones únicas y avanzadas. ¡Úsalo ahora y siente la energía!</p>
+    </div>
+
+    <div class="commands-toggle">
+        <button>Mostrar Comandos</button>
+    </div>
 
     <footer>
         <div class="social-icons">
-            <a href="#" class="social-icon">Facebook</a>
-            <a href="#" class="social-icon">Twitter</a>
-            <a href="#" class="social-icon">Instagram</a>
+            <a href="#">Facebook</a>
+            <a href="#">Twitter</a>
+            <a href="#">Instagram</a>
         </div>
     </footer>
-
-    <div class="testimonials">
-        <h2>Testimonios</h2>
-        <p>"EnergyBot ha hecho que mi servidor de Discord sea mucho más fácil de manejar. ¡Muy recomendable!" - Usuario Satisfecho</p>
-    </div>
-
-    <div class="faq">
-        <h2>Preguntas Frecuentes</h2>
-        <div class="faq-item">
-            <p><strong>¿Cómo uso EnergyBot?</strong> Puedes comenzar escribiendo los comandos disponibles en el servidor donde se encuentra el bot.</p>
-        </div>
-        <div class="faq-item">
-            <p><strong>¿Es gratis?</strong> Sí, EnergyBot es completamente gratis para todos los usuarios de Discord.</p>
-        </div>
-    </div>
-
-    <!-- Panel de soporte -->
-    <div class="support-container">
-        <button class="support-btn" onclick="toggleSupportPanel()">Soporte</button>
-        <div class="support-panel" id="support-panel">
-            <h2>Soporte</h2>
-            <label for="support-name">Tu nombre:</label>
-            <input type="text" id="support-name" placeholder="Ingresa tu nombre">
-            <label for="support-message">Tu mensaje:</label>
-            <textarea id="support-message" placeholder="Describe tu problema o duda"></textarea>
-            <div class="button-container">
-                <button type="submit">Enviar</button>
-                <button type="button" id="close-btn" onclick="toggleSupportPanel()">Cerrar</button>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        function toggleCommands() {
-            const commands = document.querySelector('.commands');
-            commands.style.display = commands.style.display === 'none' || commands.style.display === '' ? 'block' : 'none';
-        }
-
-        function toggleSupportPanel() {
-            const panel = document.getElementById('support-panel');
-            panel.style.display = panel.style.display === 'none' || panel.style.display === '' ? 'block' : 'none';
-        }
-    </script>
 </body>
 </html>
