@@ -48,13 +48,7 @@
         }
         .commands {
             margin-top: 20px;
-            display: none; /* Oculto por defecto */
-            opacity: 0; /* Comienza oculto */
-            transition: opacity 0.5s ease; /* Animación de desvanecimiento */
-        }
-        .commands.show {
-            display: block; /* Mostrar comandos */
-            opacity: 1; /* Hacer visible */
+            display: none;
         }
         .commands h2 {
             color: #28a745;
@@ -69,27 +63,10 @@
             display: inline-block;
             margin-top: 10px;
             transition: background-color 0.3s ease;
+            border: none; /* Quitar borde del botón */
         }
         .invite-btn:hover {
             background-color: #218838;
-        }
-        .commands-toggle {
-            margin-top: 20px;
-        }
-        .toggle-btn {
-            padding: 15px 25px;
-            background-color: #007bff;
-            color: #ffffff;
-            border: none; /* Sin borde */
-            border-radius: 5px;
-            font-size: 18px;
-            display: inline-block;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
-        .toggle-btn:hover {
-            background-color: #0056b3;
-            transform: scale(1.05); /* Aumenta ligeramente el tamaño */
         }
         footer {
             margin-top: 50px;
@@ -154,6 +131,10 @@
             border: none;
             border-radius: 5px;
         }
+        .support-panel .button-container {
+            display: flex;
+            justify-content: center;
+        }
         .support-panel button {
             padding: 10px;
             border-radius: 5px;
@@ -174,6 +155,9 @@
         .support-panel button#close-btn:hover {
             background-color: #c82333;
         }
+        .support-panel button + button {
+            margin-left: 20px;
+        }
         .support-btn {
             padding: 15px 25px;
             background-color: #ffc107;
@@ -188,6 +172,21 @@
         }
         .support-btn:hover {
             background-color: #e0a800;
+        }
+        .commands-toggle button {
+            padding: 15px 25px;
+            background-color: #28a745;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            display: inline-block;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+            border: none; /* Quitar borde del botón de comandos */
+        }
+        .commands-toggle button:hover {
+            background-color: #218838;
         }
         @keyframes fadeIn {
             from { opacity: 0; }
@@ -211,7 +210,7 @@
 
     <!-- Botón para mostrar comandos -->
     <div class="commands-toggle">
-        <button id="toggle-commands" class="toggle-btn">Comandos Principales</button>
+        <button id="toggle-commands">Comandos Principales</button>
     </div>
     
     <div class="commands" id="commands-list">
@@ -240,22 +239,24 @@
             <p>Sí, EnergyBot es completamente gratuito. Sin embargo, siempre estamos abiertos a donaciones para mantener el proyecto activo.</p>
         </div>
         <div class="faq-item">
-            <p><strong>¿Dónde puedo reportar un problema?</strong></p>
-            <p>Usa el sistema de soporte en la esquina derecha de la pantalla.</p>
+            <p><strong>¿Cómo puedo obtener soporte?</strong></p>
+            <p>Únete a nuestro servidor de soporte haciendo clic en el botón "Unirse al Servidor" más abajo.</p>
         </div>
     </div>
 
     <div class="support-container">
         <button id="support-btn" class="support-btn">Soporte</button>
-        <div class="support-panel" id="support-panel">
-            <h2>Soporte</h2>
-            <form id="support-form">
-                <label for="name">Tu Nombre:</label>
-                <input type="text" id="name" required>
-                <label for="message">Tu Mensaje:</label>
-                <textarea id="message" rows="5" required></textarea>
-                <button type="submit">Enviar</button>
-                <button type="button" id="close-btn">Cerrar</button>
+        <div id="support-panel" class="support-panel">
+            <h2>Formulario de Soporte</h2>
+            <form action="https://formspree.io/f/manwglze" method="POST" id="support-form">
+                <label for="email">Correo Electrónico (obligatorio):</label>
+                <input type="email" name="email" id="email" required placeholder="ejemplo@gmail.com">
+                <label for="message">Mensaje:</label>
+                <textarea name="message" id="message" required placeholder="Escribe tu mensaje aquí..."></textarea>
+                <div class="button-container">
+                    <button type="submit">Enviar</button>
+                    <button id="close-btn" type="button">Cerrar</button>
+                </div>
             </form>
         </div>
     </div>
@@ -265,9 +266,9 @@
         <a href="https://discord.gg/fMnkZy92gf" class="invite-btn">Unirse al Servidor</a>
 
         <div class="social-icons">
-            <a href="" target="_blank">Twitter</a>
-            <a href="" target="_blank">Facebook</a>
-            <a href="" target="_blank">Instagram</a>
+            <a href="https://www.youtube.com/@fonsifn" target="_blank">Youtube</a>
+            <a href="https://www.twitch.tv/fonsifn_" target="_blank">Twitch</a>
+            <a href="https://discord.gg/TGz8bWTMmx" target="_blank">Comunidad</a>
         </div>
 
         <p>&copy; 2024 EnergyBot. Todos los derechos reservados.</p>
@@ -289,12 +290,13 @@
 
         document.getElementById('toggle-commands').onclick = function() {
             const commandsList = document.getElementById('commands-list');
-            if (commandsList.classList.contains('show')) {
-                commandsList.classList.remove('show'); // Ocultar comandos
+            if (commandsList.style.display === 'none' || commandsList.style.display === '') {
+                commandsList.style.display = 'block'; // Mostrar los comandos
             } else {
-                commandsList.classList.add('show'); // Mostrar comandos
+                commandsList.style.display = 'none'; // Ocultar los comandos
             }
         };
     </script>
 </body>
 </html>
+
