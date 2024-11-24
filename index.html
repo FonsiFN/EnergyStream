@@ -3,63 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página Web con Dashboard y EnergyBot</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <title>EnergyBot</title>
+    <link rel="icon" href="https://imgur.com/iDq3OFg.png" type="image/png">
     <style>
         body {
-            font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 0;
-            height: 100vh;
-            background: #2f3136;
-            color: #dcddde;
-            display: flex;
-        }
-
-        .sidebar {
-            width: 80px;
+            font-family: Arial, sans-serif;
+            text-align: center;
             background-color: #23272a;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding-top: 20px;
-            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+            color: #ffffff;
         }
-
-        .sidebar a {
-            color: white;
-            font-size: 24px;
-            margin: 20px 0;
-            text-decoration: none;
-            transition: color 0.3s ease;
+        h1 {
+            margin-top: 50px;
+            animation: fadeIn 2s;
         }
-
-        .sidebar a:hover {
-            color: #7289da;
-        }
-
-        .content {
-            flex: 1;
-            padding: 20px;
-            overflow-y: auto;
-        }
-
-        /* Estilos para la página del Dashboard */
-        .login-container, .protected-content {
-            display: none;
-        }
-
-        /* Estilos para la página de EnergyBot */
         .header {
             background-color: #ff0000;
             padding: 20px 0;
             position: relative;
         }
-
         .logo {
             width: 80px;
         }
-
         .white-line {
             height: 2px;
             background-color: #ffffff;
@@ -68,93 +32,269 @@
             left: 0;
             right: 0;
         }
-
-        /* Estilos adicionales */
         .bot-info {
+            margin: 20px auto;
+            padding: 20px;
+            width: 50%;
             background-color: #2c2f33;
             border-radius: 10px;
-            padding: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        .bot-info h2 {
+            color: #28a745;
+        }
+        .bot-info p {
+            font-size: 18px;
+        }
+        .commands {
+            margin-top: 20px;
+            display: none; /* Oculto por defecto */
+            opacity: 0; /* Comienza oculto */
+            transition: opacity 0.5s ease; /* Animación de desvanecimiento */
+        }
+        .commands.show {
+            display: block; /* Mostrar comandos */
+            opacity: 1; /* Hacer visible */
+        }
+        .commands h2 {
+            color: #28a745;
+        }
+        .invite-btn {
+            padding: 15px 25px;
+            background-color: #28a745;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            display: inline-block;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+        .invite-btn:hover {
+            background-color: #218838;
+        }
+        .commands-toggle {
+            margin-top: 20px;
+        }
+        .toggle-btn {
+            padding: 15px 25px;
+            background-color: #007bff;
+            color: #ffffff;
+            border: none; /* Sin borde */
+            border-radius: 5px;
+            font-size: 18px;
+            display: inline-block;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .toggle-btn:hover {
+            background-color: #0056b3;
+            transform: scale(1.05); /* Aumenta ligeramente el tamaño */
+        }
+        footer {
+            margin-top: 50px;
+            padding: 20px;
+            background-color: #2c2f33;
+        }
+        .social-icons {
+            margin: 20px 0;
+        }
+        .social-icons a {
+            margin: 0 10px;
+            color: #ffffff;
+            font-size: 24px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .social-icons a:hover {
+            color: #28a745;
+        }
+        .testimonials, .faq {
+            margin: 30px auto;
+            padding: 20px;
+            width: 70%;
+            background-color: #2c2f33;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        .testimonials h2, .faq h2 {
+            color: #28a745;
+        }
+        .faq-item {
+            margin: 10px 0;
+        }
+        .support-container {
+            position: relative;
+        }
+        .support-panel {
+            display: none;
+            position: fixed;
+            right: 0;
+            top: 0;
+            width: 300px;
+            height: 100%;
+            background-color: #2c2f33;
+            color: #ffffff;
+            padding: 20px;
+            box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+        }
+        .support-panel h2 {
+            color: #28a745;
+        }
+        .support-panel label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        .support-panel input,
+        .support-panel textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+        .support-panel button {
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .support-panel button[type="submit"] {
+            background-color: #28a745;
+            color: #ffffff;
+        }
+        .support-panel button[type="submit"]:hover {
+            background-color: #218838;
+        }
+        .support-panel button#close-btn {
+            background-color: #dc3545;
+            color: #ffffff;
+        }
+        .support-panel button#close-btn:hover {
+            background-color: #c82333;
+        }
+        .support-btn {
+            padding: 15px 25px;
+            background-color: #ffc107;
+            color: #000000;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            display: inline-block;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+        }
+        .support-btn:hover {
+            background-color: #e0a800;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
     </style>
 </head>
 <body>
+    <div class="header">
+        <img src="https://imgur.com/iDq3OFg.png" alt="Logo" class="logo">
+        <div class="white-line"></div>
+    </div>
+    <h1>Bienvenido a la Página de EnergyBot</h1>
 
-    <!-- Barra Lateral -->
-    <div class="sidebar">
-        <a href="#" onclick="showPage('dashboard')">🏠 Dashboard</a>
-        <a href="#" onclick="showPage('energybot')">⚡ EnergyBot</a>
+    <div class="bot-info">
+        <h2>¿Qué es EnergyBot?</h2>
+        <p>EnergyBot está diseñado para ayudar a gestionar servidores, proporcionar comandos útiles y hacer la experiencia de Discord más divertida y eficiente.</p>
+        <p>¡Invita a mi bot a tu servidor haciendo clic en el botón de abajo!</p>
+        <a href="https://discord.com/oauth2/authorize?client_id=1212433297674600488" class="invite-btn">Invitar Bot</a>
     </div>
 
-    <!-- Contenido Principal -->
-    <div class="content">
-        <!-- Página del Dashboard -->
-        <div id="dashboard" class="page-content">
-            <div class="login-container">
-                <h2>Iniciar Sesión</h2>
-                <input type="text" id="email" placeholder="Correo Electrónico">
-                <input type="password" id="password" placeholder="Contraseña">
-                <button onclick="login()">Iniciar Sesión</button>
-            </div>
-            <div id="protected-content">
-                <h2>Bienvenido al Dashboard</h2>
-                <div class="control-buttons">
-                    <button onclick="controlBot('start')">Encender Bot</button>
-                    <button onclick="controlBot('stop')">Apagar Bot</button>
-                    <button onclick="controlBot('restart')">Reiniciar Bot</button>
-                </div>
-            </div>
-        </div>
+    <!-- Botón para mostrar comandos -->
+    <div class="commands-toggle">
+        <button id="toggle-commands" class="toggle-btn">Comandos Principales</button>
+    </div>
+    
+    <div class="commands" id="commands-list">
+        <h2>Comandos Principales</h2>
+        <p><strong>/help</strong> - Busca ayuda para resolver dudas/problemas.</p>
+        <p><strong>/setup-tickets</strong> - Crea un sistema de tickets muy completo.</p>
+        <p><strong>/8ball</strong> - Pregunta cosas al bot de cualquier tema.</p>
+        <p><strong>/clear</strong> - Borra un número determinado de mensajes.</p>
+    </div>
 
-        <!-- Página de EnergyBot -->
-        <div id="energybot" class="page-content">
-            <div class="header">
-                <img src="https://imgur.com/iDq3OFg.png" alt="Logo" class="logo">
-                <div class="white-line"></div>
-            </div>
-            <h1>Bienvenido a EnergyBot</h1>
-            <div class="bot-info">
-                <h2>¿Qué es EnergyBot?</h2>
-                <p>EnergyBot es un bot para gestionar servidores y hacer la experiencia de Discord más eficiente.</p>
-                <p>¡Invita el bot a tu servidor!</p>
-                <a href="https://discord.com/oauth2/authorize?client_id=1212433297674600488" class="invite-btn">Invitar Bot</a>
-            </div>
+    <div class="testimonials">
+        <h2>Testimonios de Usuarios</h2>
+        <p><em>"¡El mejor bot que he usado! Facilita mucho la gestión del servidor."</em> - Usuario1</p>
+        <p><em>"Los comandos de música son increíbles y funcionan sin problemas."</em> - Usuario2</p>
+        <p><em>"Recomiendo totalmente este bot para cualquier servidor de Discord."</em> - Usuario3</p>
+    </div>
+
+    <div class="faq">
+        <h2>Preguntas Frecuentes (FAQ)</h2>
+        <div class="faq-item">
+            <p><strong>¿Cómo puedo invitar el bot a mi servidor?</strong></p>
+            <p>Haz clic en el botón de "Invitar Bot" arriba y sigue las instrucciones en Discord para añadir el bot a tu servidor.</p>
+        </div>
+        <div class="faq-item">
+            <p><strong>¿El bot es gratuito?</strong></p>
+            <p>Sí, EnergyBot es completamente gratuito. Sin embargo, siempre estamos abiertos a donaciones para mantener el proyecto activo.</p>
+        </div>
+        <div class="faq-item">
+            <p><strong>¿Dónde puedo reportar un problema?</strong></p>
+            <p>Usa el sistema de soporte en la esquina derecha de la pantalla.</p>
         </div>
     </div>
+
+    <div class="support-container">
+        <button id="support-btn" class="support-btn">Soporte</button>
+        <div class="support-panel" id="support-panel">
+            <h2>Soporte</h2>
+            <form id="support-form">
+                <label for="name">Tu Nombre:</label>
+                <input type="text" id="name" required>
+                <label for="message">Tu Mensaje:</label>
+                <textarea id="message" rows="5" required></textarea>
+                <button type="submit">Enviar</button>
+                <button type="button" id="close-btn">Cerrar</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>Únete a nuestro servidor de Discord para más soporte y actualizaciones:</p>
+        <a href="https://discord.gg/fMnkZy92gf" class="invite-btn">Unirse al Servidor</a>
+
+        <div class="social-icons">
+            <a href="" target="_blank">Twitter</a>
+            <a href="" target="_blank">Facebook</a>
+            <a href="" target="_blank">Instagram</a>
+        </div>
+
+        <p>&copy; 2024 EnergyBot. Todos los derechos reservados.</p>
+    </footer>
 
     <script>
-        // Mostrar la página seleccionada
-        function showPage(page) {
-            const allPages = document.querySelectorAll('.page-content');
-            allPages.forEach(page => page.style.display = 'none');
-            document.getElementById(page).style.display = 'block';
-        }
-
-        // Inicializar mostrando el Dashboard
-        showPage('dashboard');
-
-        // Funciones del Dashboard
-        const validUser = {
-            email: "FonsiFN",
-            password: "Rijafusa932345"
+        document.getElementById('support-btn').onclick = function() {
+            document.getElementById('support-panel').style.display = 'block';
         };
 
-        function login() {
-            const email = document.getElementById("email").value;
-            const password = document.getElementById("password").value;
-            if (email === validUser.email && password === validUser.password) {
-                document.getElementById("protected-content").style.display = 'block';
-                document.querySelector(".login-container").style.display = 'none';
+        document.getElementById('close-btn').onclick = function() {
+            document.getElementById('support-panel').style.display = 'none';
+        };
+
+        document.getElementById('support-form').onsubmit = function(event) {
+            alert('¡Mensaje enviado con éxito!');
+            document.getElementById('support-panel').style.display = 'none';
+        };
+
+        document.getElementById('toggle-commands').onclick = function() {
+            const commandsList = document.getElementById('commands-list');
+            if (commandsList.classList.contains('show')) {
+                commandsList.classList.remove('show'); // Ocultar comandos
             } else {
-                alert("Correo o contraseña incorrectos.");
+                commandsList.classList.add('show'); // Mostrar comandos
             }
-        }
-
-        function controlBot(action) {
-            alert(`El bot está siendo ${action}`);
-        }
+        };
     </script>
-
 </body>
 </html>
-
