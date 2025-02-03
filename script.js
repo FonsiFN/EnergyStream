@@ -5,9 +5,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Simulación de estado en vivo
 function checkLiveStatus() {
-    const statusElement = document.getElementById("live-status");
+    const streamInfo = document.getElementById("stream-info");
     setTimeout(() => {
-        statusElement.innerHTML = "🔴 Streamer 1 está en vivo <a href='https://www.twitch.tv/streamer1' target='_blank'>Ver</a>";
+        streamInfo.innerHTML = `
+            🔴 <b>FonsiFN_ está en vivo</b> → <a href='https://www.twitch.tv/FonsiFN_' target='_blank'>Ver ahora</a><br>
+            🟡 <b>Streamer2 está en vivo</b> → <a href='https://www.twitch.tv/Streamer2' target='_blank'>Ver ahora</a>
+        `;
     }, 2000);
 }
 
@@ -22,24 +25,11 @@ function loadClips() {
     }, 2000);
 }
 
-// Mostrar clips o Discord
-function showClips() {
-    document.getElementById("clips").classList.remove("hidden");
-    document.getElementById("discord").classList.add("hidden");
+// Función para mostrar secciones
+function showSection(sectionID) {
+    document.querySelectorAll(".card").forEach(section => {
+        section.classList.add("hidden");
+    });
+    document.getElementById(sectionID).classList.remove("hidden");
 }
 
-function showDiscord() {
-    document.getElementById("discord").classList.remove("hidden");
-    document.getElementById("clips").classList.add("hidden");
-}
-
-// Abrir streams
-function showStreams() {
-    window.open("https://www.twitch.tv/directory/following/live", "_blank");
-}
-
-// Ocultar/mostrar Spotify
-function toggleSpotify() {
-    const spotifyContainer = document.getElementById("spotify-container");
-    spotifyContainer.style.transform = spotifyContainer.style.transform === "translateY(100px)" ? "translateY(0)" : "translateY(100px)";
-}
