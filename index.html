@@ -3,57 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Streamers Community</title>
+    <title>EnergyStream</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="background"></div> <!-- Fondo de galaxia -->
+    <!-- Barra Lateral -->
+    <aside class="sidebar">
+        <h2>🔥 Comunidad 🔥</h2>
+        <ul>
+            <li><a href="https://www.twitch.tv/FonsiFN_" target="_blank">📺 Twitch - FonsiFN_</a></li>
+            <li><a href="https://www.twitch.tv/Streamer2" target="_blank">📺 Twitch - Streamer 2</a></li>
+            <li><a href="#" onclick="showSection('clips')">🎥 Últimos Clips</a></li>
+            <li><a href="https://discord.com/invite/1263227484833448057" target="_blank">💬 Discord</a></li>
+            <li><a href="#" onclick="showSection('spotify')">🎵 Spotify</a></li>
+        </ul>
+    </aside>
 
-    <header>
-        <h1>🌌 Comunidad de Streamers 🚀</h1>
-        <nav>
-            <ul>
-                <li><a href="https://www.twitch.tv/streamer1" target="_blank">Twitch Streamer 1</a></li>
-                <li><a href="https://www.twitch.tv/streamer2" target="_blank">Twitch Streamer 2</a></li>
-                <li><a href="https://discord.com/invite/tu-servidor" target="_blank">Discord</a></li>
-            </ul>
-        </nav>
-    </header>
-
+    <!-- Contenido Principal -->
     <main>
-        <section class="card">
-            <h2>🎥 Estado en Vivo</h2>
-            <p id="live-status">Cargando...</p>
+        <section id="live-status" class="card">
+            <h2>🔴 Estado en Vivo</h2>
+            <p id="stream-info">Cargando...</p>
         </section>
 
-        <section class="card">
-            <h2>🔗 Contenido Interactivo</h2>
-            <button onclick="showClips()">🎞 Ver Clips</button>
-            <button onclick="showDiscord()">💬 Unirse a Discord</button>
-            <button onclick="showStreams()">📺 Últimos Streams</button>
-        </section>
-
-        <section class="card hidden" id="clips">
-            <h2>📌 Clips Destacados</h2>
+        <section id="clips" class="card hidden">
+            <h2>🎬 Últimos Clips</h2>
             <div id="clip-container">Cargando clips...</div>
         </section>
 
-        <section class="card hidden" id="discord">
-            <h2>🌍 Servidor de Discord</h2>
-            <iframe src="https://discord.com/widget?id=ID_DEL_SERVIDOR&theme=dark" width="100%" height="300" frameborder="0"></iframe>
+        <section id="spotify" class="card hidden">
+            <h2>🎵 Escucha en Spotify</h2>
+            <iframe src="https://open.spotify.com/embed/playlist/3Lt5YNWWezabLiIhc2k8eb?theme=dark" width="100%" height="80" frameborder="0" allow="encrypted-media"></iframe>
         </section>
     </main>
 
-    <div id="spotify-container">
-        <iframe id="spotify-player" 
-            src="https://open.spotify.com/embed/playlist/TU_PLAYLIST_ID" 
-            width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media">
-        </iframe>
-        <button id="toggle-spotify" onclick="toggleSpotify()">🎵</button>
-    </div>
-
     <footer>
-        <p>© 2025 Comunidad de Streamers 🌠</p>
+        <p>© 2025 Comunidad de Streamers 🚀</p>
     </footer>
 
     <script src="script.js"></script>
