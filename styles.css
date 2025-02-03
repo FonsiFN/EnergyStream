@@ -1,21 +1,36 @@
+/* Fuente y colores generales */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #1e1e1e;
+    font-family: 'Arial', sans-serif;
     color: white;
     text-align: center;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
 }
 
+/* Fondo de galaxia animado */
+#background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://source.unsplash.com/1920x1080/?galaxy,space,stars') no-repeat center center/cover;
+    z-index: -1;
+}
+
+/* Header */
 header {
-    background: #6441a5;
+    background: rgba(0, 0, 0, 0.7);
     padding: 20px;
+    border-bottom: 2px solid white;
 }
 
 h1 {
     margin: 0;
 }
 
+/* Navbar */
 nav ul {
     list-style: none;
     padding: 0;
@@ -30,10 +45,32 @@ nav ul li a {
     color: white;
     text-decoration: none;
     font-weight: bold;
+    transition: color 0.3s;
 }
 
+nav ul li a:hover {
+    color: #1db954;
+}
+
+/* Tarjetas de contenido */
+.card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 15px;
+    margin: 20px auto;
+    max-width: 500px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+/* Botones */
 button {
-    background-color: #6441a5;
+    background: #1db954;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -41,32 +78,16 @@ button {
     cursor: pointer;
     font-size: 16px;
     border-radius: 5px;
+    transition: 0.3s;
 }
 
 button:hover {
-    background-color: #503181;
+    background: #12833a;
 }
 
-#clips, #discord {
+/* Ocultar secciones */
+.hidden {
     display: none;
-    margin-top: 20px;
-}
-
-#clip-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.clip {
-    margin: 10px;
-    border: 2px solid white;
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-iframe {
-    border-radius: 10px;
 }
 
 /* Spotify Player */
@@ -85,10 +106,6 @@ iframe {
     transition: transform 0.3s ease-in-out;
 }
 
-#spotify-player {
-    border-radius: 10px;
-}
-
 #toggle-spotify {
     position: absolute;
     top: -10px;
@@ -101,6 +118,18 @@ iframe {
     cursor: pointer;
     font-size: 14px;
 }
+
+#toggle-spotify:hover {
+    background: #12833a;
+}
+
+/* Footer */
+footer {
+    margin-top: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+}
+
 
 #toggle-spotify:hover {
     background: #12833a;
