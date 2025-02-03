@@ -1,0 +1,107 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1e1e1e;
+    color: white;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: #6441a5;
+    padding: 20px;
+}
+
+h1 {
+    margin: 0;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+button {
+    background-color: #6441a5;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #503181;
+}
+
+#clips, #discord {
+    display: none;
+    margin-top: 20px;
+}
+
+#clip-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.clip {
+    margin: 10px;
+    border: 2px solid white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+iframe {
+    border-radius: 10px;
+}
+
+/* Spotify Player */
+#spotify-container {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    width: 300px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    padding: 5px;
+    transition: transform 0.3s ease-in-out;
+}
+
+#spotify-player {
+    border-radius: 10px;
+}
+
+#toggle-spotify {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: #1db954;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+#toggle-spotify:hover {
+    background: #12833a;
+}
