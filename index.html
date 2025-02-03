@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EnergyStream</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #121212;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: linear-gradient(45deg, #FF5C5C, #FF8C00);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 2rem;
+        }
+
+        .container {
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .container h1 {
+            color: #FF5C5C;
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .team {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .team a {
+            text-decoration: none;
+            color: #FF8C00;
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+        }
+
+        .team a:hover {
+            transform: scale(1.1);
+        }
+
+        .discord-btn, .spotify-btn {
+            background: #FF5C5C;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            margin-top: 30px;
+            transition: background 0.3s;
+        }
+
+        .discord-btn:hover, .spotify-btn:hover {
+            background: #FF8C00;
+        }
+
+        .player {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            background: #FF5C5C;
+            padding: 10px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .player iframe {
+            border-radius: 8px;
+        }
+
+        footer {
+            background: #222;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        .social-links {
+            margin-top: 10px;
+        }
+
+        .social-links a {
+            color: #FF8C00;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
+
+        .social-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Animación de carga */
+        .loader {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2rem;
+            color: #FF8C00;
+            animation: spin 2s infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="loader">Cargando...</div>
+
+    <header>
+        EnergyStream
+    </header>
+
+    <div class="container">
+        <h1>Bienvenidos a EnergyStream</h1>
+        <p>El lugar donde la energía nunca se detiene</p>
+
+        <div class="team">
+            <a href="https://www.twitch.tv/FonsiFN" target="_blank">FonsiFN - Twitch</a>
+            <a href="https://www.twitch.tv/Aitor" target="_blank">Aitor - Twitch</a>
+        </div>
+
+        <a href="https://discord.gg/qNP6xzPEU4" class="discord-btn" target="_blank">Únete a nuestro Discord</a>
+
+        <div class="player">
+            <iframe src="https://open.spotify.com/embed/playlist/3Lt5YNWWezabLiIhc2k8eb?si=9fd7dff54c04400a" width="300" height="80" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 EnergyStream. Todos los derechos reservados.</p>
+        <div class="social-links">
+            <a href="https://twitter.com/energy_stream" target="_blank">Twitter</a>
+            <a href="https://www.instagram.com/energy_stream" target="_blank">Instagram</a>
+        </div>
+    </footer>
+
+    <script>
+        window.onload = function() {
+            document.querySelector('.loader').style.display = 'none';
+        };
+    </script>
+</body>
+</html>
