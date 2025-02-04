@@ -1,197 +1,169 @@
-/* General Styles */
+/* Estilo Global */
 body {
-    font-family: 'Lora', serif; /* Cambié la fuente del cuerpo a Lora, más elegante */
-    background-color: #1a1a1a;
+    font-family: 'Roboto', sans-serif;
+    background-color: #222;
     color: #fff;
     margin: 0;
     padding: 0;
-    line-height: 1.6;
-    transition: all 0.3s ease-in-out;
-}
-
-/* Títulos y cabeceras */
-h1, h2, h3, h4 {
-    font-family: 'Montserrat', sans-serif; /* Fuente para los títulos */
-    font-weight: 600;
-    color: #e63946; /* Rojo para los títulos */
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5); /* Sombra suave para darle profundidad */
-    transition: transform 0.3s ease;
-}
-
-h1:hover, h2:hover, h3:hover {
-    transform: scale(1.05); /* Efecto de aumento en el tamaño al pasar el ratón */
-}
-
-/* Enlaces */
-a {
-    color: #e63946;
-    font-weight: 500;
-    text-decoration: none;
-    transition: color 0.3s ease, transform 0.3s ease;
-}
-
-a:hover {
-    color: #fff;
-    transform: scale(1.1); /* Efecto de agrandar el enlace cuando se pasa el ratón */
-    text-decoration: underline;
-}
-
-/* Botón de Discord */
-.discord-button {
-    background-color: #e63946;
-    color: #fff;
-    padding: 12px 30px;
-    border: none;
-    border-radius: 8px;
     text-align: center;
-    font-family: 'Lora', serif;
-    font-size: 18px;
-    cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra suave */
-    transition: background-color 0.3s, transform 0.3s;
 }
 
-.discord-button:hover {
-    background-color: #d62828;
-    transform: scale(1.05); /* Efecto de aumentar tamaño */
-}
-
-/* Header y navegación */
+/* Header */
 header {
     background-color: #111;
     padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Sombra en el header */
 }
 
 header .logo h1 {
     font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
-    color: #e63946;
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+    font-size: 36px;
+    color: #e63946; /* Rojo */
+    margin: 0;
 }
 
 nav ul {
-    list-style: none;
-    display: flex;
-    gap: 30px;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 0 10px;
 }
 
 nav ul li a {
     color: #fff;
-    font-family: 'Lora', serif;
-    font-weight: 400;
-    font-size: 18px;
-    transition: color 0.3s ease;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
 }
 
 nav ul li a:hover {
     color: #e63946;
 }
 
-/* Estilo de contenido */
-.content {
-    padding: 50px;
-    max-width: 1200px;
-    margin: 0 auto;
-    animation: fadeIn 1s ease-in-out;
+/* Hero Section (Inicio) */
+.hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 300px;
+    background-color: #333;
+    padding: 40px;
 }
 
-.content h2 {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
-    color: #e63946;
-    text-align: center;
-    animation: slideInUp 1s ease-out;
-}
-
-.content ul {
-    list-style-type: disc;
-    margin-left: 20px;
-    animation: fadeIn 1.5s ease-in-out;
-}
-
-/* Animaciones */
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-@keyframes slideInUp {
-    0% {
-        transform: translateY(50px);
-        opacity: 0;
-    }
-    100% {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-/* Estilo de los streamers */
-.stream {
-    background-color: #222;
-    padding: 20px;
-    margin-top: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease;
-}
-
-.stream:hover {
-    transform: scale(1.05); /* Efecto de agrandar cuando se pasa el ratón */
-}
-
-.stream h4 {
+.hero h2 {
+    font-size: 36px;
+    margin: 20px 0;
     font-family: 'Montserrat', sans-serif;
     color: #e63946;
-    margin-bottom: 10px;
 }
 
-.stream a {
-    color: #fff;
-    font-weight: 500;
-    text-decoration: none;
+.hero p {
+    font-size: 18px;
+    max-width: 600px;
+    margin-bottom: 20px;
+}
+
+.cta-button {
+    padding: 12px 30px;
     background-color: #e63946;
-    padding: 10px 20px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
 }
 
-.stream a:hover {
+.cta-button:hover {
     background-color: #d62828;
-    transform: scale(1.1);
 }
 
-/* Pie de página */
+/* Sección "Qué Ofrecemos" */
+#ofrecemos {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 50px 20px;
+    background-color: #222;
+}
+
+.service {
+    flex: 1 1 220px;
+    margin: 20px;
+    padding: 20px;
+    background-color: #333;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.service h3 {
+    font-size: 24px;
+    color: #e63946;
+}
+
+.service p {
+    font-size: 16px;
+    color: #fff;
+}
+
+/* Footer */
 footer {
     background-color: #111;
-    padding: 30px;
-    text-align: center;
+    padding: 20px;
     color: #fff;
-    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.3); /* Sombra arriba del pie */
+    text-align: center;
 }
 
-footer .social-links a {
-    margin-top: 10px;
-    display: inline-block;
-    font-family: 'Lora', serif;
-    font-weight: 500;
-    color: #fff;
+footer p {
+    margin: 10px 0;
+}
+
+/* Botón de Discord en el Footer */
+.discord-button {
     background-color: #e63946;
+    color: white;
     padding: 12px 30px;
     border-radius: 8px;
     text-decoration: none;
-    transition: background-color 0.3s, transform 0.3s;
+    font-size: 18px;
+    font-weight: 600;
+    display: inline-block;
+    transition: background-color 0.3s ease;
 }
 
-footer .social-links a:hover {
+.discord-button:hover {
     background-color: #d62828;
-    transform: scale(1.05); /* Aumento de tamaño al pasar el ratón */
+}
+
+/* Ajuste para pantallas pequeñas */
+@media (max-width: 768px) {
+    .hero h2 {
+        font-size: 28px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .cta-button {
+        font-size: 16px;
+    }
+
+    .service h3 {
+        font-size: 20px;
+    }
+
+    .service p {
+        font-size: 14px;
+    }
+
+    #ofrecemos {
+        flex-direction: column;
+    }
 }
