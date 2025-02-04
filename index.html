@@ -3,110 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EnergyStream</title>
-    <style>
-        body {
-            background-color: black;
-            color: white;
-            font-family: 'Arial', sans-serif;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background: linear-gradient(to right, red, darkred);
-            padding: 20px;
-            font-size: 2.5em;
-            font-weight: bold;
-            text-shadow: 2px 2px 5px black;
-        }
-        nav {
-            background-color: darkred;
-            padding: 10px;
-        }
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 15px;
-            font-size: 1.2em;
-        }
-        section {
-            margin: 20px;
-            padding: 20px;
-        }
-        .btn {
-            display: inline-block;
-            background-color: red;
-            color: white;
-            padding: 15px 25px;
-            text-decoration: none;
-            border-radius: 10px;
-            margin: 15px;
-            font-size: 1.2em;
-            box-shadow: 2px 2px 10px darkred;
-        }
-        .btn:hover {
-            background-color: darkred;
-            box-shadow: 2px 2px 15px red;
-        }
-        .container {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-        }
-        .card {
-            background: rgba(255, 0, 0, 0.8);
-            border-radius: 15px;
-            padding: 20px;
-            margin: 15px;
-            width: 300px;
-            box-shadow: 2px 2px 10px darkred;
-        }
-        .card img {
-            width: 100%;
-            border-radius: 10px;
-        }
-    </style>
+    <title>Inicio - EnergyStream</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        EnergyStream
-    </header>
+    <header>EnergyStream</header>
     <nav>
-        <a href="#inicio">Inicio</a>
-        <a href="#streamers">Streamers</a>
-        <a href="#discord">Discord</a>
-        <a href="#contacto">Contacto</a>
+        <a href="index.html">Inicio</a>
+        <a href="streamers.html">Streamers</a>
+        <a href="discord.html">Discord</a>
+        <a href="contacto.html">Contacto</a>
     </nav>
-    <section id="inicio">
+    <section>
         <h2>Bienvenidos a EnergyStream</h2>
         <p>La mejor comunidad de streaming con eventos, torneos y más.</p>
-        <a href="#discord" class="btn">Unirse al Discord</a>
-    </section>
-    <section id="streamers" class="container">
-        <div class="card">
-            <img src="streamer1.jpg" alt="Streamer 1">
-            <h3>Streamer 1</h3>
-            <p>Jugador experto en Battle Royale.</p>
-        </div>
-        <div class="card">
-            <img src="streamer2.jpg" alt="Streamer 2">
-            <h3>Streamer 2</h3>
-            <p>Especialista en juegos de terror.</p>
-        </div>
-    </section>
-    <section id="discord">
-        <h2>Únete a nuestro Discord</h2>
-        <p>Forma parte de la comunidad, juega y diviértete con nosotros.</p>
-        <a href="#" class="btn">Entrar a Discord</a>
-    </section>
-    <section id="contacto">
-        <h2>Contacto</h2>
-        <p>Email: contacto@energystream.com</p>
+        <a href="discord.html" class="btn">Unirse al Discord</a>
     </section>
     <audio autoplay loop>
         <source src="https://www.youtube.com/watch?v=V40K4k5mbaE" type="audio/mp3">
-        Tu navegador no soporta audio.
     </audio>
 </body>
 </html>
