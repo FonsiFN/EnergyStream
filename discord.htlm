@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discord - EnergyStream</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>EnergyStream</header>
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="streamers.html">Streamers</a>
+        <a href="discord.html">Discord</a>
+        <a href="contacto.html">Contacto</a>
+    </nav>
+    <section>
+        <h2>Únete a nuestro Discord</h2>
+        <p>Forma parte de la comunidad, juega y diviértete con nosotros.</p>
+        <a href="https://discord.gg/tu-enlace" class="btn">Entrar a Discord</a>
+    </section>
+</body>
+</html>
