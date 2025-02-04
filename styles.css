@@ -1,0 +1,161 @@
+/* Estilos generales */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #111;
+    color: #fff;
+}
+
+h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #111;
+    border-bottom: 2px solid #ff0000;
+}
+
+header .logo h1 {
+    color: #ff0000;
+    font-size: 30px;
+}
+
+nav ul {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 700;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #ff0000;
+}
+
+/* Hero section */
+.hero {
+    background: url('https://your-fortnite-image-url.jpg') center center/cover no-repeat;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.hero h2 {
+    font-size: 3rem;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.cta-button {
+    background-color: #ff0000;
+    color: #fff;
+    padding: 15px 30px;
+    font-size: 18px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #cc0000;
+}
+
+/* Servicios (¿Qué ofrecemos?) */
+#ofrecemos {
+    display: flex;
+    justify-content: space-around;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+#ofrecemos .service {
+    background-color: #222;
+    padding: 30px;
+    border-radius: 10px;
+    width: 20%;
+    transition: transform 0.3s ease;
+}
+
+#ofrecemos .service:hover {
+    transform: scale(1.05);
+}
+
+#ofrecemos h3 {
+    color: #ff0000;
+}
+
+/* Botón de Discord */
+.discord-button {
+    background-color: #ff0000;
+    color: white;
+    padding: 15px 40px;
+    font-size: 18px;
+    text-decoration: none;
+    border-radius: 30px;
+    box-shadow: 0 4px 10px rgba(255, 0, 0, 0.4);
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.discord-button:hover {
+    background-color: #cc0000;
+    box-shadow: 0 8px 15px rgba(255, 0, 0, 0.6);
+}
+
+/* Footer */
+footer {
+    background-color: #111;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    border-top: 2px solid #ff0000;
+}
+
+.social-links a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    margin-top: 10px;
+    display: inline-block;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero, #ofrecemos, footer {
+    animation: fadeIn 1.5s ease-out;
+}
