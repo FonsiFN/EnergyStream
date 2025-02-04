@@ -1,27 +1,38 @@
 /* General Styles */
 body {
-    font-family: 'Poppins', sans-serif; /* Fuente para el cuerpo de texto */
-    margin: 0;
-    padding: 0;
+    font-family: 'Lora', serif; /* Cambié la fuente del cuerpo a Lora, más elegante */
     background-color: #1a1a1a;
     color: #fff;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    transition: all 0.3s ease-in-out;
 }
 
 /* Títulos y cabeceras */
 h1, h2, h3, h4 {
     font-family: 'Montserrat', sans-serif; /* Fuente para los títulos */
     font-weight: 600;
-    color: #e63946; /* Un rojo intenso para los títulos */
+    color: #e63946; /* Rojo para los títulos */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5); /* Sombra suave para darle profundidad */
+    transition: transform 0.3s ease;
 }
 
-/* Estilo para los enlaces */
+h1:hover, h2:hover, h3:hover {
+    transform: scale(1.05); /* Efecto de aumento en el tamaño al pasar el ratón */
+}
+
+/* Enlaces */
 a {
-    text-decoration: none;
-    color: #e63946; /* Rojo para los enlaces */
+    color: #e63946;
     font-weight: 500;
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.3s ease;
 }
 
 a:hover {
+    color: #fff;
+    transform: scale(1.1); /* Efecto de agrandar el enlace cuando se pasa el ratón */
     text-decoration: underline;
 }
 
@@ -29,18 +40,20 @@ a:hover {
 .discord-button {
     background-color: #e63946;
     color: #fff;
-    padding: 10px 20px;
+    padding: 12px 30px;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     text-align: center;
-    font-family: 'Poppins', sans-serif;
-    font-size: 16px;
+    font-family: 'Lora', serif;
+    font-size: 18px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra suave */
+    transition: background-color 0.3s, transform 0.3s;
 }
 
 .discord-button:hover {
     background-color: #d62828;
+    transform: scale(1.05); /* Efecto de aumentar tamaño */
 }
 
 /* Header y navegación */
@@ -50,24 +63,28 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Sombra en el header */
 }
 
 header .logo h1 {
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
     color: #e63946;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
 }
 
 nav ul {
     list-style: none;
     display: flex;
-    gap: 20px;
+    gap: 30px;
 }
 
 nav ul li a {
     color: #fff;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Lora', serif;
     font-weight: 400;
+    font-size: 18px;
+    transition: color 0.3s ease;
 }
 
 nav ul li a:hover {
@@ -79,40 +96,102 @@ nav ul li a:hover {
     padding: 50px;
     max-width: 1200px;
     margin: 0 auto;
+    animation: fadeIn 1s ease-in-out;
 }
 
 .content h2 {
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
     color: #e63946;
+    text-align: center;
+    animation: slideInUp 1s ease-out;
 }
 
 .content ul {
     list-style-type: disc;
     margin-left: 20px;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInUp {
+    0% {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Estilo de los streamers */
+.stream {
+    background-color: #222;
+    padding: 20px;
+    margin-top: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.stream:hover {
+    transform: scale(1.05); /* Efecto de agrandar cuando se pasa el ratón */
+}
+
+.stream h4 {
+    font-family: 'Montserrat', sans-serif;
+    color: #e63946;
+    margin-bottom: 10px;
+}
+
+.stream a {
+    color: #fff;
+    font-weight: 500;
+    text-decoration: none;
+    background-color: #e63946;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.stream a:hover {
+    background-color: #d62828;
+    transform: scale(1.1);
 }
 
 /* Pie de página */
 footer {
     background-color: #111;
-    padding: 20px;
+    padding: 30px;
     text-align: center;
     color: #fff;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.3); /* Sombra arriba del pie */
 }
 
 footer .social-links a {
     margin-top: 10px;
     display: inline-block;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Lora', serif;
     font-weight: 500;
     color: #fff;
     background-color: #e63946;
-    padding: 10px 20px;
-    border-radius: 5px;
+    padding: 12px 30px;
+    border-radius: 8px;
     text-decoration: none;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
 footer .social-links a:hover {
     background-color: #d62828;
+    transform: scale(1.05); /* Aumento de tamaño al pasar el ratón */
 }
