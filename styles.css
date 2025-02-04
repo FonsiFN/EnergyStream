@@ -95,21 +95,47 @@ nav ul li a:hover {
 .service {
     flex: 1 1 220px;
     margin: 20px;
-    padding: 20px;
-    background-color: #333;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    padding: 30px;
+    background-color: #e63946; /* Rojo */
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    color: white;
     text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .service h3 {
     font-size: 24px;
-    color: #e63946;
+    margin-bottom: 15px;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .service p {
     font-size: 16px;
-    color: #fff;
+}
+
+/* Animación de las cajas */
+.animated-box {
+    transform: translateY(30px);
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards;
+}
+
+@keyframes fadeInUp {
+    0% {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Efectos de Hover */
+.service:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 
 /* Footer */
