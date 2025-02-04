@@ -1,0 +1,61 @@
+body {
+    background-color: black;
+    color: white;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+header {
+    background: linear-gradient(to right, red, darkred);
+    padding: 20px;
+    font-size: 2.5em;
+    font-weight: bold;
+    text-shadow: 2px 2px 5px black;
+}
+nav {
+    background-color: darkred;
+    padding: 10px;
+}
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 15px;
+    font-size: 1.2em;
+}
+section {
+    margin: 20px;
+    padding: 20px;
+}
+.btn {
+    display: inline-block;
+    background-color: red;
+    color: white;
+    padding: 15px 25px;
+    text-decoration: none;
+    border-radius: 10px;
+    margin: 15px;
+    font-size: 1.2em;
+    box-shadow: 2px 2px 10px darkred;
+}
+.btn:hover {
+    background-color: darkred;
+    box-shadow: 2px 2px 15px red;
+}
+.container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.card {
+    background: rgba(255, 0, 0, 0.8);
+    border-radius: 15px;
+    padding: 20px;
+    margin: 15px;
+    width: 300px;
+    box-shadow: 2px 2px 10px darkred;
+}
+.card img {
+    width: 100%;
+    border-radius: 10px;
+}
