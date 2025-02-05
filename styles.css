@@ -97,3 +97,7 @@ body {
     0% { box-shadow: 0 0 10px #ff073a; }
     100% { box-shadow: 0 0 20px #ff073a, 0 0 40px #ff073a; }
 }
+.neon-yellow {
+    color: #ffcc00;
+    text-shadow: 0 0 10px #ffcc00, 0 0 20px #ffcc00, 0 0 40px #ffcc00;
+}
