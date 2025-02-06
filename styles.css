@@ -111,3 +111,41 @@ body {
     0% { box-shadow: 0 0 10px #ff073a; }
     100% { box-shadow: 0 0 20px #ff073a, 0 0 40px #ff073a; }
 }
+/* Ajustes para pantallas pequeñas (móviles) */
+@media (max-width: 768px) {
+    html, body {
+        overflow: auto; /* Permite desplazamiento en todas direcciones */
+        height: auto; /* Ajusta la altura automáticamente */
+        display: block; /* Evita que el contenido quede fijo */
+    }
+
+    .container {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .neon-text {
+        font-size: 2rem; /* Reduce el tamaño del título */
+        white-space: nowrap; /* Evita que las palabras se corten */
+    }
+
+    .description {
+        font-size: 1rem; /* Reduce el tamaño del texto */
+    }
+
+    .info-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .info-box {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .neon-button {
+        font-size: 1.2rem;
+        padding: 12px 20px;
+    }
+}
