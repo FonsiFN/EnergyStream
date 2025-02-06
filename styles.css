@@ -6,8 +6,8 @@ body {
     font-family: 'Orbitron', sans-serif;
     text-align: center;
     margin: 0;
-    padding: 20px; /* Añade padding para evitar que el contenido toque los bordes */
-    min-height: 100vh; /* Permite que la página crezca según el contenido */
+    padding: 16px; /* Reducido en un 20% */
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -17,121 +17,114 @@ body {
 .container {
     text-align: center;
     width: 100%;
-    max-width: 1200px; /* Limita el ancho máximo para que no se extienda demasiado */
-    margin: 0 auto; /* Centra el contenedor */
+    max-width: 960px; /* Reducido en un 20% */
+    margin: 0 auto;
 }
 
-/* "Energy" en naranja neón */
 .neon-orange {
     color: #ff8800;
-    text-shadow: 0 0 10px #ff8800, 0 0 20px #ff8800, 0 0 40px #ff8800;
+    text-shadow: 0 0 8px #ff8800, 0 0 16px #ff8800, 0 0 32px #ff8800; /* Reducido en un 20% */
     animation: flicker 1.5s infinite alternate;
-    font-size: 4rem; /* Tamaño grande para el título */
+    font-size: 3.2rem; /* Reducido en un 20% */
 }
 
-/* "Stream" en rojo neón */
 .neon-red {
     color: #ff073a;
-    text-shadow: 0 0 10px #ff073a, 0 0 20px #ff073a, 0 0 40px #ff073a;
+    text-shadow: 0 0 8px #ff073a, 0 0 16px #ff073a, 0 0 32px #ff073a; /* Reducido en un 20% */
     animation: flicker 1.5s infinite alternate;
-    font-size: 4rem; /* Tamaño grande para el título */
+    font-size: 3.2rem; /* Reducido en un 20% */
 }
 
 .neon-button {
     display: inline-block;
-    margin: 15px;
-    padding: 15px 30px;
-    font-size: 1.5rem;
+    margin: 12px; /* Reducido en un 20% */
+    padding: 12px 24px; /* Reducido en un 20% */
+    font-size: 1.2rem; /* Reducido en un 20% */
     color: #fff;
     background: none;
-    border: 3px solid #ff073a;
+    border: 2.4px solid #ff073a; /* Reducido en un 20% */
     text-decoration: none;
     text-transform: uppercase;
     transition: all 0.3s ease-in-out;
-    box-shadow: 0 0 10px #ff073a;
+    box-shadow: 0 0 8px #ff073a; /* Reducido en un 20% */
 }
 
 .neon-button:hover {
     background: #ff073a;
-    box-shadow: 0 0 20px #ff073a, 0 0 40px #ff073a;
+    box-shadow: 0 0 16px #ff073a, 0 0 32px #ff073a; /* Reducido en un 20% */
     transform: scale(1.1);
 }
 
 .description {
-    font-size: 1.2rem;
-    margin: 20px;
+    font-size: 0.96rem; /* Reducido en un 20% */
+    margin: 16px; /* Reducido en un 20% */
 }
 
-/* Cuadrados de información */
 .info-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    margin-top: 30px;
-    padding: 20px; /* Añade padding para evitar que el contenido toque los bordes */
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* Reducido en un 20% */
+    gap: 16px; /* Reducido en un 20% */
+    margin-top: 24px; /* Reducido en un 20% */
+    padding: 16px; /* Reducido en un 20% */
 }
 
 .info-box {
     background-color: rgba(255, 7, 58, 0.1);
-    border: 3px solid #ff073a;
-    padding: 20px;
-    font-size: 1.2rem;
+    border: 2.4px solid #ff073a; /* Reducido en un 20% */
+    padding: 16px; /* Reducido en un 20% */
+    font-size: 0.96rem; /* Reducido en un 20% */
     text-transform: uppercase;
-    text-shadow: 0 0 5px #ff073a;
+    text-shadow: 0 0 4px #ff073a; /* Reducido en un 20% */
     transition: all 0.3s ease-in-out;
-    box-shadow: 0 0 10px #ff073a;
+    box-shadow: 0 0 8px #ff073a; /* Reducido en un 20% */
     animation: pulse 1.5s infinite alternate;
-    min-height: 150px;
+    min-height: 120px; /* Reducido en un 20% */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-/* Hover para efecto de neón */
 .info-box:hover {
     background-color: #ff073a;
     color: #000;
-    box-shadow: 0 0 20px #ff073a, 0 0 40px #ff073a;
+    box-shadow: 0 0 16px #ff073a, 0 0 32px #ff073a; /* Reducido en un 20% */
     transform: scale(1.1);
 }
 
-/* Animación de parpadeo */
 @keyframes flicker {
     0% { opacity: 1; }
     50% { opacity: 0.8; }
     100% { opacity: 1; }
 }
 
-/* Animación de pulso para los cuadros */
 @keyframes pulse {
-    0% { box-shadow: 0 0 10px #ff073a; }
-    100% { box-shadow: 0 0 20px #ff073a, 0 0 40px #ff073a; }
+    0% { box-shadow: 0 0 8px #ff073a; } /* Reducido en un 20% */
+    100% { box-shadow: 0 0 16px #ff073a, 0 0 32px #ff073a; } /* Reducido en un 20% */
 }
 
-/* Ajustes para pantallas pequeñas (móviles) */
 @media (max-width: 768px) {
     .neon-orange, .neon-red {
-        font-size: 2.5rem; /* Reduce el tamaño del título en móviles */
+        font-size: 2rem; /* Reducido en un 20% */
     }
 
     .description {
-        font-size: 1rem; /* Reduce el tamaño del texto en móviles */
+        font-size: 0.8rem; /* Reducido en un 20% */
     }
 
     .info-grid {
         display: flex;
         flex-direction: column;
-        gap: 15px;
+        gap: 12px; /* Reducido en un 20% */
     }
 
     .info-box {
         width: 100%;
-        padding: 15px;
+        padding: 12px; /* Reducido en un 20% */
     }
 
     .neon-button {
-        font-size: 1.2rem;
-        padding: 12px 20px;
+        font-size: 0.96rem; /* Reducido en un 20% */
+        padding: 9.6px 16px; /* Reducido en un 20% */
     }
 }
