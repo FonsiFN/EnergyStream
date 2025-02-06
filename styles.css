@@ -17,21 +17,24 @@ body {
     text-align: center;
 }
 
-.neon-text {
-    font-size: 3rem;
-}
-
-/* Estilos para "Energy" en naranja neón */
+/* "Nuestros" en naranja neón */
 .neon-orange {
     color: #ff8800;
     text-shadow: 0 0 10px #ff8800, 0 0 20px #ff8800, 0 0 40px #ff8800;
     animation: flicker 1.5s infinite alternate;
 }
 
-/* Estilos para "Stream" en rojo neón */
+/* "Streamers" en rojo neón */
 .neon-red {
     color: #ff073a;
     text-shadow: 0 0 10px #ff073a, 0 0 20px #ff073a, 0 0 40px #ff073a;
+    animation: flicker 1.5s infinite alternate;
+}
+
+/* "FonsiFN" y "Aitor" en amarillo neón */
+.neon-yellow {
+    color: #ffcc00;
+    text-shadow: 0 0 10px #ffcc00, 0 0 20px #ffcc00, 0 0 40px #ffcc00;
     animation: flicker 1.5s infinite alternate;
 }
 
