@@ -17,25 +17,20 @@ body {
     text-align: center;
 }
 
-/* "Nuestros" en naranja neón */
+/* "Energy" en naranja neón */
 .neon-orange {
     color: #ff8800;
     text-shadow: 0 0 10px #ff8800, 0 0 20px #ff8800, 0 0 40px #ff8800;
     animation: flicker 1.5s infinite alternate;
+    font-size: 4rem; /* Aumenta el tamaño de "Energy" */
 }
 
-/* "Streamers" en rojo neón */
+/* "Stream" en rojo neón */
 .neon-red {
     color: #ff073a;
     text-shadow: 0 0 10px #ff073a, 0 0 20px #ff073a, 0 0 40px #ff073a;
     animation: flicker 1.5s infinite alternate;
-}
-
-/* "FonsiFN" y "Aitor" en amarillo neón */
-.neon-yellow {
-    color: #ffcc00;
-    text-shadow: 0 0 10px #ffcc00, 0 0 20px #ffcc00, 0 0 40px #ffcc00;
-    animation: flicker 1.5s infinite alternate;
+    font-size: 4rem; /* Aumenta el tamaño de "Stream" */
 }
 
 .neon-button {
@@ -63,7 +58,6 @@ body {
     margin: 20px;
 }
 
-/* Cuadrados de información */
 .info-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -91,7 +85,6 @@ body {
     align-items: center;
 }
 
-/* Hover para efecto de neón */
 .info-box:hover {
     background-color: #ff073a;
     color: #000;
@@ -99,24 +92,22 @@ body {
     transform: scale(1.1);
 }
 
-/* Animación de parpadeo */
 @keyframes flicker {
     0% { opacity: 1; }
     50% { opacity: 0.8; }
     100% { opacity: 1; }
 }
 
-/* Animación de pulso para los cuadros */
 @keyframes pulse {
     0% { box-shadow: 0 0 10px #ff073a; }
     100% { box-shadow: 0 0 20px #ff073a, 0 0 40px #ff073a; }
 }
-/* Ajustes para pantallas pequeñas (móviles) */
+
 @media (max-width: 768px) {
     html, body {
-        overflow: auto; /* Permite desplazamiento en todas direcciones */
-        height: auto; /* Ajusta la altura automáticamente */
-        display: block; /* Evita que el contenido quede fijo */
+        overflow: auto;
+        height: auto;
+        display: block;
     }
 
     .container {
@@ -124,13 +115,12 @@ body {
         padding: 20px;
     }
 
-    .neon-text {
-        font-size: 2rem; /* Reduce el tamaño del título */
-        white-space: nowrap; /* Evita que las palabras se corten */
+    .neon-orange, .neon-red {
+        font-size: 2.5rem; /* Ajusta el tamaño para móviles */
     }
 
     .description {
-        font-size: 1rem; /* Reduce el tamaño del texto */
+        font-size: 1rem;
     }
 
     .info-grid {
