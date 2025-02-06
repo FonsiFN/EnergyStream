@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Anuncios - EnergyStream</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="panel-container">
+        <h2>Panel de Anuncios</h2>
+        <div class="sidebar">
+            <h3>Anuncios</h3>
+            <ul id="ad-list">
+                <!-- Aquí se agregarán los anuncios dinámicamente -->
+            </ul>
+        </div>
+        <div class="main-content">
+            <h3>Agregar Anuncio</h3>
+            <form id="ad-form">
+                <label for="ad-title">Título:</label>
+                <input type="text" id="ad-title" required>
+                <label for="ad-content">Contenido:</label>
+                <textarea id="ad-content" required></textarea>
+                <button type="submit">Agregar Anuncio</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const adForm = document.getElementById('ad-form');
+        const adList = document.getElementById('ad-list');
+
+        adForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const title = document.getElementById('ad-title').value;
+            const content = document.getElementById('ad-content').value;
+
+            const li = document.createElement('li');
+            li.innerHTML = `<strong>${title}</strong>: ${content} <button onclick="removeAd(this)">Eliminar</button>`;
+            adList.appendChild(li);
+
+            adForm.reset();
+        });
+
+        function removeAd(button) {
+            const li = button.parentElement;
+            adList.removeChild(li);
+        }
+    </script>
+</body>
+</html>
