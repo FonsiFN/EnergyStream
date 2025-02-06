@@ -111,6 +111,46 @@ body {
     0% { box-shadow: 0 0 10px #ff073a; }
     100% { box-shadow: 0 0 20px #ff073a, 0 0 40px #ff073a; }
 }
+
+/* Barra lateral de anuncios */
+.ad-sidebar {
+    position: fixed;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 250px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 15px;
+    border-radius: 10px 0 0 10px;
+    box-shadow: 0 0 10px #ff073a;
+}
+
+#ad-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Botón de Staff Mode */
+.staff-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: red;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0px 0px 10px red;
+    transition: 0.3s;
+}
+
+.staff-button:hover {
+    background: darkred;
+}
+
 /* Ajustes para pantallas pequeñas (móviles) */
 @media (max-width: 768px) {
     html, body {
@@ -147,5 +187,16 @@ body {
     .neon-button {
         font-size: 1.2rem;
         padding: 12px 20px;
+    }
+
+    .ad-sidebar {
+        width: 200px;
+        padding: 10px;
+    }
+
+    .staff-button {
+        bottom: 15px;
+        right: 15px;
+        padding: 8px 12px;
     }
 }
