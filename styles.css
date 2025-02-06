@@ -19,6 +19,17 @@ body {
 
 .neon-text {
     font-size: 3rem;
+}
+
+/* Estilos para "Energy" en naranja neón */
+.neon-orange {
+    color: #ff8800;
+    text-shadow: 0 0 10px #ff8800, 0 0 20px #ff8800, 0 0 40px #ff8800;
+    animation: flicker 1.5s infinite alternate;
+}
+
+/* Estilos para "Stream" en rojo neón */
+.neon-red {
     color: #ff073a;
     text-shadow: 0 0 10px #ff073a, 0 0 20px #ff073a, 0 0 40px #ff073a;
     animation: flicker 1.5s infinite alternate;
@@ -70,7 +81,7 @@ body {
     transition: all 0.3s ease-in-out;
     box-shadow: 0 0 10px #ff073a;
     animation: pulse 1.5s infinite alternate;
-    min-height: 150px; /* Hace que todos los cuadros tengan la misma altura */
+    min-height: 150px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -96,8 +107,4 @@ body {
 @keyframes pulse {
     0% { box-shadow: 0 0 10px #ff073a; }
     100% { box-shadow: 0 0 20px #ff073a, 0 0 40px #ff073a; }
-}
-.neon-yellow {
-    color: #ffcc00;
-    text-shadow: 0 0 10px #ffcc00, 0 0 20px #ffcc00, 0 0 40px #ffcc00;
 }
