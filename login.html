@@ -71,9 +71,23 @@
 <body>
     <div class="admin-container">
         <h2 class="admin-title">Inicia Sesión</h2>
-        <input type="text" class="login-input" placeholder="Usuario">
-        <input type="password" class="login-input" placeholder="Contraseña">
-        <button class="neon-button">Acceder</button>
+        <input type="text" id="username" class="login-input" placeholder="Usuario">
+        <input type="password" id="password" class="login-input" placeholder="Contraseña">
+        <button class="neon-button" onclick="login()">Acceder</button>
     </div>
+    
+    <script>
+        function login() {
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+            
+            if (username && password) {
+                localStorage.setItem("loggedIn", "true");
+                window.location.href = "panel.html";
+            } else {
+                alert("Por favor, ingresa usuario y contraseña.");
+            }
+        }
+    </script>
 </body>
 </html>
