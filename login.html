@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EnergyStream</title>
+    <title>Panel de Administración</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="icon" type="image/png" href="https://imgur.com/a/IPUf3Ma.png">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -13,42 +12,42 @@
             color: #fff;
             font-family: 'Orbitron', sans-serif;
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
-            min-height: 100vh;
+            height: 100vh;
             margin: 0;
         }
 
-        .login-container {
+        .admin-container {
             background: rgba(255, 7, 58, 0.1);
             border: 2px solid #ff073a;
-            padding: 20px;
+            padding: 30px;
             border-radius: 10px;
             box-shadow: 0 0 10px #ff073a;
             text-align: center;
-            width: 300px;
+            width: 350px;
         }
 
-        .login-title {
+        .admin-title {
             color: #ff073a;
             text-shadow: 0 0 8px #ff073a, 0 0 16px #ff073a;
             font-size: 2rem;
+            margin-bottom: 20px;
         }
 
         .login-input {
-            width: 100%;
-            padding: 10px;
+            width: calc(100% - 20px);
+            padding: 12px;
             margin: 10px 0;
             border: 2px solid #ff073a;
             background: #0a0a0a;
             color: white;
             font-size: 1rem;
             text-align: center;
+            border-radius: 5px;
         }
 
         .neon-button {
-            display: block;
             width: 100%;
             padding: 12px;
             font-size: 1.2rem;
@@ -59,6 +58,7 @@
             transition: all 0.3s;
             box-shadow: 0 0 8px #ff073a;
             cursor: pointer;
+            border-radius: 5px;
         }
 
         .neon-button:hover {
@@ -66,37 +66,14 @@
             box-shadow: 0 0 16px #ff073a, 0 0 32px #ff073a;
             transform: scale(1.1);
         }
-
-        .links {
-            margin-top: 10px;
-        }
-
-        .links a {
-            color: #ff073a;
-            text-decoration: none;
-        }
-
-        .links a:hover {
-            text-decoration: underline;
-        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1 class="neon-text">
-            <span class="neon-orange">Energy</span><span class="neon-red">Stream</span>
-        </h1>
-        <p class="description">La mejor comunidad de streaming con los mejores creadores de contenido.</p>
-
-        <div class="login-container">
-            <h2 class="login-title">Inicia sesión</h2>
-            <input type="text" class="login-input" placeholder="Usuario">
-            <input type="password" class="login-input" placeholder="Contraseña">
-            <button class="neon-button">Acceder</button>
-            <div class="links">
-                <a href="#">¿No tienes cuenta?</a> | <a href="#">¿Olvidaste tu contraseña?</a>
-            </div>
-        </div>
+    <div class="admin-container">
+        <h2 class="admin-title">Inicia Sesión</h2>
+        <input type="text" class="login-input" placeholder="Usuario">
+        <input type="password" class="login-input" placeholder="Contraseña">
+        <button class="neon-button">Acceder</button>
     </div>
 </body>
 </html>
