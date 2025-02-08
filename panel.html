@@ -1,0 +1,27 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="neon-text"><span class="neon-orange">Panel</span><span class="neon-red">Admin</span></h1>
+        <textarea id="ad-content" placeholder="Escribe tu anuncio aquí..."></textarea>
+        <button class="neon-button" onclick="saveAd()">Publicar Anuncio</button>
+        <button class="neon-button" onclick="logout()">Cerrar Sesión</button>
+    </div>
+    <script>
+        if (localStorage.getItem('loggedIn') !== 'true') {
+            window.location.href = 'login.html';
+        }
+        function saveAd() {
+            const adContent = document.getElementById('ad-content').value;
+            localStorage.setItem('adContent', adContent);
+            alert('Anuncio guardado correctamente');
+        }
+        function logout() {
+            localStorage.removeItem('loggedIn');
+            window.location.href = 'login.html';
+        }
