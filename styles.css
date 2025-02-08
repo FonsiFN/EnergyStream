@@ -128,3 +128,15 @@ body {
         padding: 9.6px 16px; /* Reducido en un 20% */
     }
 }
+<style>
+    .ad-container {
+        position: fixed;
+        right: 10px;
+        top: 50px;
+        width: 250px;
+        background: rgba(255, 7, 58, 0.1);
+        border: 2px solid #ff073a;
+        padding: 10px;
+        box-shadow: 0 0 10px #ff073a;
+    }
+</style>
