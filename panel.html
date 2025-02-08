@@ -95,5 +95,11 @@
             preview.innerHTML = `<p>${text}</p>`;
         }
     </script>
+<script>
+    if (!localStorage.getItem("loggedIn")) {
+        window.location.href = "login.html";
+    }
+</script>
+
 </body>
 </html>
