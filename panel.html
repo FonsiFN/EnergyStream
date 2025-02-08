@@ -1,27 +1,99 @@
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panel de Administración</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #0a0a0a;
+            color: #fff;
+            font-family: 'Orbitron', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .admin-container {
+            background: rgba(255, 7, 58, 0.1);
+            border: 2px solid #ff073a;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #ff073a;
+            text-align: center;
+            width: 400px;
+        }
+
+        .admin-title {
+            color: #ff073a;
+            text-shadow: 0 0 8px #ff073a, 0 0 16px #ff073a;
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .announcement-input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 2px solid #ff073a;
+            background: #0a0a0a;
+            color: white;
+            font-size: 1rem;
+            text-align: center;
+        }
+
+        .neon-button {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            font-size: 1.2rem;
+            color: #fff;
+            background: none;
+            border: 2px solid #ff073a;
+            text-transform: uppercase;
+            transition: all 0.3s;
+            box-shadow: 0 0 8px #ff073a;
+            cursor: pointer;
+            margin: 10px 0;
+        }
+
+        .neon-button:hover {
+            background: #ff073a;
+            box-shadow: 0 0 16px #ff073a, 0 0 32px #ff073a;
+            transform: scale(1.1);
+        }
+
+        .preview-container {
+            margin-top: 20px;
+            padding: 10px;
+            border: 2px solid #ff073a;
+            background: rgba(255, 7, 58, 0.1);
+            box-shadow: 0 0 8px #ff073a;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <h1 class="neon-text"><span class="neon-orange">Panel</span><span class="neon-red">Admin</span></h1>
-        <textarea id="ad-content" placeholder="Escribe tu anuncio aquí..."></textarea>
-        <button class="neon-button" onclick="saveAd()">Publicar Anuncio</button>
-        <button class="neon-button" onclick="logout()">Cerrar Sesión</button>
+    <div class="admin-container">
+        <h2 class="admin-title">Panel de Administración</h2>
+        <textarea id="announcement" class="announcement-input" placeholder="Escribe tu anuncio aquí..."></textarea>
+        <button class="neon-button" onclick="previewAnnouncement()">Vista Previa</button>
+        <button class="neon-button">Publicar Anuncio</button>
+        <button class="neon-button">Cerrar Sesión</button>
     </div>
+    <div id="preview" class="preview-container" style="display:none;"></div>
     <script>
-        if (localStorage.getItem('loggedIn') !== 'true') {
-            window.location.href = 'login.html';
+        function previewAnnouncement() {
+            var text = document.getElementById("announcement").value;
+            var preview = document.getElementById("preview");
+            preview.style.display = text ? "block" : "none";
+            preview.innerHTML = `<p>${text}</p>`;
         }
-        function saveAd() {
-            const adContent = document.getElementById('ad-content').value;
-            localStorage.setItem('adContent', adContent);
-            alert('Anuncio guardado correctamente');
-        }
-        function logout() {
-            localStorage.removeItem('loggedIn');
-            window.location.href = 'login.html';
-        }
+    </script>
+</body>
+</html>
