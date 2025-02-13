@@ -6,7 +6,7 @@ body {
     font-family: 'Orbitron', sans-serif;
     text-align: center;
     margin: 0;
-    padding: 14.96px; /* Reducido en un 15% adicional */
+    padding: 16px; /* Reducido en un 20% */
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -17,68 +17,68 @@ body {
 .container {
     text-align: center;
     width: 100%;
-    max-width: 832.15px; /* Reducido en un 15% adicional */
+    max-width: 960px; /* Reducido en un 20% */
     margin: 0 auto;
 }
 
 .neon-orange {
     color: #ff8800;
-    text-shadow: 0 0 7.82px #ff8800, 0 0 15.64px #ff8800, 0 0 31.28px #ff8800; /* Reducido en un 15% adicional */
+    text-shadow: 0 0 8px #ff8800, 0 0 16px #ff8800, 0 0 32px #ff8800; /* Reducido en un 20% */
     animation: flicker 1.5s infinite alternate;
-    font-size: 2.86rem; /* Reducido en un 15% adicional */
+    font-size: 3.2rem; /* Reducido en un 20% */
 }
 
 .neon-red {
     color: #ff073a;
-    text-shadow: 0 0 7.82px #ff073a, 0 0 15.64px #ff073a, 0 0 31.28px #ff073a; /* Reducido en un 15% adicional */
+    text-shadow: 0 0 8px #ff073a, 0 0 16px #ff073a, 0 0 32px #ff073a; /* Reducido en un 20% */
     animation: flicker 1.5s infinite alternate;
-    font-size: 2.86rem; /* Reducido en un 15% adicional */
+    font-size: 3.2rem; /* Reducido en un 20% */
 }
 
 .neon-button {
     display: inline-block;
-    margin: 11.56px; /* Reducido en un 15% adicional */
-    padding: 11.56px 23.12px; /* Reducido en un 15% adicional */
-    font-size: 1.16rem; /* Reducido en un 15% adicional */
+    margin: 12px; /* Reducido en un 20% */
+    padding: 12px 24px; /* Reducido en un 20% */
+    font-size: 1.2rem; /* Reducido en un 20% */
     color: #fff;
     background: none;
-    border: 2.35px solid #ff073a; /* Reducido en un 15% adicional */
+    border: 2.4px solid #ff073a; /* Reducido en un 20% */
     text-decoration: none;
     text-transform: uppercase;
     transition: all 0.3s ease-in-out;
-    box-shadow: 0 0 7.82px #ff073a; /* Reducido en un 15% adicional */
+    box-shadow: 0 0 8px #ff073a; /* Reducido en un 20% */
 }
 
 .neon-button:hover {
     background: #ff073a;
-    box-shadow: 0 0 15.64px #ff073a, 0 0 31.28px #ff073a; /* Reducido en un 15% adicional */
+    box-shadow: 0 0 16px #ff073a, 0 0 32px #ff073a; /* Reducido en un 20% */
     transform: scale(1.1);
 }
 
 .description {
-    font-size: 0.87rem; /* Reducido en un 15% adicional */
-    margin: 15.64px; /* Reducido en un 15% adicional */
+    font-size: 0.96rem; /* Reducido en un 20% */
+    margin: 16px; /* Reducido en un 20% */
 }
 
 .info-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(214.2px, 1fr)); /* Reducido en un 15% adicional */
-    gap: 15.64px; /* Reducido en un 15% adicional */
-    margin-top: 23.46px; /* Reducido en un 15% adicional */
-    padding: 15.64px; /* Reducido en un 15% adicional */
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* Reducido en un 20% */
+    gap: 16px; /* Reducido en un 20% */
+    margin-top: 24px; /* Reducido en un 20% */
+    padding: 16px; /* Reducido en un 20% */
 }
 
 .info-box {
     background-color: rgba(255, 7, 58, 0.1);
-    border: 2.35px solid #ff073a; /* Reducido en un 15% adicional */
-    padding: 15.64px; /* Reducido en un 15% adicional */
-    font-size: 0.87rem; /* Reducido en un 15% adicional */
+    border: 2.4px solid #ff073a; /* Reducido en un 20% */
+    padding: 16px; /* Reducido en un 20% */
+    font-size: 0.96rem; /* Reducido en un 20% */
     text-transform: uppercase;
-    text-shadow: 0 0 3.91px #ff073a; /* Reducido en un 15% adicional */
+    text-shadow: 0 0 4px #ff073a; /* Reducido en un 20% */
     transition: all 0.3s ease-in-out;
-    box-shadow: 0 0 7.82px #ff073a; /* Reducido en un 15% adicional */
+    box-shadow: 0 0 8px #ff073a; /* Reducido en un 20% */
     animation: pulse 1.5s infinite alternate;
-    min-height: 107.1px; /* Reducido en un 15% adicional */
+    min-height: 120px; /* Reducido en un 20% */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -88,32 +88,55 @@ body {
 .info-box:hover {
     background-color: #ff073a;
     color: #000;
-    box-shadow: 0 0 15.64px #ff073a, 0 0 31.28px #ff073a; /* Reducido en un 15% adicional */
+    box-shadow: 0 0 16px #ff073a, 0 0 32px #ff073a; /* Reducido en un 20% */
     transform: scale(1.1);
+}
+
+@keyframes flicker {
+    0% { opacity: 1; }
+    50% { opacity: 0.8; }
+    100% { opacity: 1; }
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 8px #ff073a; } /* Reducido en un 20% */
+    100% { box-shadow: 0 0 16px #ff073a, 0 0 32px #ff073a; } /* Reducido en un 20% */
 }
 
 @media (max-width: 768px) {
     .neon-orange, .neon-red {
-        font-size: 1.96rem; /* Reducido en un 15% adicional */
+        font-size: 2rem; /* Reducido en un 20% */
     }
 
     .description {
-        font-size: 0.74rem; /* Reducido en un 15% adicional */
+        font-size: 0.8rem; /* Reducido en un 20% */
     }
 
     .info-grid {
         display: flex;
         flex-direction: column;
-        gap: 11.73px; /* Reducido en un 15% adicional */
+        gap: 12px; /* Reducido en un 20% */
     }
 
     .info-box {
         width: 100%;
-        padding: 11.73px; /* Reducido en un 15% adicional */
+        padding: 12px; /* Reducido en un 20% */
     }
 
     .neon-button {
-        font-size: 0.94rem; /* Reducido en un 15% adicional */
-        padding: 9.35px 15.64px; /* Reducido en un 15% adicional */
+        font-size: 0.96rem; /* Reducido en un 20% */
+        padding: 9.6px 16px; /* Reducido en un 20% */
     }
 }
+<style>
+    .ad-container {
+        position: fixed;
+        right: 10px;
+        top: 50px;
+        width: 250px;
+        background: rgba(255, 7, 58, 0.1);
+        border: 2px solid #ff073a;
+        padding: 10px;
+        box-shadow: 0 0 10px #ff073a;
+    }
+</style>
