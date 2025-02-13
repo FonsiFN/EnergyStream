@@ -6,7 +6,7 @@ body {
     font-family: 'Orbitron', sans-serif;
     text-align: center;
     margin: 0;
-    padding: 16px; /* Reducido en un 20% */
+    padding: 12px;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -17,68 +17,69 @@ body {
 .container {
     text-align: center;
     width: 100%;
-    max-width: 960px; /* Reducido en un 20% */
+    max-width: 720px;
     margin: 0 auto;
 }
 
 .neon-orange {
     color: #ff8800;
-    text-shadow: 0 0 8px #ff8800, 0 0 16px #ff8800, 0 0 32px #ff8800; /* Reducido en un 20% */
+    text-shadow: 0 0 6px #ff8800, 0 0 12px #ff8800;
     animation: flicker 1.5s infinite alternate;
-    font-size: 3.2rem; /* Reducido en un 20% */
+    font-size: 2.5rem;
 }
 
 .neon-red {
     color: #ff073a;
-    text-shadow: 0 0 8px #ff073a, 0 0 16px #ff073a, 0 0 32px #ff073a; /* Reducido en un 20% */
+    text-shadow: 0 0 6px #ff073a, 0 0 12px #ff073a;
     animation: flicker 1.5s infinite alternate;
-    font-size: 3.2rem; /* Reducido en un 20% */
+    font-size: 2.5rem;
 }
 
 .neon-button {
     display: inline-block;
-    margin: 12px; /* Reducido en un 20% */
-    padding: 12px 24px; /* Reducido en un 20% */
-    font-size: 1.2rem; /* Reducido en un 20% */
+    margin: 8px;
+    padding: 8px 16px;
+    font-size: 1rem;
     color: #fff;
     background: none;
-    border: 2.4px solid #ff073a; /* Reducido en un 20% */
+    border: 2px solid #ff073a;
     text-decoration: none;
     text-transform: uppercase;
     transition: all 0.3s ease-in-out;
-    box-shadow: 0 0 8px #ff073a; /* Reducido en un 20% */
+    box-shadow: 0 0 6px #ff073a;
 }
 
 .neon-button:hover {
     background: #ff073a;
-    box-shadow: 0 0 16px #ff073a, 0 0 32px #ff073a; /* Reducido en un 20% */
-    transform: scale(1.1);
+    box-shadow: 0 0 12px #ff073a, 0 0 24px #ff073a;
+    transform: scale(1.05);
 }
 
 .description {
-    font-size: 0.96rem; /* Reducido en un 20% */
-    margin: 16px; /* Reducido en un 20% */
+    font-size: 0.8rem;
+    margin: 12px;
 }
 
 .info-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* Reducido en un 20% */
-    gap: 16px; /* Reducido en un 20% */
-    margin-top: 24px; /* Reducido en un 20% */
-    padding: 16px; /* Reducido en un 20% */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin-top: 20px;
+    padding: 12px;
+    max-width: 600px;
 }
 
 .info-box {
     background-color: rgba(255, 7, 58, 0.1);
-    border: 2.4px solid #ff073a; /* Reducido en un 20% */
-    padding: 16px; /* Reducido en un 20% */
-    font-size: 0.96rem; /* Reducido en un 20% */
+    border: 2px solid #ff073a;
+    padding: 12px;
+    font-size: 0.8rem;
     text-transform: uppercase;
-    text-shadow: 0 0 4px #ff073a; /* Reducido en un 20% */
+    text-shadow: 0 0 3px #ff073a;
     transition: all 0.3s ease-in-out;
-    box-shadow: 0 0 8px #ff073a; /* Reducido en un 20% */
+    box-shadow: 0 0 6px #ff073a;
     animation: pulse 1.5s infinite alternate;
-    min-height: 120px; /* Reducido en un 20% */
+    min-height: 100px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -88,8 +89,8 @@ body {
 .info-box:hover {
     background-color: #ff073a;
     color: #000;
-    box-shadow: 0 0 16px #ff073a, 0 0 32px #ff073a; /* Reducido en un 20% */
-    transform: scale(1.1);
+    box-shadow: 0 0 12px #ff073a, 0 0 24px #ff073a;
+    transform: scale(1.05);
 }
 
 @keyframes flicker {
@@ -99,44 +100,43 @@ body {
 }
 
 @keyframes pulse {
-    0% { box-shadow: 0 0 8px #ff073a; } /* Reducido en un 20% */
-    100% { box-shadow: 0 0 16px #ff073a, 0 0 32px #ff073a; } /* Reducido en un 20% */
+    0% { box-shadow: 0 0 6px #ff073a; }
+    100% { box-shadow: 0 0 12px #ff073a, 0 0 24px #ff073a; }
 }
 
 @media (max-width: 768px) {
     .neon-orange, .neon-red {
-        font-size: 2rem; /* Reducido en un 20% */
+        font-size: 1.8rem;
     }
 
     .description {
-        font-size: 0.8rem; /* Reducido en un 20% */
+        font-size: 0.7rem;
     }
 
     .info-grid {
         display: flex;
         flex-direction: column;
-        gap: 12px; /* Reducido en un 20% */
+        gap: 10px;
     }
 
     .info-box {
         width: 100%;
-        padding: 12px; /* Reducido en un 20% */
+        padding: 10px;
     }
 
     .neon-button {
-        font-size: 0.96rem; /* Reducido en un 20% */
-        padding: 9.6px 16px; /* Reducido en un 20% */
+        font-size: 0.8rem;
+        padding: 7px 12px;
     }
 }
-<style>
-    .ad-container {
-        position: fixed;
-        right: 10px;
-        top: 50px;
-        width: 250px;
-        background: rgba(255, 7, 58, 0.1);
-        border: 2px solid #ff073a;
-        padding: 10px;
-        box-shadow: 0 0 10px #ff073a;
-    }
-</style>
+
+.ad-container {
+    position: fixed;
+    right: 10px;
+    top: 50px;
+    width: 200px;
+    background: rgba(255, 7, 58, 0.1);
+    border: 2px solid #ff073a;
+    padding: 8px;
+    box-shadow: 0 0 8px #ff073a;
+}
