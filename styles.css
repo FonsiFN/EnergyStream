@@ -6,7 +6,7 @@ body {
     font-family: 'Orbitron', sans-serif;
     text-align: center;
     margin: 0;
-    padding: 12px;
+    padding: 9.6px; /* Reducido en un 40% */
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -17,69 +17,68 @@ body {
 .container {
     text-align: center;
     width: 100%;
-    max-width: 720px;
+    max-width: 768px; /* Reducido en un 40% */
     margin: 0 auto;
 }
 
 .neon-orange {
     color: #ff8800;
-    text-shadow: 0 0 6px #ff8800, 0 0 12px #ff8800;
+    text-shadow: 0 0 4.8px #ff8800, 0 0 9.6px #ff8800, 0 0 19.2px #ff8800; /* Reducido en un 40% */
     animation: flicker 1.5s infinite alternate;
-    font-size: 2.5rem;
+    font-size: 2.56rem; /* Reducido en un 40% */
 }
 
 .neon-red {
     color: #ff073a;
-    text-shadow: 0 0 6px #ff073a, 0 0 12px #ff073a;
+    text-shadow: 0 0 4.8px #ff073a, 0 0 9.6px #ff073a, 0 0 19.2px #ff073a; /* Reducido en un 40% */
     animation: flicker 1.5s infinite alternate;
-    font-size: 2.5rem;
+    font-size: 2.56rem; /* Reducido en un 40% */
 }
 
 .neon-button {
     display: inline-block;
-    margin: 8px;
-    padding: 8px 16px;
-    font-size: 1rem;
+    margin: 7.2px; /* Reducido en un 40% */
+    padding: 7.2px 14.4px; /* Reducido en un 40% */
+    font-size: 0.96rem; /* Reducido en un 40% */
     color: #fff;
     background: none;
-    border: 2px solid #ff073a;
+    border: 1.92px solid #ff073a; /* Reducido en un 40% */
     text-decoration: none;
     text-transform: uppercase;
     transition: all 0.3s ease-in-out;
-    box-shadow: 0 0 6px #ff073a;
+    box-shadow: 0 0 4.8px #ff073a; /* Reducido en un 40% */
 }
 
 .neon-button:hover {
     background: #ff073a;
-    box-shadow: 0 0 12px #ff073a, 0 0 24px #ff073a;
-    transform: scale(1.05);
+    box-shadow: 0 0 9.6px #ff073a, 0 0 19.2px #ff073a; /* Reducido en un 40% */
+    transform: scale(1.1);
 }
 
 .description {
-    font-size: 0.8rem;
-    margin: 12px;
+    font-size: 0.72rem; /* Reducido en un 40% */
+    margin: 9.6px; /* Reducido en un 40% */
 }
 
 .info-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 12px;
-    margin-top: 20px;
-    padding: 12px;
-    max-width: 600px;
+    grid-template-columns: repeat(auto-fit, minmax(192px, 1fr)); /* Reducido en un 40% */
+    gap: 9.6px; /* Reducido en un 40% */
+    margin-top: 14.4px; /* Reducido en un 40% */
+    padding: 9.6px; /* Reducido en un 40% */
 }
 
 .info-box {
     background-color: rgba(255, 7, 58, 0.1);
-    border: 2px solid #ff073a;
-    padding: 12px;
-    font-size: 0.8rem;
+    border: 1.92px solid #ff073a; /* Reducido en un 40% */
+    padding: 9.6px; /* Reducido en un 40% */
+    font-size: 0.72rem; /* Reducido en un 40% */
     text-transform: uppercase;
-    text-shadow: 0 0 3px #ff073a;
+    text-shadow: 0 0 2.4px #ff073a; /* Reducido en un 40% */
     transition: all 0.3s ease-in-out;
-    box-shadow: 0 0 6px #ff073a;
+    box-shadow: 0 0 4.8px #ff073a; /* Reducido en un 40% */
     animation: pulse 1.5s infinite alternate;
-    min-height: 100px;
+    min-height: 96px; /* Reducido en un 40% */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -89,8 +88,8 @@ body {
 .info-box:hover {
     background-color: #ff073a;
     color: #000;
-    box-shadow: 0 0 12px #ff073a, 0 0 24px #ff073a;
-    transform: scale(1.05);
+    box-shadow: 0 0 9.6px #ff073a, 0 0 19.2px #ff073a; /* Reducido en un 40% */
+    transform: scale(1.1);
 }
 
 @keyframes flicker {
@@ -100,43 +99,43 @@ body {
 }
 
 @keyframes pulse {
-    0% { box-shadow: 0 0 6px #ff073a; }
-    100% { box-shadow: 0 0 12px #ff073a, 0 0 24px #ff073a; }
+    0% { box-shadow: 0 0 4.8px #ff073a; } /* Reducido en un 40% */
+    100% { box-shadow: 0 0 9.6px #ff073a, 0 0 19.2px #ff073a; } /* Reducido en un 40% */
 }
 
 @media (max-width: 768px) {
     .neon-orange, .neon-red {
-        font-size: 1.8rem;
+        font-size: 1.6rem; /* Reducido en un 40% */
     }
 
     .description {
-        font-size: 0.7rem;
+        font-size: 0.64rem; /* Reducido en un 40% */
     }
 
     .info-grid {
         display: flex;
         flex-direction: column;
-        gap: 10px;
+        gap: 7.2px; /* Reducido en un 40% */
     }
 
     .info-box {
         width: 100%;
-        padding: 10px;
+        padding: 7.2px; /* Reducido en un 40% */
     }
 
     .neon-button {
-        font-size: 0.8rem;
-        padding: 7px 12px;
+        font-size: 0.72rem; /* Reducido en un 40% */
+        padding: 5.76px 9.6px; /* Reducido en un 40% */
     }
 }
 
 .ad-container {
     position: fixed;
-    right: 10px;
-    top: 50px;
-    width: 200px;
+    right: 6px;
+    top: 30px;
+    width: 150px; /* Reducido en un 40% */
     background: rgba(255, 7, 58, 0.1);
-    border: 2px solid #ff073a;
-    padding: 8px;
-    box-shadow: 0 0 8px #ff073a;
+    border: 1.2px solid #ff073a;
+    padding: 6px;
+    box-shadow: 0 0 6px #ff073a;
 }
