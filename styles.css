@@ -6,7 +6,7 @@ body {
     font-family: 'Orbitron', sans-serif;
     text-align: center;
     margin: 0;
-    padding: 11.04px;
+    padding: 12.7px;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -17,68 +17,68 @@ body {
 .container {
     text-align: center;
     width: 100%;
-    max-width: 883.2px;
+    max-width: 1015.68px;
     margin: 0 auto;
 }
 
 .neon-orange {
     color: #ff8800;
-    text-shadow: 0 0 5.52px #ff8800, 0 0 11.04px #ff8800, 0 0 22.08px #ff8800;
+    text-shadow: 0 0 6.35px #ff8800, 0 0 12.7px #ff8800, 0 0 25.4px #ff8800;
     animation: flicker 1.5s infinite alternate;
-    font-size: 2.944rem;
+    font-size: 3.3856rem;
 }
 
 .neon-red {
     color: #ff073a;
-    text-shadow: 0 0 5.52px #ff073a, 0 0 11.04px #ff073a, 0 0 22.08px #ff073a;
+    text-shadow: 0 0 6.35px #ff073a, 0 0 12.7px #ff073a, 0 0 25.4px #ff073a;
     animation: flicker 1.5s infinite alternate;
-    font-size: 2.944rem;
+    font-size: 3.3856rem;
 }
 
 .neon-button {
     display: inline-block;
-    margin: 8.28px;
-    padding: 8.28px 16.56px;
-    font-size: 1.104rem;
+    margin: 9.52px;
+    padding: 9.52px 19.04px;
+    font-size: 1.2696rem;
     color: #fff;
     background: none;
-    border: 2.208px solid #ff073a;
+    border: 2.5392px solid #ff073a;
     text-decoration: none;
     text-transform: uppercase;
     transition: all 0.3s ease-in-out;
-    box-shadow: 0 0 5.52px #ff073a;
+    box-shadow: 0 0 6.35px #ff073a;
 }
 
 .neon-button:hover {
     background: #ff073a;
-    box-shadow: 0 0 11.04px #ff073a, 0 0 22.08px #ff073a;
+    box-shadow: 0 0 12.7px #ff073a, 0 0 25.4px #ff073a;
     transform: scale(1.1);
 }
 
 .description {
-    font-size: 0.828rem;
-    margin: 11.04px;
+    font-size: 0.9522rem;
+    margin: 12.7px;
 }
 
 .info-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220.8px, 1fr));
-    gap: 11.04px;
-    margin-top: 16.56px;
-    padding: 11.04px;
+    grid-template-columns: repeat(auto-fit, minmax(253.92px, 1fr));
+    gap: 12.7px;
+    margin-top: 19.04px;
+    padding: 12.7px;
 }
 
 .info-box {
     background-color: rgba(255, 7, 58, 0.1);
-    border: 2.208px solid #ff073a;
-    padding: 11.04px;
-    font-size: 0.828rem;
+    border: 2.5392px solid #ff073a;
+    padding: 12.7px;
+    font-size: 0.9522rem;
     text-transform: uppercase;
-    text-shadow: 0 0 2.76px #ff073a;
+    text-shadow: 0 0 3.174px #ff073a;
     transition: all 0.3s ease-in-out;
-    box-shadow: 0 0 5.52px #ff073a;
+    box-shadow: 0 0 6.35px #ff073a;
     animation: pulse 1.5s infinite alternate;
-    min-height: 110.4px;
+    min-height: 127px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -88,7 +88,7 @@ body {
 .info-box:hover {
     background-color: #ff073a;
     color: #000;
-    box-shadow: 0 0 11.04px #ff073a, 0 0 22.08px #ff073a;
+    box-shadow: 0 0 12.7px #ff073a, 0 0 25.4px #ff073a;
     transform: scale(1.1);
 }
 
@@ -99,43 +99,43 @@ body {
 }
 
 @keyframes pulse {
-    0% { box-shadow: 0 0 5.52px #ff073a; }
-    100% { box-shadow: 0 0 11.04px #ff073a, 0 0 22.08px #ff073a; }
+    0% { box-shadow: 0 0 6.35px #ff073a; }
+    100% { box-shadow: 0 0 12.7px #ff073a, 0 0 25.4px #ff073a; }
 }
 
 @media (max-width: 768px) {
     .neon-orange, .neon-red {
-        font-size: 1.84rem;
+        font-size: 2.116rem;
     }
 
     .description {
-        font-size: 0.736rem;
+        font-size: 0.8464rem;
     }
 
     .info-grid {
         display: flex;
         flex-direction: column;
-        gap: 8.28px;
+        gap: 9.52px;
     }
 
     .info-box {
         width: 100%;
-        padding: 8.28px;
+        padding: 9.52px;
     }
 
     .neon-button {
-        font-size: 0.828rem;
-        padding: 6.624px 11.04px;
+        font-size: 0.9522rem;
+        padding: 7.6176px 12.7px;
     }
 }
 
 .ad-container {
     position: fixed;
-    right: 6.9px;
-    top: 34.5px;
-    width: 172.5px;
+    right: 7.935px;
+    top: 39.675px;
+    width: 198.375px;
     background: rgba(255, 7, 58, 0.1);
-    border: 1.38px solid #ff073a;
-    padding: 6.9px;
-    box-shadow: 0 0 6.9px #ff073a;
+    border: 1.587px solid #ff073a;
+    padding: 7.935px;
+    box-shadow: 0 0 7.935px #ff073a;
 }
