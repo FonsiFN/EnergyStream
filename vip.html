@@ -3,97 +3,113 @@
 <head>
   <meta charset="UTF-8">
   <title>NEXUS MANAGER - Plan VIP</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <style>
+    /* Reset y estilos base */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
-      color: #333;
+      font-family: 'Montserrat', sans-serif;
+      background: #121212;
+      color: #ddd;
+      line-height: 1.6;
     }
-    header {
-      background-color: #222;
-      color: #fff;
+    /* Menú de navegación */
+    nav {
+      background: #1f1f1f;
       padding: 1rem;
       text-align: center;
-    }
-    nav {
-      background-color: #333;
-      text-align: center;
-      padding: 0.5rem;
     }
     nav a {
       color: #fff;
       margin: 0 1rem;
       text-decoration: none;
-      font-weight: bold;
+      font-weight: 700;
+      transition: color 0.3s ease, transform 0.3s ease;
     }
+    nav a:hover {
+      color: #ff8800;
+      transform: scale(1.1);
+    }
+    /* Encabezado para Plan VIP */
+    header {
+      background: #1a1a1a;
+      padding: 2rem;
+      text-align: center;
+      margin-top: 1rem;
+      border-bottom: 2px solid #ff8800;
+    }
+    header h1 {
+      font-size: 3.5rem;
+      color: #ff8800;
+      text-shadow: 0 0 8px #ff8800, 0 0 16px #ff8800, 0 0 32px #ff8800;
+    }
+    /* Contenedor principal */
     .container {
       max-width: 1000px;
       margin: 2rem auto;
-      padding: 1rem;
-      background-color: #fff;
-      border-radius: 5px;
+      padding: 2rem;
+      background: #1e1e1e;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
     }
     h2 {
-      margin-top: 0;
+      color: #ff8800;
+      margin-bottom: 1rem;
+      text-align: center;
     }
+    p { margin-bottom: 1rem; }
     ul {
-      line-height: 1.8;
+      margin-left: 2rem;
+      margin-bottom: 1rem;
     }
+    li { margin-bottom: 0.5rem; }
+    /* Footer */
     footer {
-      background-color: #222;
-      color: #fff;
       text-align: center;
       padding: 1rem;
-      position: fixed;
-      bottom: 0;
-      width: 100%;
+      background: #1f1f1f;
+      color: #fff;
+      margin-top: 2rem;
     }
   </style>
 </head>
 <body>
 
-<header>
-  <h1>Plan VIP</h1>
-</header>
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="planes.html">Planes</a>
+  </nav>
 
-<nav>
-  <a href="inicio.html">Inicio</a>
-  <a href="planes.html">Planes</a>
-</nav>
+  <header>
+    <h1>Plan VIP</h1>
+  </header>
 
-<div class="container">
-  <h2>Detalles del Plan VIP (20€ / mes)</h2>
-  <p>
-    El Plan VIP de NEXUS MANAGER está enfocado en aquellos que desean llevar su 
-    rendimiento y su marca a un nivel superior. Aquí obtendrás estrategias personalizadas 
-    y un acompañamiento más cercano para impulsar tu carrera en los esports.
-  </p>
+  <div class="container">
+    <h2>Detalles del Plan VIP (20€ / mes)</h2>
+    <p>
+      El Plan VIP de NEXUS MANAGER está enfocado en aquellos que desean llevar su rendimiento y su marca a un nivel superior.
+      Aquí obtendrás estrategias personalizadas y un acompañamiento más cercano para impulsar tu carrera en los esports.
+    </p>
+    <h3>¿Qué incluye el Plan VIP?</h3>
+    <ul>
+      <li>Consultorías personalizadas para mejorar tu rendimiento en el juego o el de tu equipo.</li>
+      <li>Asesoría en marketing digital y crecimiento de tu marca personal.</li>
+      <li>Acceso a herramientas de análisis de estadísticas y desempeño.</li>
+      <li>Sesiones de retroalimentación periódicas para ajustar estrategias.</li>
+      <li>Soporte prioritario para resolver dudas y coordinar oportunidades de patrocinio.</li>
+    </ul>
+    <p>
+      El Plan VIP es ideal para aquellos jugadores, streamers y equipos que ya han dado sus primeros pasos y buscan dar un salto cualitativo en su trayectoria.
+      Con un seguimiento más cercano y recursos avanzados, te acompañaremos para que destaques en la escena competitiva.
+    </p>
+    <p>
+      ¿Quieres llevar tu carrera a otro nivel? <strong>El Plan VIP es para ti.</strong>
+    </p>
+  </div>
 
-  <h3>¿Qué incluye el Plan VIP?</h3>
-  <ul>
-    <li>Consultorías personalizadas para mejorar tu rendimiento en el juego o el de tu equipo.</li>
-    <li>Asesoría en marketing digital y crecimiento de tu marca personal.</li>
-    <li>Acceso a herramientas de análisis de estadísticas y desempeño.</li>
-    <li>Sesiones de retroalimentación periódicas para ajustar estrategias.</li>
-    <li>Soporte prioritario para resolver dudas y coordinar oportunidades de patrocinio.</li>
-  </ul>
-
-  <p>
-    El Plan VIP es ideal para aquellos jugadores, streamers y equipos que ya han dado 
-    sus primeros pasos y buscan dar un salto cualitativo en su trayectoria. Con un 
-    seguimiento más cercano y recursos avanzados, te acompañaremos para que destaques 
-    en la escena competitiva.
-  </p>
-
-  <p>
-    ¿Quieres llevar tu carrera a otro nivel? <strong>El Plan VIP es para ti.</strong>
-  </p>
-</div>
-
-<footer>
-  <p>NEXUS MANAGER - Todos los derechos reservados &copy; 2025</p>
-</footer>
+  <footer>
+    <p>NEXUS MANAGER - Todos los derechos reservados &copy; 2025</p>
+  </footer>
 
 </body>
 </html>
