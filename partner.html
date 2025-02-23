@@ -2,203 +2,115 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>NEXUS MANAGER - Planes</title>
+  <title>NEXUS MANAGER - Plan Partner</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    /* Reinicio y estilos base */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    /* Reset y estilos base */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
-      color: #333;
+      font-family: 'Montserrat', sans-serif;
+      background: #121212;
+      color: #ddd;
       line-height: 1.6;
     }
-
-    /* Encabezado partido en dos mitades (mismo estilo que en index.html para coherencia) */
-    .header-split {
-      display: flex;
-      height: 150px; /* Ajusta la altura a tu gusto */
-    }
-    .header-left {
-      flex: 1;
-      background-color: #000; 
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .header-left h1 {
-      color: #fff; 
-      font-size: 3.2rem;
-      text-transform: uppercase;
-      text-shadow: 
-        0 0 8px #fff,
-        0 0 16px #fff,
-        0 0 32px #fff;
-      animation: flicker-white 1.5s infinite alternate;
-    }
-    @keyframes flicker-white {
-      0%   { opacity: 1; }
-      50%  { opacity: 0.8; }
-      100% { opacity: 1; }
-    }
-
-    .header-right {
-      flex: 1;
-      background-color: #fff; 
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .header-right h1 {
-      color: #000; 
-      font-size: 3.2rem;
-      text-transform: uppercase;
-      text-shadow: 
-        0 0 8px #000,
-        0 0 16px #000,
-        0 0 32px #000;
-      animation: flicker-black 1.5s infinite alternate;
-    }
-    @keyframes flicker-black {
-      0%   { opacity: 1; }
-      50%  { opacity: 0.6; }
-      100% { opacity: 1; }
-    }
-
     /* Menú de navegación */
     nav {
-      background-color: #333;
+      background: #1f1f1f;
+      padding: 1rem;
       text-align: center;
-      padding: 0.5rem;
     }
     nav a {
       color: #fff;
       margin: 0 1rem;
       text-decoration: none;
-      font-weight: bold;
+      font-weight: 700;
+      transition: color 0.3s ease, transform 0.3s ease;
     }
     nav a:hover {
-      text-decoration: underline;
+      color: #ff8800;
+      transform: scale(1.1);
     }
-
+    /* Encabezado para Plan Partner */
+    header {
+      background: #1a1a1a;
+      padding: 2rem;
+      text-align: center;
+      margin-top: 1rem;
+      border-bottom: 2px solid #ff8800;
+    }
+    header h1 {
+      font-size: 3.5rem;
+      color: #ff8800;
+      text-shadow: 0 0 8px #ff8800, 0 0 16px #ff8800, 0 0 32px #ff8800;
+    }
     /* Contenedor principal */
     .container {
       max-width: 1200px;
       margin: 2rem auto;
-      padding: 1rem;
-      background-color: #fff;
-      border-radius: 5px;
+      padding: 2rem;
+      background: #1e1e1e;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
     }
-
-    .plans {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1rem;
-      margin-top: 2rem;
-    }
-    .plan-card {
-      flex: 1 1 250px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      padding: 1rem;
-      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    h2 {
+      color: #ff8800;
+      margin-bottom: 1rem;
       text-align: center;
-      margin: 1rem;
-      background-color: #fafafa;
     }
-    .plan-card h3 {
-      margin-top: 0;
-      margin-bottom: 0.5rem;
+    p { margin-bottom: 1rem; }
+    ul {
+      margin-left: 2rem;
+      margin-bottom: 1rem;
     }
-    .plan-card p {
-      font-size: 1rem;
-      margin: 0.5rem 0;
-    }
-    .btn-info {
-      display: inline-block;
-      margin-top: 1rem;
-      padding: 0.5rem 1rem;
-      background-color: #333;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 3px;
-      font-weight: bold;
-    }
-    .btn-info:hover {
-      background-color: #555;
-    }
-
+    li { margin-bottom: 0.5rem; }
+    /* Footer */
     footer {
-      background-color: #222;
-      color: #fff;
       text-align: center;
       padding: 1rem;
+      background: #1f1f1f;
+      color: #fff;
       margin-top: 2rem;
     }
   </style>
 </head>
 <body>
 
-<!-- Encabezado dividido (mismo estilo para mantener la coherencia) -->
-<div class="header-split">
-  <div class="header-left">
-    <h1>Nexus</h1>
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="planes.html">Planes</a>
+  </nav>
+
+  <header>
+    <h1>Plan Partner</h1>
+  </header>
+
+  <div class="container">
+    <h2>Detalles del Plan Partner (30€ / mes)</h2>
+    <p>
+      El Plan Partner es la propuesta más exclusiva de NEXUS MANAGER, diseñada para quienes buscan un acompañamiento integral
+      y acceso a oportunidades premium. Este plan te conecta con eventos de alto nivel, patrocinadores de renombre y una atención
+      totalmente personalizada.
+    </p>
+    <h3>¿Qué incluye el Plan Partner?</h3>
+    <ul>
+      <li>Representación completa en negociaciones con equipos y marcas patrocinadoras.</li>
+      <li>Invitaciones y acceso prioritario a torneos, eventos y activaciones especiales.</li>
+      <li>Asesoría 1 a 1 en marketing, comunicación y desarrollo de marca personal.</li>
+      <li>Análisis detallado de rendimiento con planes de mejora continua.</li>
+      <li>Planificación estratégica de carrera para maximizar ingresos y visibilidad.</li>
+    </ul>
+    <p>
+      Si tu objetivo es destacar en la escena competitiva y convertirte en un referente, el Plan Partner te ofrece todas las herramientas y
+      el respaldo que necesitas. Obtendrás acceso a la red de contactos de NEXUS MANAGER, con las mejores marcas, sponsors y eventos del sector.
+    </p>
+    <p>
+      <strong>Da el gran salto con el Plan Partner y forma parte de la élite en los esports.</strong>
+    </p>
   </div>
-  <div class="header-right">
-    <h1>Manager</h1>
-  </div>
-</div>
 
-<nav>
-  <a href="index.html">Inicio</a>
-  <a href="planes.html">Planes</a>
-</nav>
-
-<div class="container">
-  <h2>Nuestros Planes</h2>
-  <p>
-    En NEXUS MANAGER ofrecemos diferentes planes para adaptarnos a tus necesidades y 
-    objetivos. Selecciona el que mejor se ajuste a tu situación actual y da el salto 
-    al siguiente nivel en el mundo de los esports.
-  </p>
-
-  <div class="plans">
-    <!-- Plan Base -->
-    <div class="plan-card">
-      <h3>Plan Base</h3>
-      <p>10€ / mes</p>
-      <p>Acceso a recursos básicos y asesoramiento inicial</p>
-      <!-- Podrías enlazar a base.html si deseas más detalles en otra página -->
-      <a class="btn-info" href="base.html">Más información</a>
-    </div>
-
-    <!-- Plan VIP -->
-    <div class="plan-card">
-      <h3>Plan VIP</h3>
-      <p>20€ / mes</p>
-      <p>Beneficios avanzados y estrategias personalizadas</p>
-      <!-- Podrías enlazar a vip.html si deseas más detalles en otra página -->
-      <a class="btn-info" href="vip.html">Más información</a>
-    </div>
-
-    <!-- Plan Partner -->
-    <div class="plan-card">
-      <h3>Plan Partner</h3>
-      <p>30€ / mes</p>
-      <p>Acceso exclusivo a eventos y oportunidades premium</p>
-      <!-- Podrías enlazar a partner.html si deseas más detalles en otra página -->
-      <a class="btn-info" href="partner.html">Más información</a>
-    </div>
-  </div>
-</div>
-
-<footer>
-  <p>NEXUS MANAGER - Todos los derechos reservados &copy; 2025</p>
-</footer>
+  <footer>
+    <p>NEXUS MANAGER - Todos los derechos reservados &copy; 2025</p>
+  </footer>
 
 </body>
 </html>
