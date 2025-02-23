@@ -1,212 +1,143 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>NEXUS MANAGER - Inicio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    /* Reinicio y estilos base */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    /* Reset y estilos base */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
-      color: #333;
+      font-family: 'Montserrat', sans-serif;
+      background: #121212;
+      color: #ddd;
       line-height: 1.6;
     }
-
-    /* Encabezado partido en dos mitades */
-    .header-split {
-      display: flex;
-      height: 150px; /* Ajusta la altura a tu gusto */
+    /* Menú de navegación */
+    nav {
+      background: #1f1f1f;
+      padding: 1rem;
+      text-align: center;
     }
-    /* Mitad izquierda: fondo negro, texto blanco con efecto neón */
-    .header-left {
-      flex: 1;
-      background-color: #000; /* Fondo negro */
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    nav a {
+      color: #fff;
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: 700;
+      transition: color 0.3s ease, transform 0.3s ease;
     }
-    .header-left h1 {
-      color: #fff; /* Texto blanco */
-      font-size: 3.2rem;
-      text-transform: uppercase;
-      text-shadow: 
-        0 0 8px #fff,
-        0 0 16px #fff,
-        0 0 32px #fff;
+    nav a:hover {
+      color: #ff8800;
+      transform: scale(1.1);
+    }
+    /* Título en el centro */
+    .title-container {
+      text-align: center;
+      padding: 2rem 1rem;
+      margin-top: 2rem;
+    }
+    .neon-title {
+      font-size: 4rem;
+      display: inline-block;
+    }
+    .neon-title span {
+      display: inline-block;
+      padding: 0 15px;
+      border-radius: 5px;
+    }
+    .nexus {
+      background-color: #000;
+      color: #fff;
+      text-shadow: 0 0 8px #fff, 0 0 16px #fff, 0 0 32px #fff;
       animation: flicker-white 1.5s infinite alternate;
+    }
+    .manager {
+      background-color: #fff;
+      color: #000;
+      text-shadow: 0 0 8px #000, 0 0 16px #000, 0 0 32px #000;
+      animation: flicker-black 1.5s infinite alternate;
     }
     @keyframes flicker-white {
       0%   { opacity: 1; }
       50%  { opacity: 0.8; }
       100% { opacity: 1; }
     }
-
-    /* Mitad derecha: fondo blanco, texto negro con efecto neón */
-    .header-right {
-      flex: 1;
-      background-color: #fff; /* Fondo blanco */
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .header-right h1 {
-      color: #000; /* Texto negro */
-      font-size: 3.2rem;
-      text-transform: uppercase;
-      text-shadow: 
-        0 0 8px #000,
-        0 0 16px #000,
-        0 0 32px #000;
-      animation: flicker-black 1.5s infinite alternate;
-    }
     @keyframes flicker-black {
       0%   { opacity: 1; }
       50%  { opacity: 0.6; }
       100% { opacity: 1; }
     }
-
-    /* Menú de navegación */
-    nav {
-      background-color: #333;
-      text-align: center;
-      padding: 0.5rem;
-    }
-    nav a {
-      color: #fff;
-      margin: 0 1rem;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    nav a:hover {
-      text-decoration: underline;
-    }
-
-    /* Contenedor principal */
+    /* Contenedor principal de contenido */
     .container {
-      max-width: 1200px;
+      max-width: 1000px;
       margin: 2rem auto;
-      padding: 1rem;
-      background-color: #fff;
-      border-radius: 5px;
+      padding: 2rem;
+      background: #1e1e1e;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
     }
-
+    h2 {
+      color: #ff8800;
+      margin-bottom: 1rem;
+    }
+    p { margin-bottom: 1rem; }
     /* Footer */
     footer {
-      background-color: #222;
-      color: #fff;
       text-align: center;
       padding: 1rem;
+      background: #1f1f1f;
+      color: #fff;
       margin-top: 2rem;
     }
   </style>
 </head>
 <body>
 
-<!-- Encabezado dividido -->
-<div class="header-split">
-  <!-- Mitad Izquierda: "NEXUS" -->
-  <div class="header-left">
-    <h1>Nexus</h1>
+  <!-- Menú de navegación -->
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="planes.html">Planes</a>
+  </nav>
+
+  <!-- Título central con efecto neón -->
+  <header class="title-container">
+    <h1 class="neon-title">
+      <span class="nexus">NEXUS</span>
+      <span class="manager">MANAGER</span>
+    </h1>
+  </header>
+
+  <!-- Contenido principal -->
+  <div class="container">
+    <h2>Bienvenido a NEXUS MANAGER</h2>
+    <p>
+      En NEXUS MANAGER fusionamos la pasión por los esports con estrategias de vanguardia.
+      Nuestra plataforma está diseñada para impulsar a proplayers, streamers y organizaciones
+      hacia el éxito, combinando consultoría, scouting y representación profesional en un solo lugar.
+    </p>
+    <p>
+      Nuestra misión es transformar el potencial de cada talento en resultados palpables. Con un equipo
+      multidisciplinario y herramientas avanzadas, te ayudamos a optimizar tu rendimiento, gestionar tu marca
+      personal y conectar con las oportunidades que marcarán la diferencia en el competitivo mundo del gaming.
+    </p>
+    <p>
+      ¿Qué nos hace únicos? La combinación de experiencia, innovación y una red de contactos que abren puertas en
+      torneos nacionales e internacionales, garantizando que cada paso hacia el éxito esté respaldado por estrategias
+      comprobadas y un enfoque personalizado.
+    </p>
+    <p>
+      Explora nuestro sitio, conoce nuestros planes y descubre cómo NEXUS MANAGER puede ser el impulso que necesitas
+      para llevar tu carrera al siguiente nivel. ¡Tu futuro en los esports comienza aquí!
+    </p>
+    <p>
+      <strong>¡Únete a la revolución de los esports con NEXUS MANAGER y da el salto a un nuevo nivel de éxito!</strong>
+    </p>
   </div>
-  <!-- Mitad Derecha: "MANAGER" -->
-  <div class="header-right">
-    <h1>Manager</h1>
-  </div>
-</div>
 
-<!-- Menú de navegación -->
-<nav>
-  <a href="index.html">Inicio</a>
-  <a href="planes.html">Planes</a>
-</nav>
-
-<!-- Contenido principal -->
-<div class="container">
-  <h2>Bienvenido a NEXUS MANAGER</h2>
-  <p>
-    NEXUS MANAGER es tu plataforma integral en el mundo de los esports. Con una visión 
-    global y un equipo multidisciplinario, nos enfocamos en impulsar el crecimiento de 
-    proplayers, streamers y organizaciones. Gracias a nuestra experiencia en consultoría 
-    de alto nivel, scouting y representación profesional, te brindamos herramientas y 
-    estrategias que se adaptan a las exigencias del mercado competitivo.
-  </p>
-  <p>
-    En un sector tan dinámico como el de los videojuegos, mantenerse a la vanguardia es 
-    clave. Por eso, en NEXUS MANAGER, no solo compartimos información, sino que diseñamos 
-    planes personalizados basados en objetivos concretos, evaluaciones de rendimiento 
-    y oportunidades reales de crecimiento. Queremos verte triunfar, y para lograrlo, 
-    ponemos a tu disposición una red de contactos y una metodología de trabajo 
-    comprobada en el ecosistema de los esports.
-  </p>
-  <p>
-    Además, contamos con un equipo de analistas y expertos en marketing digital, que 
-    te asesorarán en la creación de tu marca personal, la negociación de patrocinios 
-    y la gestión de redes sociales. Creemos firmemente en el potencial de cada jugador 
-    y en la importancia de la innovación constante para destacar en torneos y ligas 
-    nacionales e internacionales.
-  </p>
-  <p>
-    Te invitamos a explorar nuestros planes y descubrir cuál se adapta mejor a tus 
-    necesidades. Tanto si eres un jugador que recién comienza, un streamer que busca 
-    profesionalizar su contenido o una organización establecida que requiere asesoría 
-    especializada, tenemos la solución perfecta para ti.
-  </p>
-  <p>
-    <strong>¿Listo para dar el salto?</strong> Visita nuestra sección de <a href="planes.html">Planes</a> 
-    para conocer los detalles de cada uno.
-  </p>
-
-  <!-- Texto adicional para permitir scroll y demostrar la extensión de la página -->
-  <h3>Más sobre NEXUS MANAGER</h3>
-  <p>
-    En NEXUS MANAGER no nos conformamos con un enfoque tradicional. Nuestra filosofía 
-    de trabajo se basa en la colaboración y en el intercambio continuo de conocimientos. 
-    Por ello, fomentamos la creación de comunidades y eventos donde jugadores y 
-    creadores de contenido puedan compartir sus experiencias, retarse mutuamente y 
-    aprender juntos. 
-  </p>
-  <p>
-    Hemos forjado alianzas con marcas reconocidas en la industria, lo que nos permite 
-    brindar oportunidades de patrocinio a quienes forman parte de nuestra red. A través 
-    de acuerdos estratégicos, logramos posicionar a nuestros representados en el radar 
-    de las empresas más influyentes del sector, ampliando así sus horizontes de crecimiento.
-  </p>
-  <p>
-    Nuestra plataforma de scouting se actualiza constantemente con perfiles de nuevos 
-    talentos, analizando su desempeño y estilo de juego. Esto nos da la posibilidad de 
-    sugerir fichajes a los equipos que confían en nosotros para reforzar sus alineaciones, 
-    garantizando que siempre haya un flujo de jugadores y organizaciones en búsqueda de 
-    la sinergia perfecta.
-  </p>
-  <p>
-    Para quienes buscan crecer en el ámbito del streaming y la creación de contenido, 
-    ofrecemos sesiones de mentoría en las que se revisan aspectos técnicos, como la 
-    calidad de la transmisión, la configuración del canal y la optimización de los 
-    recursos disponibles. Al mismo tiempo, trabajamos en el desarrollo de la marca 
-    personal, identificando valores y diferenciadores que permitan conectar con la 
-    audiencia de manera auténtica y efectiva.
-  </p>
-  <p>
-    Todo esto y más es lo que nos diferencia en NEXUS MANAGER. Estamos convencidos de 
-    que, con la asesoría adecuada y las conexiones oportunas, cada jugador o creador 
-    puede destacar en un ecosistema cada vez más competitivo y globalizado. 
-  </p>
-  <p>
-    <strong>¿Listo para unirte?</strong> Haz clic en el menú superior y visita la página de 
-    <a href="planes.html">Planes</a> para descubrir todas las opciones que hemos preparado 
-    para ti.
-  </p>
-</div>
-
-<!-- Footer -->
-<footer>
-  <p>NEXUS MANAGER - Todos los derechos reservados &copy; 2025</p>
-</footer>
+  <!-- Footer -->
+  <footer>
+    <p>NEXUS MANAGER - Todos los derechos reservados &copy; 2025</p>
+  </footer>
 
 </body>
 </html>
