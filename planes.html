@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>NEXUS MANAGER - Planes</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+    header {
+      background-color: #222;
+      color: #fff;
+      padding: 1rem;
+      text-align: center;
+    }
+    nav {
+      background-color: #333;
+      text-align: center;
+      padding: 0.5rem;
+    }
+    nav a {
+      color: #fff;
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 1rem;
+      background-color: #fff;
+      border-radius: 5px;
+    }
+    .plans {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      gap: 1rem;
+    }
+    .plan-card {
+      flex: 1 1 300px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 1rem;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+      text-align: center;
+      margin: 1rem;
+      background-color: #fafafa;
+    }
+    .plan-card h3 {
+      margin-top: 0;
+    }
+    .plan-card p {
+      font-size: 1.1rem;
+    }
+    .btn-info {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      background-color: #333;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 3px;
+      font-weight: bold;
+    }
+    .btn-info:hover {
+      background-color: #555;
+    }
+    footer {
+      background-color: #222;
+      color: #fff;
+      text-align: center;
+      padding: 1rem;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Elige tu plan en NEXUS MANAGER</h1>
+</header>
+
+<nav>
+  <a href="inicio.html">Inicio</a>
+  <a href="planes.html">Planes</a>
+</nav>
+
+<div class="container">
+  <p>
+    En NEXUS MANAGER ofrecemos diferentes planes para adaptarnos a tus necesidades y objetivos. 
+    Selecciona el que mejor se ajuste a tu situación actual y da el salto al siguiente nivel 
+    en el mundo de los esports.
+  </p>
+
+  <div class="plans">
+    <!-- Plan Base -->
+    <div class="plan-card">
+      <h3>Plan Base</h3>
+      <p>10€ / mes</p>
+      <p>Acceso a recursos básicos y asesoramiento inicial</p>
+      <a class="btn-info" href="base.html">Más información</a>
+    </div>
+
+    <!-- Plan VIP -->
+    <div class="plan-card">
+      <h3>Plan VIP</h3>
+      <p>20€ / mes</p>
+      <p>Beneficios avanzados y estrategias personalizadas</p>
+      <a class="btn-info" href="vip.html">Más información</a>
+    </div>
+
+    <!-- Plan Partner -->
+    <div class="plan-card">
+      <h3>Plan Partner</h3>
+      <p>30€ / mes</p>
+      <p>Acceso exclusivo a eventos y oportunidades premium</p>
+      <a class="btn-info" href="partner.html">Más información</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>NEXUS MANAGER - Todos los derechos reservados &copy; 2025</p>
+</footer>
+
+</body>
+</html>
